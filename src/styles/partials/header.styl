@@ -1,0 +1,90 @@
+/**
+ * # Mosaiqo frontend - header
+ */
+
+#globalHeader
+  position: relative
+  height: 50px
+  padding-left: 17px
+  background-color: transparent
+
+
+  &, a
+    color: $appTheme['textColorDark']
+
+
+  // logo
+  h1
+    margin: 5px 20px
+
+    a
+      accessibleHidden()
+      width: 133px
+      height: 40px
+      background: url(../images/logos/logo133x40.png) no-repeat
+
+
+  // widgets
+  .regions
+    float: right
+    margin: 12px 20px 0
+
+  .widgetContainer
+    display: inline-block
+
+
+
+  // links
+  .icon // icon
+    font-size: 22px
+    // color: $appTheme['mutedDark']
+    color: #777
+    transition: color 300ms
+
+    &:hover
+      color: $appTheme['textColorDark']
+
+  a
+    text-decoration: none
+
+    span // text
+      accessibleHiddenInline()
+
+
+
+.authenticated #globalHeader
+  background-color: $appTheme['bgColorDark']
+
+
+// layout collapsing button
+#globalNavToggler
+  position: absolute
+  top: 15px
+  left: 8px
+
+
+// show/hide the logo and layout collapsing button on auth events
+// (the login has its own logo, and it makes no sense to display
+// the globalNavToggler if there's no nav)
+#globalHeader h1, #globalNavToggler
+  display: none
+
+&.authenticated
+  #globalHeader h1, #globalNavToggler
+    display: inline-block
+
+
+
+@media screen and (max-width: 600px)
+  #globalHeader
+    z-index: 130
+    h1 a
+      collapsedLogo()
+
+@media screen and (max-width: 400px)
+  #globalHeader .regions
+    margin-left: 0
+    margin-right: 0
+
+  #globalNavToggler
+    left: 10px

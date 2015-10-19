@@ -1,0 +1,21 @@
+{
+  "name": "TFM-Admins-App",
+  "version": "0.0.0",
+  "authors": [
+    "Josep Ramon Camps Lladó <jrcamps@gmail.com.com>"
+  ],
+  "description": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://www.mosaiqo.com",
+  "private": true,
+  "dependencies": {
+    "pace": "~1.0.2"
+  },
+  "devDependencies": {
+    "animate-stylus": "https://github.com/slang800/animate-stylus.git#master",
+    "backbone.webStorage": "https://github.com/glensomerville/Backbone.webStorage.git#master",
+    "toastr": "~2.1.1",
+    "kaleidoscope": "~0.0.5"
+  }
+}

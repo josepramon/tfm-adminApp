@@ -1,0 +1,34 @@
+<h1>
+  {{#if item}}
+    {{ item }}
+  {{else}}
+    {{t module }} {{#if action}} - {{t action }}{{/if}}
+  {{/if}}
+</h1>
+
+<ul class="breadcrumb arrow">
+
+  <li>
+    <a href="#">
+      <i class="icon icon-home"></i>
+      Home
+    </a>
+  </li>
+
+  <li>
+    <a href="#media">{{t module }}</a>
+  </li>
+
+{{#if item}}
+  <li>
+    {{ item }}
+  </li>
+{{/if}}
+
+{{#if action}}
+  <li>
+    {{t action }}
+  </li>
+{{/if}}
+
+</ul>

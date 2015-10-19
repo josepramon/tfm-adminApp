@@ -1,0 +1,34 @@
+/**
+ * Localixed views
+ */
+
+.localesMenu
+  position: relative
+  padding-right: 50px
+
+.localesManagementMenu
+  position: absolute !important
+  right: 0
+  top:   0
+  width: 50px !important
+
+  &>a
+    color: #000
+    opacity: .4
+
+    &:hover
+      opacity: 1
+
+
+.tabbable[name=locales]
+  position: relative
+
+  .tab-content
+    min-height: 150px
+
+  &>.help-block
+    position: absolute
+    top: 0
+    right: 10px
+    font-size: smaller
+    color: red

@@ -1,0 +1,50 @@
+<div class="tabbable tabs-below" name="locales">
+
+  {{!--
+    Localised content
+    ------------------
+    one tab for each locale using nested views
+  --}}
+  <div class="tab-content"></div>
+
+
+  {{!--
+    Locales menu (tabs)
+    --------------------
+  --}}
+  <ul class="localesMenu nav nav-tabs nav-justified" role="tablist">
+
+    {{!-- existing locales --}}
+    {{#each locales}}
+      <li role="presentation">
+        <a href="#locale-{{id}}" aria-controls="locale-{{id}}" role="tab" data-toggle="tab" data-value="{{id}}">
+          {{id}}
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </a>
+      </li>
+    {{/each}}
+
+
+    {{!-- locale add menu  --}}
+    {{#if availableLocales}}
+      <li class="localesManagementMenu dropdown dropup">
+
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <b class="icon icon-plus" title="Add language" aria-label="Add language"></b>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          {{#eachProperty availableLocales}}
+            <li>
+              <a href="#" class="addLocale" data-value="{{key}}" tabindex="-1">{{value}}</a>
+            </li>
+          {{/eachProperty}}
+        </ul>
+
+      </li>
+    {{/if}}
+
+  </ul>{{!-- End locales menu --}}
+
+  <span class="help-block hidden"></span>
+</div>

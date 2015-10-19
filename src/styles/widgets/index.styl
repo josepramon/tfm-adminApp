@@ -1,0 +1,31 @@
+/**
+ * # Mosaiqo frontend - widgets
+ */
+
+
+@require 'breadcrumbs'
+@require 'moduleNavigation'
+@require 'userWidget'
+@require 'languageSwitcher'
+@require 'headerNav'
+@require 'grid'
+@require 'forms'
+@require 'locales'
+@require 'editor'
+
+
+// badge
+.msgCount
+  display: inline-block
+  width: auto !important
+  color: #fff
+  background-color: #444
+  padding: 4px
+  font-size: 9px
+  border-radius: 16px
+
+
+// wrapper for the views displayed when deleting or validating
+// see loaders.stylus for the inner animation
+[data-wrapper].opacity
+  opacity: 0.6

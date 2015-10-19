@@ -1,0 +1,17 @@
+<a href="#{{ route }}">
+  <i class="icon icon-{{ icon }}"></i>
+  <span>{{t label }}</span>
+</a>
+
+{{#if sections}}
+<ul class="modulesNav">
+  {{#each sections}}
+    <li>
+      <a href="#{{ route }}">
+        <i class="icon icon-{{ icon }}"></i>
+        <span>{{t label }}</span>
+      </a>
+    </li>
+  {{/each}}
+</ul>
+{{/if}}

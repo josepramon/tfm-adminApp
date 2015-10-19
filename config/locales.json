@@ -1,0 +1,10 @@
+{
+  "locales": {
+    "en" : "English",
+    "es" : "Castellano",
+    "ca" : "Català"
+  },
+  "namespace": "app",
+  "namespaceSeparator": ":::",
+  "keySeparator": "::"
+}

@@ -1,0 +1,119 @@
+/**
+ * # Mosaiqo frontend - content area
+ *
+ * Central container, contains the work area for a given module and optionally
+ * a items menu for that module
+ *
+ * Structure:
+ * ----------
+ *
+ * main
+ *   |
+ *   |_ div.inner (created by backbone)
+ *     |
+ *     |_ header#moduleHeader
+ *     |
+ *     |_ div#moduleContent
+ *       |
+ *       |_ nav#moduleItems (optional)
+ *       |  |
+ *       |  |_ div.outer (needed by backbone because the block already contains stuff)
+ *       |    |
+ *       |    |_ div.inner | div.sectionContainer (created by backbone)
+ *       |      |
+ *       |      |_ ...
+ *       |
+ *       |_ div#contentEditArea
+ *         |
+ *         |_ ...
+ *
+ */
+
+
+// Layout (flex stuff, pretty weird):
+// ---------------------------------------------
+main
+  display: flex
+  flex: 1 1 auto
+  flex-flow: column nowrap
+
+  position: relative
+  padding: 20px
+  overflow: auto
+
+  .inner
+    display: flex
+    flex: 1
+
+
+// Section header, duh
+#moduleHeader
+  flex: 0 1 auto
+
+
+// Inner container, used to clear floats and flexboxes
+#moduleContent
+  display: flex
+  flex: 1 1 auto
+  overflow: auto
+  min-height: 200px
+
+.sectionContainer,
+.loading-container,
+#moduleContent > form
+  flex: 1
+
+.sectionContainer,
+#moduleContent > form
+  padding: 20px
+
+
+// Module items menu
+#moduleItems
+  display: flex
+  flex-flow: column nowrap
+  flex-direction: column
+
+// Work area
+#contentEditArea
+  flex: 1 1 auto
+
+// containers created by backbone
+main > .inner,
+#moduleItems .outer,
+#moduleItems .inner
+  display: flex
+  flex: 1
+  flex-direction: column
+
+
+
+// Block styles
+// ---------------------------------------------
+
+// Header
+// (section title, breadcrumbs, etc)
+#moduleHeader
+  border-bottom: dashed 1px $appTheme['mutedDark']
+
+  h1
+    margin: 0 0 1em
+    font-size:   20px
+    line-height: 20px
+    display: block
+
+
+// Work area
+#contentEditArea:empty
+  position: relative
+
+  &::before
+    position: absolute
+    top:  50%
+    left: 50%
+    content: ' '
+    width:  300px
+    height: 100px
+    margin: -50px 0 0 -150px
+    background: url(../images/logos/logo-bg300x100.png) no-repeat
+    opacity: .8

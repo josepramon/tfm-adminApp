@@ -1,0 +1,16 @@
+{
+  "minify": true,
+  "options": [
+    "mq",
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/hashchange",
+    "test/history",
+    "test/touchevents",
+    "test/css/flexbox",
+    "test/css/transforms",
+    "test/css/transforms3d"
+  ]
+}

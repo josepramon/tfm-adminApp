@@ -1,0 +1,30 @@
+/**
+ * # Mosaiqo frontend - global page structure elements
+ */
+
+body
+  height: 100%
+
+.appContainer
+  display: flex
+  flex-direction: column;
+  min-height: 100vh;
+  background: url(/assets/images/backgrounds/unsplash/login01.jpg) no-repeat
+  background-size: cover
+
+  &.authenticated
+    background: transparent
+
+
+#wrapper
+  flex: 1;
+  display: flex
+  flex-direction: row
+
+
+// ios web app
+html.ios-standalone
+  background: black
+
+  body
+    margin-top: 20px
