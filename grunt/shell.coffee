@@ -14,6 +14,18 @@ module.exports = (grunt) ->
       cmd += ' -n ' + locales.namespace
       cmd += ' -l ' + _.keys locales.locales
 
+      ###
+      hack: i18next-parser does not support multiple paths or incremental builds.
+      In addition to the app directory, is necessary to scan the "msq-appbase" node
+      module (a set of generic libs, classes, etc).
+      So, create a symbolic link before the scan and remove afterwards.
+      ###
+      cmd_pre =  'cd <%= srcDir %>/app/;'
+      cmd_pre += 'ln -s ../../node_modules/msq-appbase/lib __lib__;'
+      cmd_pre += 'cd -'
+      cmd_post = 'rm <%= srcDir %>/app/__lib__'
+      cmd = cmd_pre + '; ' + cmd + '; ' + cmd_post
+
       cmd
 
   docs:
