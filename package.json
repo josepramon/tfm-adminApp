@@ -5,8 +5,7 @@
   "author": "Josep Ramon Camps Lladó <jrcamps@gmail.com>",
   "homepage": "http://www.mosaiqo.com",
   "dependencies": {
-    "bower": "^1.5.3",
-    "msq-appbase": "0.0.1"
+    "bower": "^1.5.3"
   },
   "browser": {
     "backbone.webStorage": "./dist/assets/vendor/backbone.webStorage/backbone.webStorage.js",
@@ -83,6 +82,7 @@
     "mocha": "^2.3.3",
     "modernizr": "^3.1.0",
     "moment": "^2.10.6",
+    "msq-appbase": "0.0.3-d",
     "selectize": "^0.12.1",
     "sinon": "^1.17.1",
     "slug": "^0.9.1",
