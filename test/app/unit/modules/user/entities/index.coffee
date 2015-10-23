@@ -8,7 +8,7 @@ describe 'modules/user/entities/UserEntities', ->
 
   before (done) ->
     app = new Application
-      channelName: 'MosaiqoApp'
+      channelName: 'AdminApp'
 
     app.module 'Entities', UserEntities
     done()

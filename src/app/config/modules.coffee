@@ -17,43 +17,6 @@ module.exports = [
     id:    'Dashboard'
     class: require 'modules/dashboard'
   ,
-    id:    'Pages'
-    class: require 'modules/pages'
-  ,
-    id:    'Blog'
-    class: require 'modules/blog'
-    submodules: [
-      id:    'Dashboard'
-      class: require 'modules/blog/modules/dashboard'
-    ,
-      id:    'Posts'
-      class: require 'modules/blog/modules/posts'
-    ,
-      id:    'Tags'
-      class: require 'modules/blog/modules/tags'
-    ,
-      id:    'Categories'
-      class: require 'modules/blog/modules/categories'
-    ]
-  ,
-    id:    'Store'
-    class: require 'modules/store'
-  ,
-    id:    'Media'
-    class: require 'modules/media'
-  ,
-    id:    'Comments'
-    class: require 'modules/comments'
-  ,
-    id:    'Analytics'
-    class: require 'modules/analytics'
-  ,
-    id:    'Auth'
-    class: require 'modules/auth'
-  ,
-    id:    'Settings'
-    class: require 'modules/settings'
-  ,
     id: 'UI'
     submodules: [
       id:    'Header'

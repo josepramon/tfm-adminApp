@@ -3,8 +3,8 @@ Application bootstraping
 ==========================
 ###
 
-$          = require 'jquery'
-MosaiqoApp = require './MosaiqoApp'
+$   = require 'jquery'
+App = require './AdminApp'
 
 $ ->
   # App options
@@ -21,7 +21,7 @@ $ ->
   opts.modules = require 'config/modules'
 
   # Instantiate and init the app
-  app = new MosaiqoApp opts
+  app = new App opts
 
   # Wait for the locales to be loaded before starting it
   app.channel.once 'locales:loaded', ->
