@@ -4,9 +4,7 @@ module.exports = (grunt) ->
 
   # Defaults:
   # ================================================================
-  defaults =
-    api:
-      rootURL: ''
+  defaults = grunt.file.readJSON('env.default.json')
 
 
   # The defaults can be overrided so you can place the API wherever you want.
@@ -14,7 +12,7 @@ module.exports = (grunt) ->
   # Just create a file called '.env.json' at the project root and overwrite any
   # default settings you want
   #
-  envConfigFile = '.env.json'
+  envConfigFile = 'env.json'
 
   if grunt.file.exists envConfigFile
     envConfig = grunt.file.readJSON(envConfigFile)
@@ -37,9 +35,6 @@ module.exports = (grunt) ->
 
     # Files:
     libFile: '<%= assetsDir %>/js/lib.js'
-
-    # Server port, used on the devperf task:
-    serverPort: 9000
 
     # Banner, appended to the built scripts/css:
     banner: '/*! <%= package.name %> <%= package.version %> |

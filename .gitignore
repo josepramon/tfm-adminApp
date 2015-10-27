@@ -21,9 +21,8 @@ coverage
 # IDE files
 *.sublime-project
 *.sublime-workspace
-.idea/
 
 # other
 TODO.md
-.env.json
+env.json
 src/app/locales/**/*_old.json
