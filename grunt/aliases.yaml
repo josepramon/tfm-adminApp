@@ -24,8 +24,16 @@ dev:
     - copy:locales            # copy the fresh locales
     - concurrent:assetsDev    # scripts_debug + css_debug + images
     #- karma:dev:start watch   # start karma test runner
+    - browserSync             # start s simple static file server and reload
+                              # the browsers when anything changes
     - watch                   # monitor the files so when changed the appropiate actions
                               # are executed (validation, transpiling, tests, etc)
+
+
+serve:
+  description: 'Start a simple http server to test the app (make sure it has been buld first)'
+  tasks:
+    - connect:server:keepalive
 
 
 
