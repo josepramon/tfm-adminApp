@@ -13,5 +13,5 @@ module.exports =
     options:
       watchTask: true
       server:
-        baseDir: '<% buildDir %>'
+        baseDir: '<%= buildDir %>'
         index: 'index.html'
