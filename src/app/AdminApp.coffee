@@ -15,6 +15,8 @@ http://www.mosaiqo.com
 # Dependencies
 # -------------------------
 
+i18n = require 'i18next-client'
+
 # Application configuration
 config        = require 'config/app'
 localesConfig = require 'config/locales'
@@ -163,7 +165,13 @@ module.exports = class AdminApp extends Application
     if @channel.request 'auth:isAuthenticated'
       @channel.trigger 'auth:authenticated'
 
-    # trigger the initial route (when the locales are ready)
+    # Initialize app nav.
+    @loginRoute = @channel.request 'auth:routes:login'
+    @errorRoute = @channel.request 'auth:routes:error'
+
+    @setupAuthNavigationHooks()
+
+    # trigger the initial route
     @startNavigation()
 
 
@@ -265,13 +273,21 @@ module.exports = class AdminApp extends Application
     ), 5000
 
 
-    # ### Authentication event hooks:
+    # ### Navigate to the initial route (if authorised)
     #
-    # Listen to the login/logout events and redirect to the appropiate routes
+    # Navigate us to the root route unless we're already navigated somewhere else.
+    initialRoute = @getCurrentRoute()
+    @navigate(initialRoute, trigger: true) unless (initialRoute and initialRoute is not @loginRoute)
 
+
+
+  ###
+  Authentication event hooks:
+
+  Listen to the login/logout events and redirect to the appropiate routes
+  ###
+  setupAuthNavigationHooks: ->
     prevRoute  = null
-    loginRoute = @channel.request 'auth:routes:login'
-
 
     # redirect to the login route if the user is not authenticated
     @listenTo @channel, 'auth:unauthenticated', =>
@@ -280,31 +296,29 @@ module.exports = class AdminApp extends Application
       prevRoute = @getCurrentRoute() or @rootRoute
 
       # send the user to the login route
-      @navigate(loginRoute, trigger: true)
+      @navigate(@loginRoute, trigger: true)
+
+
+    # if the user is authenticated but not allowed, show an error
+    @listenTo @channel, 'auth:accessDenied', =>
+      errTitle   = i18n.t 'Access denied'
+      errMessage = i18n.t 'You are not allowed to access to this section.'
+
+      # show a flash msg
+      @channel.request 'flash:error', errMessage, errTitle,
+        preventDuplicates: true
+
+      # redirect
+      @navigate(@errorRoute, trigger: true)
 
 
     # if the user was trying to access some route before
     # the unauthenticated event, redirect to that route
     @listenTo @channel, 'auth:authenticated', =>
-      if prevRoute is loginRoute
+      if prevRoute is @loginRoute
         prevRoute = null
       if prevRoute
         @navigate(prevRoute, trigger: true)
         prevRoute = null
       else
         @navigate(@rootRoute, trigger: true)
-
-
-    # ### Navigate to the initial route (if authorised)
-    #
-    # Using `unless... else...` instead of `if... else...` to avoid the user module
-    # dependency. If the user module is removed for whatever reason (i can't think
-    # of a valid reason, but anyway) this will keep working correctly.
-    unless @channel.request 'auth:isAuthenticated'
-      @channel.trigger 'auth:unauthenticated'
-    else
-      # Navigate us to the root route unless we're already navigated somewhere else.
-      # If the route is the login one and the user is already authenticated, navigate
-      # to the default initial route.
-      initialRoute = @getCurrentRoute()
-      @navigate(initialRoute, trigger: true) unless (initialRoute and initialRoute is not loginRoute)
