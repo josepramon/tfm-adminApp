@@ -38,6 +38,10 @@ module.exports = class UserLogin extends Model
     @property {String} User's password
     ###
     password : ''
+    ###
+    @property {String} Application identifier
+    ###
+    appID: 'adminsAPP'
 
 
   ###

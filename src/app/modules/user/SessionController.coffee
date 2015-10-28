@@ -3,8 +3,9 @@ Controller = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
 
 module.exports = class SessionController extends Controller
 
-  # Controller initialization
-  #
+  ###
+  Controller initialization
+  ###
   initialize: ->
 
     # Initialize the session model (it's a singleton)
@@ -13,7 +14,8 @@ module.exports = class SessionController extends Controller
 
     # Session handlers
     @appChannel.reply 'auth:isAuthenticated', => @session.isAuthenticated()
-    @appChannel.reply 'auth:logout', ()       => @session.destroy()
+    @appChannel.reply 'auth:logout',          => @session.destroy()
+    @appChannel.reply 'auth:requireAuth',     @checkAccess
 
     # Try to load the session from localStorage
     @session.fetch()
@@ -26,18 +28,20 @@ module.exports = class SessionController extends Controller
 
 
 
-  # Session model getter
-  #
-  # @return {Session} the session model
-  #
+  ###
+  Session model getter
+
+  @return {Session} the session model
+  ###
   getSessionModel: ->
     @appChannel.request 'user:session:entity'
 
 
-  # Session model listeners setup
-  #
-  # @param {Session} the session model
-  #
+  ###
+  Session model listeners setup
+
+  @param {Session} the session model
+  ###
   setupSessionListeners: (session) =>
 
     # Whenever an auth error is detected, destroy the session
@@ -72,11 +76,11 @@ module.exports = class SessionController extends Controller
 
 
 
-  # Prevent session expiration by autorenewing
-  # before the session expires
-  #
-  # @param {Session} the session model
-  #
+  ###
+  Prevent session expiration by autorenewing before the session expires
+
+  @param {Session} the session model
+  ###
   sessionRenew: (session) =>
     if session.isExpired() then return
 
@@ -109,7 +113,41 @@ module.exports = class SessionController extends Controller
 
 
 
-  # Cancel the renovation schelude
-  #
+  ###
+  Cancel the renovation schelude
+  ###
   cancelSessionRenew: () ->
     clearTimeout @sessionRenewTimer
+
+
+  ###
+  Access control based on the user privileges
+
+  If there's no user session (the user is not authenticated),
+  it will also trigger an event (to force the login or whatever)
+
+  @param {Object}  privileges  Hash of required privileges
+  @param {Boolean} silent      If false, it will trigger auth error events.
+                               This is useful for example to restrict access to
+                               some routes without needing to deffine repeatedly
+                               the error handlers. Instead, a generic error handler
+                               can be used to redirect the user to a error view
+                               or display an alert or whatever.
+
+  @return {Boolean}
+  ###
+  checkAccess: (privileges, silent = true) =>
+    authorised = false
+
+    if @session && @session.isAuthenticated()
+      authorised = @session.hasAccess(privileges)
+
+      if !authorised and !silent
+        @appChannel.trigger 'auth:accessDenied'
+
+    else
+      # no session
+      if !silent
+        @appChannel.trigger 'auth:unauthenticated'
+
+    authorised

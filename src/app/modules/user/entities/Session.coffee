@@ -8,6 +8,8 @@ _     = require 'underscore'
 # Base class (extends Backbone.Model)
 Model = require 'msq-appbase/lib/appBaseComponents/entities/Model'
 
+# Utility to compare privileges
+checkPrivileges = require './util/PrivilegesChecker'
 
 
 
@@ -45,6 +47,8 @@ module.exports = class Session extends Model
     token_exp      : null
     username       : ''
     email          : ''
+    role           : ''
+    privileges     : null
 
 
   ###
@@ -66,6 +70,11 @@ module.exports = class Session extends Model
   #
   isAuthenticated: ->
     if !@get 'token' then false else !@isExpired()
+
+
+  # Privileges verification
+  hasAccess: (requiredPermissions) ->
+    return @isAuthenticated && checkPrivileges(requiredPermissions, @get 'privileges')
 
 
   ###

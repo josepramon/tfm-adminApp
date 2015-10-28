@@ -2,11 +2,12 @@
 # -----------------------
 
 # Base class (extends Marionette.Controller)
-Controller  = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
+Controller = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
 
 # Action controllers
-LoginController   = require './actions/login/LoginController'
-ProfileController = require './actions/profile/ProfileController'
+LoginController     = require './actions/login/LoginController'
+ProfileController   = require './actions/profile/ProfileController'
+AuthErrorController = require './actions/error/AuthErrorController'
 
 
 
@@ -35,3 +36,6 @@ module.exports = class ModuleController extends Controller
 
   profile: ->
     new ProfileController()
+
+  authError: ->
+    new AuthErrorController()

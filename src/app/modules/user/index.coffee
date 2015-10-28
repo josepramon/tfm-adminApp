@@ -58,6 +58,7 @@ module.exports = class UserApp extends Module
     # setup the module router
     @setupRouter()
     @appChannel.reply 'auth:routes:login',  => @meta.rootUrl + '/login'
+    @appChannel.reply 'auth:routes:error',  => @meta.rootUrl + '/authError'
 
     # initialize the session
     sessionController = new SessionController()
