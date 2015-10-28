@@ -17,6 +17,12 @@ module.exports = [
     id:    'Dashboard'
     class: require 'modules/dashboard'
   ,
+    id:    'KnowledgeBase'
+    class: require 'modules/knowledge_base'
+  ,
+    id:    'Tickets'
+    class: require 'modules/tickets'
+  ,
     id: 'UI'
     submodules: [
       id:    'Header'
@@ -24,9 +30,6 @@ module.exports = [
       submodules: [
         id:    'HeaderNav'
         class: require 'modules/ui/header/modules/headerNav'
-      ,
-        id:    'LanguageSwitcher'
-        class: require 'modules/ui/header/modules/languageSwitcher'
       ]
     ,
       id:    'Footer'
