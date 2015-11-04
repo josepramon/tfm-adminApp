@@ -1,12 +1,12 @@
 {
-  "Accounts not activated 12 hours after its creation will be automatically removed.": "",
+  "Accounts not activated 12 hours after its creation will be automatically removed.": "Accounts not activated 12 hours after its creation will be automatically removed.",
   "ManagerModel": {
     "email": "Email",
     "password": "Password",
     "username": "Username"
   },
   "New manager": "New agent",
-  "Please, insert the user name and email for the new agent.": "",
-  "The agent will receive an email with a link to activate the account and set a password.": "",
+  "Please, insert the user name and email for the new agent.": "Please, insert the user name and email for the new agent.",
+  "The agent will receive an email with a link to activate the account and set a password.": "The agent will receive an email with a link to activate the account and set a password.",
   "There are no available managers": "There are no available agents"
 }
