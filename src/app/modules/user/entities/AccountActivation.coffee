@@ -57,5 +57,5 @@ module.exports = class AccountActivation extends Model
   saveError: (model, xhr, options = {}) =>
     if xhr.status is 404
       @dispatchCustomValidationError
-        request: [i18n.t 'Account request expired.']
+        request: [i18n.t 'user::Account activation link expired.']
     super model, xhr, options

@@ -1,7 +1,5 @@
 {
   "Access denied": "Access denied",
-  "Account request expired.": "",
-  "Activate account": "",
   "Are you sure you want to delete this?": "Are you sure you want to delete this?",
   "Cancel": "Cancel",
   "Create": "Create",
@@ -50,8 +48,7 @@
   "forgot password?": "forgot password?",
   "header": {
     "Login": "Login",
-    "Logout": "Logout",
-    "Register": "Register"
+    "Logout": "Logout"
   },
   "modules": {
     "Analytics": "Analytics",
@@ -80,12 +77,14 @@
   },
   "password": "Password",
   "sections": {
-    "Managers": ""
+    "Managers": "Managers"
   },
   "user": {
     "Account": "Account",
-    "Account has been activated successfully": "",
+    "Account activation link expired.": "Account activation link expired.",
+    "Account has been activated successfully": "Account has been activated successfully",
     "Account successfully updated": "Account successfully updated",
+    "Activate account": "Activate account",
     "Change password": "Change password",
     "Password has been unpdated successfully": "Password has been unpdated successfully",
     "Password reset request successfully created": "Password reset request",

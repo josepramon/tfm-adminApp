@@ -1,7 +1,5 @@
 {
   "Access denied": "Accés denegat",
-  "Account request expired.": "",
-  "Activate account": "",
   "Are you sure you want to delete this?": "Estàs segur què vols eliminar això?",
   "Cancel": "Cancelar",
   "Create": "Crear",
@@ -50,8 +48,7 @@
   "forgot password?": "has oblidat la contrassenya?",
   "header": {
     "Login": "Iniciar sessió",
-    "Logout": "Tancar sessió",
-    "Register": "Registre"
+    "Logout": "Tancar sessió"
   },
   "modules": {
     "Analytics": "Analítica",
@@ -80,12 +77,14 @@
   },
   "password": "Contrassenya",
   "sections": {
-    "Managers": ""
+    "Managers": "Agents"
   },
   "user": {
     "Account": "Compte",
-    "Account has been activated successfully": "",
+    "Account activation link expired.": "Enllaç d'activació expirat.",
+    "Account has been activated successfully": "El compte s'ha activat correctament",
     "Account successfully updated": "El compte s'ha actualitzat correctament",
+    "Activate account": "Activar compte",
     "Change password": "Canvi de contrassenya",
     "Password has been unpdated successfully": "La contrassenya s'ha actualitzat correctament",
     "Password reset request successfully created": "Sol·licitud de restauració de contrassenya",

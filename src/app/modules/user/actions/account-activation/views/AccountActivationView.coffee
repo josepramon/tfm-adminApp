@@ -9,4 +9,4 @@ module.exports = class AccountActivationView extends ItemView
     buttons:
       primaryActions:
         primary:
-          text: -> i18n.t 'Activate account'
+          text: -> i18n.t 'user::Activate account'

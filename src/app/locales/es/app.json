@@ -1,7 +1,5 @@
 {
   "Access denied": "Acceso denegado",
-  "Account request expired.": "",
-  "Activate account": "",
   "Are you sure you want to delete this?": "¿Estás seguro que quieres eliminar esto?",
   "Cancel": "Cancelar",
   "Create": "Crear",
@@ -50,8 +48,7 @@
   "forgot password?": "¿has olvidado la contraseña?",
   "header": {
     "Login": "Iniciar sessión",
-    "Logout": "Cerrar sessión",
-    "Register": "Registro"
+    "Logout": "Cerrar sessión"
   },
   "modules": {
     "Analytics": "Analítica",
@@ -80,12 +77,14 @@
   },
   "password": "Contraseña",
   "sections": {
-    "Managers": ""
+    "Managers": "Agentes"
   },
   "user": {
     "Account": "Cuenta",
-    "Account has been activated successfully": "",
+    "Account activation link expired.": "Enlace de activación expirado.",
+    "Account has been activated successfully": "La cuenta ha sido activada correctamente",
     "Account successfully updated": "La cuenta se actualizado correctamente",
+    "Activate account": "Activar cuenta",
     "Change password": "Canvio de contraseña",
     "Password has been unpdated successfully": "La contraseña se actualizado correctamente",
     "Password reset request successfully created": "Solicitud de reseteo de la contraseña",

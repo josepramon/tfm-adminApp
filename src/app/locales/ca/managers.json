@@ -1,12 +1,12 @@
 {
-  "Accounts not activated 12 hours after its creation will be automatically removed.": "",
+  "Accounts not activated 12 hours after its creation will be automatically removed.": "Els comptes no activats en les 12 hores següents a la seva creació seran automàticament eliminats.",
   "ManagerModel": {
     "email": "Email",
     "password": "Contrassenya",
     "username": "Usuari"
   },
   "New manager": "Nou agent",
-  "Please, insert the user name and email for the new agent.": "",
-  "The agent will receive an email with a link to activate the account and set a password.": "",
+  "Please, insert the user name and email for the new agent.": "Introdueixi el nom d'usuari i el correu electrònic del nou agent.",
+  "The agent will receive an email with a link to activate the account and set a password.": "L'agent rebrà un correu amb un enllaç per activar el compte i establir-ne la contrassenya.",
   "There are no available managers": "No hi ha agents disponibles"
 }
