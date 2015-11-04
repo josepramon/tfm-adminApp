@@ -2,14 +2,16 @@
 # -------------------------
 
 # Libs/generic stuff:
-$     = require 'jquery'
-_     = require 'underscore'
+$         = require 'jquery'
+_         = require 'underscore'
+Backbone  = require 'backbone'
+# factory   = require 'msq-appbase/lib/utilities/factory'
 
 # Base class (extends Backbone.Model)
 Model = require 'msq-appbase/lib/appBaseComponents/entities/Model'
 
-# Utility to compare privileges
-checkPrivileges = require './util/PrivilegesChecker'
+# Related models
+UserModel = require './User'
 
 
 
@@ -41,14 +43,20 @@ module.exports = class Session extends Model
   @property {Object} Model default attributes
   ###
   defaults:
-    id             : null
-    token          : null
-    token_iat      : null
-    token_exp      : null
-    username       : ''
-    email          : ''
-    role           : ''
-    privileges     : null
+    token:     null
+    token_iat: null
+    token_exp: null
+    user:      null
+
+
+  ###
+  @property {Array} Nested entities
+  ###
+  relations: [
+      type:         Backbone.One
+      key:          'user'
+      relatedModel: UserModel
+  ]
 
 
   ###
@@ -74,7 +82,8 @@ module.exports = class Session extends Model
 
   # Privileges verification
   hasAccess: (requiredPermissions) ->
-    return @isAuthenticated && checkPrivileges(requiredPermissions, @get 'privileges')
+    user = @get 'user'
+    return @isAuthenticated && user && user.hasAccess(requiredPermissions)
 
 
   ###

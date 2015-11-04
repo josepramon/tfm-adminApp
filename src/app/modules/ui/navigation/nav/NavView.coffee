@@ -32,6 +32,11 @@ module.exports = class NavView extends CollectionView
     @$el.find('a').removeClass 'active'
 
     current = @$el.find 'a[href="#' + itemHref + '"]'
+
+    unless current.length
+      base = itemHref.split('/')[0]
+      current = @$el.find 'a[href="#' + base + '"]'
+
     current.addClass 'active'
 
     if current.parents('.modulesNav').length

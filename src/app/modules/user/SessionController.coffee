@@ -45,7 +45,7 @@ module.exports = class SessionController extends Controller
   setupSessionListeners: (session) =>
 
     # Whenever an auth error is detected, destroy the session
-    @listenTo session, 'authError', () ->
+    @listenTo session, 'authError', ->
       # session expired, destroy it
       @session.destroy
         local: true
@@ -53,14 +53,23 @@ module.exports = class SessionController extends Controller
 
     # When the session is destroyed broadcast an event so other modules can stop,
     # or the login route can be triggered or whatever
-    @listenTo session, 'destroy', () =>
+    @listenTo session, 'destroy', =>
       @cancelSessionRenew()
       @appChannel.trigger 'auth:unauthenticated'
 
 
     # Autorenew the session before it expires
-    @listenTo session, 'change:token_exp', () =>
+    @listenTo session, 'change:token_exp', =>
       @sessionRenew(@session)
+
+
+    # The user data is a nested model inside the session model
+    # Make sure when it changes, the changes are persisted on
+    # the session storage
+    @listenTo session, 'change:user', =>
+      user = session.get 'user'
+      @listenTo user, 'change', ->
+        session.localStorage.update(session)
 
 
     # Whenever the session gets COMPLETELY destroyed

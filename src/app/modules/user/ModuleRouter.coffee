@@ -18,6 +18,11 @@ module.exports = class ModuleRouter extends Router
                      module rootUrl (supplied in the constructor)
   ###
   prefixedAppRoutes:
-    '/login'     : 'login'
-    '/profile'   : 'profile'
-    '/authError' : 'authError'
+    '/login':                'login'
+    '/logout':               'logout'
+    '/profile':              'profile'
+    '/account':              'account'
+    '/authError':            'authError'
+    '/recover-password':     'recoverPassword'
+    '/recover-password/:id': 'recoverPassword_setPassword'
+    '/activate/:id':         'account_activate'

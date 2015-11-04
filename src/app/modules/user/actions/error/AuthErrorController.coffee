@@ -1,6 +1,6 @@
 _              = require 'underscore'
 ViewController = require 'msq-appbase/lib/appBaseComponents/controllers/ViewController'
-ErrorView      = require './ErrorView'
+ErrorView      = require './views/ErrorView'
 
 
 # User module auth error controller

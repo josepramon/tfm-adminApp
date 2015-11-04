@@ -40,6 +40,7 @@ module.exports = class ListController extends ViewController
 
     # refresh if the user changes the language
     @listenTo @appChannel, 'locale:loaded', =>
+      @view.collection = @getLinksCollection()
       @view.render()
 
 

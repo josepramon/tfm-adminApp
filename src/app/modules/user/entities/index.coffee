@@ -2,11 +2,15 @@
 # -----------------------
 
 # Local/Session storage adapter for Backbone
-WebStorage     = require 'backbone.webStorage'
+WebStorage = require 'backbone.webStorage'
 
 # Entities
-SessionModel   = require './Session'
-UserLoginModel = require './UserLogin'
+SessionModel                      = require './Session'
+UserLoginModel                    = require './UserLogin'
+RegisterModel                     = require './Register'
+PasswordRecoveryModel             = require './PasswordRecovery'
+PasswordRecovery_NewPasswordModel = require './PasswordRecoveryPassword'
+AccountActivationModel            = require './AccountActivation'
 
 
 
@@ -90,11 +94,36 @@ module.exports = (Module, App, Backbone, Marionette, $, _) ->
       session
 
     ###
-    LoginModel getter
     @return {UserLoginModel}
     ###
     newLoginModel: ->
       new UserLoginModel
+
+    ###
+    @return {RegisterModel}
+    ###
+    newRegisterModel: ->
+      new RegisterModel
+
+    ###
+    @return {PasswordRecoveryModel}
+    ###
+    newPasswordRecoveryModel: ->
+      new PasswordRecoveryModel
+
+    ###
+    @return {PasswordRecovery_NewPasswordModel}
+    ###
+    newPasswordSetModel: (id) ->
+      new PasswordRecovery_NewPasswordModel
+        id: id
+
+    ###
+    @return {newAccountActivationModel}
+    ###
+    newAccountActivationModel: (id) ->
+      new AccountActivationModel
+        id: id
 
 
   App.channel.reply 'user:session:entity', ->
@@ -102,3 +131,15 @@ module.exports = (Module, App, Backbone, Marionette, $, _) ->
 
   App.channel.reply 'user:login:entity', ->
     API.newLoginModel()
+
+  App.channel.reply 'user:register:entity', ->
+    API.newRegisterModel()
+
+  App.channel.reply 'user:passwordRecovery:entity', ->
+    API.newPasswordRecoveryModel()
+
+  App.channel.reply 'user:passwordRecoveryPassword:entity', (id) ->
+    API.newPasswordSetModel id
+
+  App.channel.reply 'user:accountActivation:entity', (id) ->
+    API.newAccountActivationModel id

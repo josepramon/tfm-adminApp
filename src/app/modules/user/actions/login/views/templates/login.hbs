@@ -17,9 +17,11 @@
   <label for="password" class="control-label">
     {{t "password"}}
   </label>
+
+   <a href="#user/recover-password" class="control-label-extra" tabindex="-1">({{t "forgot password?"}})</a>
   <div>
     <div class="input-group">
-      <span class="input-group-addon" id="user-password">
+      <span class="input-group-addon" id="password-addon">
         <i class="icon icon-asterisk"></i>
       </span>
       <input type="password" class="form-control" id="password" name="password" aria-describedby="password-addon" placeholder="{{t "password"}}">

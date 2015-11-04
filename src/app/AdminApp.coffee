@@ -89,6 +89,11 @@ AdminApp application class
 module.exports = class AdminApp extends Application
 
   ###
+  @property {String} Application ID (used on some requests to the API)
+  ###
+  applicationID: 'adminsAPP'
+
+  ###
   @property {String} Default channel used by backbone.radio
   ###
   channelName: config.appChannel
@@ -131,11 +136,12 @@ module.exports = class AdminApp extends Application
       @channel.request 'flash:error', args.errorThrown, args.textStatus,
         preventDuplicates: true
 
+    # App id getter
+    @channel.reply 'application:id', => @applicationID
+
 
     ###
-
     TMP: default language. This goes in the settings module
-
     ###
     @channel.reply 'languages:default', -> 'en'
     @channel.reply 'languages:all', ->
@@ -168,6 +174,7 @@ module.exports = class AdminApp extends Application
     # Initialize app nav.
     @loginRoute = @channel.request 'auth:routes:login'
     @errorRoute = @channel.request 'auth:routes:error'
+    @activationRoute = /^user\/activate\//i
 
     @setupAuthNavigationHooks()
 
@@ -275,9 +282,21 @@ module.exports = class AdminApp extends Application
 
     # ### Navigate to the initial route (if authorised)
     #
-    # Navigate us to the root route unless we're already navigated somewhere else.
-    initialRoute = @getCurrentRoute()
-    @navigate(initialRoute, trigger: true) unless (initialRoute and initialRoute is not @loginRoute)
+    # Using `unless... else...` instead of `if... else...` to avoid the user module
+    # dependency. If the user module is removed for whatever reason (i can't think
+    # of a valid reason, but anyway) this will keep working correctly.
+    unless @channel.request 'auth:isAuthenticated'
+      @channel.trigger 'auth:unauthenticated'
+    else
+      # Navigate us to the root route unless we're already navigated somewhere else.
+      # If the route is the login one and the user is already authenticated, navigate
+      # to the default initial route.
+      initialRoute = @getCurrentRoute()
+
+      if (initialRoute is @loginRoute) or !!initialRoute.match(@activationRoute)
+        initialRoute = @rootRoute
+
+      @navigate(initialRoute, trigger: true)
 
 
 
@@ -295,8 +314,11 @@ module.exports = class AdminApp extends Application
       # to where it was once authenticated
       prevRoute = @getCurrentRoute() or @rootRoute
 
-      # send the user to the login route
-      @navigate(@loginRoute, trigger: true)
+      # send the user to the login route (unless the previous route was the
+      # user activation one, which is the only public route, for now, at least)
+      destRoute = if !!prevRoute.match(@activationRoute) then prevRoute else @loginRoute
+
+      @navigate(destRoute, trigger: true)
 
 
     # if the user is authenticated but not allowed, show an error

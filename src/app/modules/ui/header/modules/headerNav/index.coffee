@@ -28,13 +28,12 @@ Header navigation module
 module.exports = class HeaderNav extends Module
 
   ###
-  @property {Object} module metadata, used to setup the navigation and for other purposes
+  Module initialization
   ###
-  meta:
-    ###
-    @property {Boolean} let the main app start/stop this whenever appropiate (for example on auth events)
-    ###
-    stopable: true
+  initialize: ->
+    # start/stop AFTER the parent module
+    @listenTo headerChannel, 'header:started', => @start()
+    @listenTo headerChannel, 'header:stopped', => @stop()
 
 
   ###

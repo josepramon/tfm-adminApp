@@ -80,4 +80,4 @@ module.exports = class PlaceholderModuleApp extends Module
   Event handler executed after the module has been initialized
   ###
   onStart: ->
-    console.log 'Module ' + @meta.title + ' started'
+    console.log 'Module ' + @meta.title() + ' started'

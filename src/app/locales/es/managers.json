@@ -1,0 +1,12 @@
+{
+  "Accounts not activated 12 hours after its creation will be automatically removed.": "",
+  "ManagerModel": {
+    "email": "Email",
+    "password": "Contraseña",
+    "username": "Usuario"
+  },
+  "New manager": "Nuevo agente",
+  "Please, insert the user name and email for the new agent.": "",
+  "The agent will receive an email with a link to activate the account and set a password.": "",
+  "There are no available managers": "No hay agentes disponibles"
+}

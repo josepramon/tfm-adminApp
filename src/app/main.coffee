@@ -28,4 +28,5 @@ $ ->
     app.start()
 
   # the global Mosaiqo var is just for debugging purposes and will be removed
+  window.Mosaiqo or= {}
   window.Mosaiqo.AdminsApp = app

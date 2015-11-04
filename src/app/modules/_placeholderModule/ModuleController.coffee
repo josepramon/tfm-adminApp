@@ -37,5 +37,5 @@ module.exports = class ModuleController extends ViewController
 
     view = new ListView
       model: new Model
-        moduleName: meta.title
+        moduleName: meta.title()
     @show view

@@ -61,6 +61,7 @@ scripts:
   tasks:
     - coffeelint               # Check the syntax and code style of th coffee files
     - clean:scripts            # Cleanup the scripts directory (might be 'dirty' from a previous build)
+    - momentLocales            # Custom task to generate a include file with the appropiate Moment locales
     - browserify:app
     - browserify:lib
     - shell:modernizr          # Create a customized Modernizr build with only the required modules
@@ -70,6 +71,7 @@ scripts_debug:
   description: 'Builds the scripts without concatenation or minification'
   tasks:
     - clean:scripts
+    - momentLocales
     - browserify:dev_app
     - browserify:dev_lib
     - shell:modernizr

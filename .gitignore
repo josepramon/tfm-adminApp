@@ -15,6 +15,7 @@ dist/**/*.html
 dist/**/*.appcache
 docs/dist
 src/html/partials/favicons.hbs
+src/app/lib-momentLocales.coffee
 devperf
 coverage
 

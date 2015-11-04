@@ -1,0 +1,31 @@
+{{#_isNew}}
+  <div class="alert alert-info">
+    <p>
+      {{t "managers:::Please, insert the user name and email for the new agent."}}<br />
+      {{t "managers:::The agent will receive an email with a link to activate the account and set a password."}}
+    </p>
+    <p>
+      {{t "managers:::Accounts not activated 12 hours after its creation will be automatically removed."}}
+    </p>
+  </div>
+{{/_isNew}}
+
+<div class="form-group">
+  <label for="username" class="control-label">
+    {{t "managers:::ManagerModel::username"}}
+  </label>
+  <div>
+    <input type="text" class="form-control" id="username" name="username" placeholder="{{t "managers:::ManagerModel::username"}}" value="{{username}}">
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="email" class="control-label">
+    {{t "managers:::ManagerModel::email"}}
+  </label>
+  <div>
+    <input type="text" class="form-control" id="email" name="email" placeholder="{{t "managers:::ManagerModel::email"}}" value="{{email}}">
+    <span class="help-block hidden"></span>
+  </div>
+</div>

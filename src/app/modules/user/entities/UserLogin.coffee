@@ -38,10 +38,6 @@ module.exports = class UserLogin extends Model
     @property {String} User's password
     ###
     password : ''
-    ###
-    @property {String} Application identifier
-    ###
-    appID: 'adminsAPP'
 
 
   ###
@@ -63,6 +59,15 @@ module.exports = class UserLogin extends Model
       required: true
     password:
       required: true
+
+
+  ###
+  Relations to expand where querying the server
+
+  @property {Array} the attributes to expand
+  @static
+  ###
+  @expandedRelations: ['user', 'user.profile']
 
 
   ###

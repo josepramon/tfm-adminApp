@@ -17,6 +17,9 @@ module.exports = [
     id:    'Dashboard'
     class: require 'modules/dashboard'
   ,
+    id:    'Managers'
+    class: require 'modules/managers'
+  ,
     id:    'KnowledgeBase'
     class: require 'modules/knowledge_base'
   ,
@@ -30,6 +33,9 @@ module.exports = [
       submodules: [
         id:    'HeaderNav'
         class: require 'modules/ui/header/modules/headerNav'
+      ,
+          id:    'User'
+        class: require 'modules/ui/header/modules/user'
       ]
     ,
       id:    'Footer'

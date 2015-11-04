@@ -1,0 +1,31 @@
+<h1>
+  {{#if action}}
+    {{ action }}
+  {{else}}
+    {{ module.name }}
+  {{/if}}
+</h1>
+
+{{>breadcrumbs}}
+
+
+<nav class="moduleNavigation">
+  <ul>
+    <li>
+      <a href="#user/account" id="accountBtn">
+        <i class="icon icon-key"></i>
+        <span>
+          {{t "user::Account" }}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#user/profile" id="profileBtn">
+        <i class="icon icon-user"></i>
+        <span>
+          {{t "user::Profile" }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

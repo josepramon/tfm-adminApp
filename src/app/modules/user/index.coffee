@@ -1,14 +1,20 @@
 # Dependencies
 # -----------------------
 
+# Libs/generic stuff:
+i18n     = require 'i18next-client'
+Backbone = require 'backbone'
+
 # Base class (extends Marionette.Module)
 Module            = require 'msq-appbase/lib/appBaseComponents/modules/Module'
 
 # Module components:
+LayoutController  = require './layout/LayoutController'
 Router            = require './ModuleRouter'
 RouteController   = require './ModuleController'
 SessionController = require './SessionController'
 Entities          = require './entities'
+moduleChannel     = require './moduleChannel'
 
 
 
@@ -37,7 +43,7 @@ module.exports = class UserApp extends Module
     ###
     @property {String} human readable module name
     ###
-    title: 'modules::User'
+    title: -> i18n.t('modules::User')
 
     ###
     @property {String} root url for all module routes
@@ -60,8 +66,17 @@ module.exports = class UserApp extends Module
     @appChannel.reply 'auth:routes:login',  => @meta.rootUrl + '/login'
     @appChannel.reply 'auth:routes:error',  => @meta.rootUrl + '/authError'
 
+    @listenTo moduleChannel, 'redirect:login', ->
+      Backbone.history.navigate @meta.rootUrl + '/login', { trigger: true }
+
     # initialize the session
     sessionController = new SessionController()
+
+    # initialize the shared layout
+    @initModuleLayout()
+
+    # module metadata getter
+    moduleChannel.reply 'meta', => @meta
 
 
   ###
@@ -71,3 +86,13 @@ module.exports = class UserApp extends Module
     moduleRouter = new Router
       controller: new RouteController()
       rootUrl:    @meta.rootUrl
+
+
+  # Aux methods
+  # ------------------------
+
+  ###
+  Initialize the module layout
+  ###
+  initModuleLayout: ->
+    layout = new LayoutController()

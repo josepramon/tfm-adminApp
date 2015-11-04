@@ -43,6 +43,20 @@ module.exports = (grunt) ->
 
 
 
+  # Custom task to generate a list of moment locale files to be included in lib
+  grunt.registerTask 'momentLocales', 'Generate a file with require directives to load the moment locales', ->
+    config  = grunt.file.readJSON('config/locales.json').locales
+    locales = _.keys _.omit(config, 'en')
+
+    header = '# auto generated file, do not edit this'
+    buff   = locales.reduce ((memo, locale) ->
+      memo += "\nrequire 'moment/locale/#{locale}'"
+    ), header
+
+    grunt.file.write 'src/app/lib-momentLocales.coffee', buff
+
+
+
   # Autoloading for the grunt tasks, jitGrunt enables loading them on demand
   require('load-grunt-config') grunt,
     jitGrunt: true

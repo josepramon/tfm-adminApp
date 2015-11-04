@@ -1,0 +1,46 @@
+<ul class="breadcrumb arrow">
+
+  <li>
+    <a href="#">
+      <i class="icon icon-home"></i>
+      {{t Home }}
+    </a>
+  </li>
+
+{{#if parentModule}}
+  {{#with parentModule}}
+  <li>
+    {{#if url}}
+      <a href="#{{url}}">{{t name }}</a>
+    {{else}}
+      <span>{{t name }}</span>
+    {{/if}}
+  </li>
+  {{/with}}
+{{/if}}
+
+{{#if module}}
+  {{#with module}}
+  <li>
+    {{#if url}}
+      <a href="#{{url}}">{{t name }}</a>
+    {{else}}
+      <span>{{t name }}</span>
+    {{/if}}
+  </li>
+  {{/with}}
+{{/if}}
+
+{{#if item}}
+  <li>
+    <span>{{ chain 'stripHTML' 'truncate' item 40 '...' }}</span>
+  </li>
+{{else}}
+  {{#if action}}
+    <li>
+     <span>{{t action }}</span>
+    </li>
+  {{/if}}
+{{/if}}
+
+</ul>

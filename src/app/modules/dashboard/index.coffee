@@ -1,6 +1,9 @@
 # Dependencies
 # -----------------------
 
+# Libs/generic stuff:
+i18n = require 'i18next-client'
+
 # Base class
 BaseTmpModule = require '../_placeholderModule'
 
@@ -24,7 +27,7 @@ module.exports = class DashboardApp extends BaseTmpModule
     ###
     @property {String} human readable module name
     ###
-    title: 'modules::Dashboard'
+    title: -> i18n.t 'modules::Dashboard'
 
     ###
     @property {String} root url for all module routes
