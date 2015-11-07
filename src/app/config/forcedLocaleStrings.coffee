@@ -24,16 +24,8 @@ from removing it, just add it here
 
 ###
 
-i18n.t 'modules::Analytics'
-i18n.t 'modules::Auth'
-i18n.t 'modules::Blog'
-i18n.t 'modules::Comments'
 i18n.t 'modules::Dashboard'
-i18n.t 'modules::Media'
-i18n.t 'modules::Pages'
 i18n.t 'modules::Posts'
-i18n.t 'modules::Settings'
-i18n.t 'modules::Store'
 i18n.t 'modules::Tags'
 i18n.t 'modules::Categories'
 i18n.t 'modules::User'

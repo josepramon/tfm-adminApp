@@ -1,0 +1,60 @@
+{
+  "Article successfully created": "Article successfully created",
+  "Article successfully deleted": "Article successfully deleted",
+  "Article successfully updated": "Article successfully updated",
+  "ArticleModel": {
+    "A date must be provided when scheduling the article publication": "A date must be provided when scheduling the article publication",
+    "body": "Body",
+    "excerpt": "Excerpt",
+    "publishDate": "Publish date",
+    "publishStatus": "Publish status",
+    "published": "Published",
+    "slug": "Slug",
+    "title": "Title"
+  },
+  "Category successfully created": "Category successfully created",
+  "Category successfully deleted": "Category successfully deleted",
+  "Category successfully updated": "Category successfully updated",
+  "CategoryModel": {
+    "articles": "Posts",
+    "description": "Description",
+    "name": "Name",
+    "slug": "Slug"
+  },
+  "New category": "New category",
+  "New post": "New post",
+  "New tag": "New tag",
+  "Stats": "Stats",
+  "Tag successfully created": "Tag successfully created",
+  "Tag successfully deleted": "Tag successfully deleted",
+  "Tag successfully updated": "Tag successfully updated",
+  "TagModel": {
+    "articles": "Posts",
+    "description": "Description",
+    "name": "Name",
+    "slug": "Slug"
+  },
+  "There are no available categories": "There are no available categories",
+  "There are no available tags": "There are no available tags",
+  "article": {
+    "Advanced options": "Advanced options",
+    "Article": "Article",
+    "Category": "Category",
+    "Category and tags": "Category and tags",
+    "Excerpt": "Excerpt",
+    "Not published": "Not published",
+    "Publish status": "Publish status",
+    "Published": "Published",
+    "Scheduled publishing": "Scheduled publishing",
+    "Slug": "Slug",
+    "Tags": "Tags",
+    "Title": "Title"
+  },
+  "sections": {
+    "Categories": "Categories",
+    "KB dashboard": "Dashboard",
+    "New post": "New post",
+    "Posts": "Posts",
+    "Tags": "Tags"
+  }
+}

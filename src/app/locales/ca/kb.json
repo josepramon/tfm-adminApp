@@ -1,0 +1,60 @@
+{
+  "Article successfully created": "L'article s'ha creat correctament",
+  "Article successfully deleted": "L'article ha estat eliminat",
+  "Article successfully updated": "L'article s'ha actualitzat correctament",
+  "ArticleModel": {
+    "A date must be provided when scheduling the article publication": "És obligatori seleccionar una data per a la publicació programada",
+    "body": "Article",
+    "excerpt": "Extracte",
+    "publishDate": "Data publicació",
+    "publishStatus": "Estat publicació",
+    "published": "Publicat",
+    "slug": "Slug",
+    "title": "Títol"
+  },
+  "Category successfully created": "La categoria s'ha creat correctament",
+  "Category successfully deleted": "La categoria ha estat eliminada",
+  "Category successfully updated": "La categoria s'ha actualitzat correctament",
+  "CategoryModel": {
+    "articles": "Articles",
+    "description": "Descripció",
+    "name": "Nom",
+    "slug": "Slug"
+  },
+  "New category": "Nova categoria",
+  "New post": "Nova entrada",
+  "New tag": "Nova etiqueta",
+  "Stats": "Estadístiques",
+  "Tag successfully created": "L'etiqueta s'ha creat correctament",
+  "Tag successfully deleted": "L'etiqueta ha estat eliminada",
+  "Tag successfully updated": "L'etiqueta s'ha actualitzat correctament",
+  "TagModel": {
+    "articles": "Articles",
+    "description": "Descripció",
+    "name": "Nom",
+    "slug": "Slug"
+  },
+  "There are no available categories": "No hi ha categories disponibles",
+  "There are no available tags": "No hi ha etiquetes disponibles",
+  "article": {
+    "Advanced options": "Opcions avançades",
+    "Article": "Article",
+    "Category": "Categoria",
+    "Category and tags": "Categoria i etiquetes",
+    "Excerpt": "Extracte",
+    "Not published": "No publicat",
+    "Publish status": "Estat de la publicació",
+    "Published": "Publicat",
+    "Scheduled publishing": "Publicació programada",
+    "Slug": "Slug",
+    "Tags": "Etiquetes",
+    "Title": "Títol"
+  },
+  "sections": {
+    "Categories": "Categories",
+    "KB dashboard": "Escriptori",
+    "New post": "Nou article",
+    "Posts": "Articles",
+    "Tags": "Etiquetes"
+  }
+}
