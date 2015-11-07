@@ -57,3 +57,4 @@ toastr             = require 'toastr'
 # -----------------------------------------------
 require 'jquery-scrollstop'
 require 'selectize'
+require 'jqcloud2'

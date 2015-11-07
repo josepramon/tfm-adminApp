@@ -10,7 +10,9 @@
   "homepage": "http://www.mosaiqo.com",
   "private": true,
   "dependencies": {
-    "pace": "~1.0.2"
+    "pace": "~1.0.2",
+    "summernote-adapter": "~0.0.5",
+    "jqcloud2": "~2.0.1"
   },
   "devDependencies": {
     "animate-stylus": "https://github.com/slang800/animate-stylus.git#master",

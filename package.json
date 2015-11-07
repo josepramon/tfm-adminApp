@@ -9,7 +9,8 @@
   },
   "browser": {
     "backbone.webStorage": "./dist/assets/vendor/backbone.webStorage/backbone.webStorage.js",
-    "toastr": "./dist/assets/vendor/toastr/toastr.js"
+    "toastr": "./dist/assets/vendor/toastr/toastr.js",
+    "jqcloud2": "./dist/assets/vendor/jqcloud2/dist/jqcloud.min.js"
   },
   "devDependencies": {
     "assemble": "~0.4.42",
@@ -85,7 +86,7 @@
     "mocha": "^2.3.3",
     "modernizr": "^3.1.0",
     "moment": "^2.10.6",
-    "msq-appbase": "0.0.7",
+    "msq-appbase": "0.0.8-a",
     "selectize": "^0.12.1",
     "sinon": "^1.17.1",
     "slug": "^0.9.1",
