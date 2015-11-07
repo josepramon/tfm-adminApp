@@ -190,7 +190,7 @@ module.exports = class ManagersApp extends Module
   destroyCategory: (model, callback) ->
     model.destroy
       success: (model, response) =>
-        flashMessage = i18n.t 'blog:::Category successfully deleted'
+        flashMessage = i18n.t 'kb:::Category successfully deleted'
         @appChannel.request 'flash:success', flashMessage
         if _.isFunction callback then callback(model, response)
 

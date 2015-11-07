@@ -5,18 +5,13 @@
 i18n = require 'i18next-client'
 
 # Base class (extends Marionette.Module)
-Module          = require 'msq-appbase/lib/appBaseComponents/modules/Module'
+Module = require 'msq-appbase/lib/appBaseComponents/modules/Module'
 
 # Module components:
-Router          = require './ModuleRouter'
-RouteController = require './ModuleController'
+LayoutController = require './layout/LayoutController'
+Entities         = require './entities'
+moduleChannel    = require './moduleChannel'
 
-# Radio channels:
-# All the modules have inherited an @appChannel propperty,
-# which is a global communication channel. In this case,
-# there's an addittional independent channel specific to
-# the module
-moduleChannel = require './moduleChannel'
 
 
 
@@ -25,7 +20,7 @@ Knowledge Base module
 =====================
 
 @class
-@augments BaseTmpModule
+@augments Module
 
 ###
 module.exports = class KnowledgeBaseApp extends Module
@@ -66,35 +61,19 @@ module.exports = class KnowledgeBaseApp extends Module
 
 
 
-
-
-
   ###
   Module initialization
   ###
   initialize: ->
 
+    # register the module entities
+    @app.module 'Entities.kb', Entities
+
     # setup the module components
-    @initModuleRouter()
+    @initModuleLayout()
 
     # module metadata getter
     moduleChannel.reply 'meta', => @meta
-
-
-
-  # Module events
-  # ------------------------
-
-  ###
-  Event handler executed after the module has been started
-  ###
-  onStart: ->
-
-
-  ###
-  Event handler executed after the module has been stopped
-  ###
-  onStop: ->
 
 
 
@@ -102,9 +81,7 @@ module.exports = class KnowledgeBaseApp extends Module
   # ------------------------
 
   ###
-  Setup the module router
+  Initialize the module layout
   ###
-  initModuleRouter: ->
-    moduleRouter = new Router
-      controller: new RouteController()
-      rootUrl:    @meta.rootUrl
+  initModuleLayout: ->
+    layout = new LayoutController()

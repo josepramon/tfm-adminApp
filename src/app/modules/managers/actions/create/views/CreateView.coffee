@@ -17,7 +17,7 @@ Manager create view
 Basically identical to the 'edit' view, but with different buttons
 
 @class
-@augments BlogCategoryEditView
+@augments ManagerEditView
 
 ###
 module.exports = class ManagerCreateView extends ManagerEditView

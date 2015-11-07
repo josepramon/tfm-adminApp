@@ -1,0 +1,144 @@
+<div class="form-group">
+  <label for="title" class="control-label">
+    {{t "kb:::article::Title"}}
+  </label>
+  <div>
+    <input type="text" class="form-control" id="title" name="title" placeholder="{{t "kb:::article::Title"}}" value="{{title}}">
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="body" class="control-label">
+    {{t "kb:::article::Article"}}
+  </label>
+  <div>
+    <textarea class="editor" id="body" name="body" data-editor-settings='{"source": true}'>{{body}}</textarea>
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <i id="publishedStatusIcon" class="icon"></i> {{t "kb:::article::Publish status"}}
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+
+        <div class="form-group">
+          <div class="checkbox">
+              <label>
+                <input type="radio" name="publishStatus" value="unpublished" {{#is publishStatus 'unpublished'}}checked{{/is}}>
+                {{t "kb:::article::Not published"}}
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="radio" name="publishStatus" value="published" {{#is publishStatus 'published'}}checked{{/is}}>
+                {{t "kb:::article::Published"}}
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="radio" name="publishStatus" value="scheduled" {{#is publishStatus 'scheduled'}}checked{{/is}}>
+                {{t "kb:::article::Scheduled publishing"}}
+              </label>
+
+              {{#with publishDate }}
+                <input type="date" name="publishDate.date" value="{{ date }}">
+                <input type="time" name="publishDate.time" value="{{ time }}" step="1">
+              {{/with}}
+            </div>
+
+            <span class="help-block hidden"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="icon icon-tags"></i> {{t "kb:::article::Category and tags"}}
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+
+        <div class="form-group">
+          <label for="tags" class="control-label">
+            {{t "kb:::article::Tags"}}
+          </label>
+          <div>
+            <input type="text" name="tags" id="tags" value="">
+            <span class="help-block hidden"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="category" class="control-label">
+            {{t "kb:::article::Category"}}
+          </label>
+          <div>
+            <input type="text" name="category" id="category" value="">
+            <span class="help-block hidden"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="panel">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <i class="icon icon-cog"></i> {{t "kb:::article::Advanced options"}}
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+
+        {{#if slug}} {{!-- the slug is created serverside, and then the user can edit it --}}
+          <div class="form-group">
+            <label for="slug" class="control-label">
+              {{t "kb:::article::Slug"}}
+            </label>
+            <div>
+              <input type="text" class="form-control" id="slug" name="slug" placeholder="{{t "kb:::article::Slug"}}" value="{{slug}}" />
+              <span class="help-block hidden"></span>
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="form-group">
+          <label for="excerpt" class="control-label">
+            {{t "kb:::article::Excerpt"}}
+          </label>
+          <div>
+            <textarea class="editor" id="excerpt" name="excerpt" data-editor-settings='{"source": true}'>{{excerpt}}</textarea>
+            <span class="help-block hidden"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,16 @@
+// the selectize widget does not implement l18n...
+// so replace the 'add' label with an icon
+.selectize-dropdown
+  .create
+    color: transparent !important
+    strong
+      color: #fff
+      margin-left: -2.2em
+
+      &:before
+        display: inline-block
+        width: 2.2em
+        text-align: center
+        font: normal normal normal 14px/1 FontAwesome
+        content: '\f0fe' !important
+        color: #fff

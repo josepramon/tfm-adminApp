@@ -17,7 +17,7 @@ ManagersCollection = require './managers/ManagersCollection'
 Manager entities submodule
 ==========================
 
-Handles the instantiation of the entities exposed by the blog module.
+Handles the instantiation of the entities exposed by the managers module.
 
 ###
 module.exports = class ManagersEntities extends ModuleEntities
@@ -33,7 +33,7 @@ module.exports = class ManagersEntities extends ModuleEntities
   instantiation of entities avoiding direct references.
 
   The 'global' factory methods are namespaced to make it scalable.
-  So, for example, in 'blog:entities|TagsCollection', 'blog:entities' is th NS.
+  So, for example, in 'kb:entities|TagsCollection', 'kb:entities' is th NS.
   ###
   factoryId: 'users:entities'
 

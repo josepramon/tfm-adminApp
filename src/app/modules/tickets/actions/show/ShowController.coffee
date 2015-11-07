@@ -12,7 +12,7 @@ ShowView       = require './views/ShowView'
 # which is a global communication channel. In this case,
 # there're two addittional independent channels, the
 # channel for the Dashboard module, and the parent
-# module (blog) channel.
+# module channel.
 moduleChannel = require '../../moduleChannel'
 
 

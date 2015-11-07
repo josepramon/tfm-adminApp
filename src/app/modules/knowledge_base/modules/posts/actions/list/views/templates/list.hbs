@@ -1,0 +1,28 @@
+<div id="moduleItemsTools">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="{{t "Search"}}...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">
+        <i class="icon icon-search"></i>
+      </button>
+    </span>
+  </div>
+  <button id="moduleItemsCreate" class="btn btn-link btn-xs">
+    <i class="icon icon-plus"></i> {{t "kb:::New post"}}
+  </button>
+</div>
+
+<div class="itemsContainer">
+  <div class="itemsContainerInner">
+    <ul class="items"></ul>
+
+    <div class="loadingAnimation">
+      <p>
+        {{t "Loading"}}
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+      </p>
+    </div>
+  </div>
+</div>

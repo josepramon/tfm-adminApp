@@ -22,6 +22,19 @@ module.exports = [
   ,
     id:    'KnowledgeBase'
     class: require 'modules/knowledge_base'
+    submodules: [
+      id:    'Dashboard'
+      class: require 'modules/knowledge_base/modules/dashboard'
+    ,
+      id:    'Posts'
+      class: require 'modules/knowledge_base/modules/posts'
+    ,
+      id:    'Tags'
+      class: require 'modules/knowledge_base/modules/tags'
+    ,
+      id:    'Categories'
+      class: require 'modules/knowledge_base/modules/categories'
+    ]
   ,
     id:    'Tickets'
     class: require 'modules/tickets'
@@ -34,7 +47,7 @@ module.exports = [
         id:    'HeaderNav'
         class: require 'modules/ui/header/modules/headerNav'
       ,
-          id:    'User'
+          id:  'User'
         class: require 'modules/ui/header/modules/user'
       ]
     ,

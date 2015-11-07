@@ -136,7 +136,7 @@ module.exports = class CreateController extends ViewController
   ###
   formActionDone: (success = false) ->
     if success
-      flashMessage = i18n.t 'blog:::Category successfully created'
+      flashMessage = i18n.t 'kb:::Category successfully created'
       @appChannel.request 'flash:success', flashMessage
     @region.empty()
     moduleChannel.trigger 'done:manager'

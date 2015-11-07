@@ -1,0 +1,54 @@
+<h1>
+  {{#if item}}
+    {{ item }}
+  {{else}}
+    {{ module.name }} {{#if action}} - {{ action }}{{/if}}
+  {{/if}}
+</h1>
+
+{{>breadcrumbs}}
+
+<nav class="moduleNavigation">
+  <ul>
+    <li>
+      <a href="#knowledge-base" id="dashboardBtn">
+        <i class="icon icon-dashboard"></i>
+        <span>
+          {{t "kb:::sections::KB dashboard" }}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#knowledge-base/posts/new" id="postsCreateBtn">
+        <i class="icon icon-pencil"></i>
+        <span>
+          {{t "kb:::sections::New post" }}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#knowledge-base/posts" id="postsBtn">
+        <i class="icon icon-newspaper-o"></i>
+        <span>
+          {{t "kb:::sections::Posts" }}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#knowledge-base/categories" id="categoriesBtn">
+        <i class="icon icon-folder"></i>
+        <span>
+          {{t "kb:::sections::Categories" }}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#knowledge-base/tags" id="tagsBtn">
+        <i class="icon icon-tags"></i>
+        <span>
+          {{t "kb:::sections::Tags" }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
