@@ -16,7 +16,7 @@ module.exports = class TagCloudView extends ItemView
   onRender: ->
     opts =
       autoResize: true
-      height:     160
+      height:     130
 
     words = @collection.map (tag) ->
       text:   tag.get 'name'

@@ -18,7 +18,7 @@ RouteController  = require './ModuleController'
 # there're two addittional independent channels, the
 # channel for the Posts module, and the parent
 # module channel.
-moduleChannel    = require './moduleChannel'
+moduleChannel  = require './moduleChannel'
 kbChannel      = require '../../moduleChannel'
 
 
@@ -104,6 +104,10 @@ module.exports = class KBCategoriesApp extends Module
     # done is executed when any of the previous actions finishes or is canceled
     @listenTo moduleChannel, 'done:kb:category', =>
       @app.navigate "/#{@meta.rootUrl}", { trigger:true }
+
+    # display some category articles
+    @listenTo moduleChannel, 'displayArticles:kb:category', (model) ->
+      kbChannel.trigger 'categories:articles:list', model
 
 
 

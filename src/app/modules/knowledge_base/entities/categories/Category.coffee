@@ -77,14 +77,6 @@ module.exports = class Category extends Model
         total
       transient: true
 
-    categories_total:
-      get: ->
-        categories = @get 'categories'
-        total      = if categories and categories.state then categories.state.totalRecords
-        unless total then total = 0
-        total
-      transient: true
-
 
   ###
   @property {Object} Model validation rules

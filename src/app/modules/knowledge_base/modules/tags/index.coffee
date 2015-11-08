@@ -113,6 +113,9 @@ module.exports = class KBTagsApp extends Module
     @listenTo moduleChannel, 'done:kb:tag', =>
       @app.navigate "/#{@meta.rootUrl}", { trigger:true }
 
+    @listenTo moduleChannel, 'displayArticles:kb:tag', (model) ->
+      kbChannel.trigger 'tags:articles:list', model
+
 
 
   ###

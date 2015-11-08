@@ -48,8 +48,10 @@ module.exports = class KBTagsListView extends GridView
       name:      'slug'
       cell:      'string'
     ,
-      name:      'articles_total'
-      cell:      'integer'
+      name:        'articles_total'
+      cell:        'button'
+      buttonClass: 'btn btn-link'
+      clickEvent:  'showRelatedArticles'
     ,
       cell:        'button'
       btnLabel:    iconBtnTmpl { label: 'edit', icon: 'edit' }
@@ -76,8 +78,9 @@ module.exports = class KBTagsListView extends GridView
   @property {Object} event handlers for UI elements
   ###
   events:
-    'editTag':       'editTag'
-    'deleteTag':     'deleteTag'
+    'editTag':             'editTag'
+    'deleteTag':           'deleteTag'
+    'showRelatedArticles': 'showRelatedArticles'
 
   triggers:
     'click .newTag': 'create:kb:tag'
@@ -93,3 +96,6 @@ module.exports = class KBTagsListView extends GridView
   deleteTag: (ev, args) ->
     if window.confirm(i18n.t 'Are you sure you want to delete this?')
       @triggerMethod 'delete:kb:tag', args
+
+  showRelatedArticles: (ev, args) ->
+    @triggerMethod 'showArticles:kb:tag', args

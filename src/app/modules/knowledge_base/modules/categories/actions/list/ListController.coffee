@@ -106,9 +106,10 @@ module.exports = class ListController extends ViewController
   @param {View} view
   ###
   setupViewEvents: (view) =>
-    @listenTo view, 'edit:kb:category',   (args) -> @API.editCategory args.model
-    @listenTo view, 'delete:kb:category', (args) -> @API.deleteCategory args.model
-    @listenTo view, 'create:kb:category',        -> @API.createCategory()
+    @listenTo view, 'edit:kb:category',         (args) -> @API.editCategory args.model
+    @listenTo view, 'delete:kb:category',       (args) -> @API.deleteCategory args.model
+    @listenTo view, 'create:kb:category',              -> @API.createCategory()
+    @listenTo view, 'showArticles:kb:category', (args) -> @API.showRelatedArticles args.model
 
 
   API:
@@ -138,3 +139,11 @@ module.exports = class ListController extends ViewController
     Bubbles up the event to the module so it can take the necessary actions
     ###
     createCategory: -> categoriesChannel.trigger 'create:kb:category'
+
+
+    ###
+    Callback executed when the category articles column is clicked
+
+    Bubbles up the event to the module so it can take the necessary actions
+    ###
+    showRelatedArticles: (model) -> categoriesChannel.trigger 'displayArticles:kb:category', model

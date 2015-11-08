@@ -1,8 +1,10 @@
 # Dependencies
 # -----------------------
 
+_ = require 'underscore'
+
 # Base class (extends Marionette.Controller)
-Controller       = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
+Controller = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
 
 # Action controllers
 ListController   = require './actions/list/ListController'
@@ -41,18 +43,58 @@ module.exports = class ModuleController extends Controller
   #
   #  Methods used by the router (and may be called directly from the module, too)
 
-  list: ->
-    # this action is a bit special because the list is always shown
+
+  ###
+  List some articles collection
+
+  @param {Model} model  some model that contains a nested articles collection
+                        if null, the main collection will be loaded
+  ###
+  list: _.throttle (model) ->
     region = @getRegion 'itemsList'
 
-    unless region.hasView()
-      new ListController
-        region:     region
-        collection: @getCollection()
+    # this action is a bit special because the list is always shown
+    # so some considerations must be taken before rerendering it
+    if @_shouldRenderList region, model
+      options = {}
+
+      if model
+        options.model = model
+      else
+        options.collection = @getCollection()
+
+      # set the region where the controller's view will be rendered
+      options.region = region
+
+      new ListController options
 
     @getRegion('main').empty()
 
+  , 1000, trailing: false
 
+
+  ###
+  @param {int}      id  model id
+  @param {Category} category model
+  ###
+  listCategoryArticles: (id, category) ->
+    model = if category then category else @appChannel.request 'kb:categories:entity', id
+    @list model
+
+
+  ###
+  @param {int} id model id
+  @param {Tag} tag model
+  ###
+  listTagArticles: (id, tag) ->
+    model = if tag then tag else @appChannel.request 'kb:tags:entity', id
+    @list model
+
+
+
+  ###
+  Create a new article
+  ###
   create: ->
     new CreateController
       region:               @getRegion 'main'
@@ -132,3 +174,23 @@ module.exports = class ModuleController extends Controller
     delete @collection
     delete @categoriesCollection
     delete @tagsCollection
+
+
+  ###
+  Determine if the list shold be rerendered
+
+  The list is always displayed when the module is active, so in order to avoid
+  unnecessary renders, some checks must be performed
+  ###
+  _shouldRenderList: (region, model) ->
+    # if empty, render
+    unless region.hasView() then return true
+
+    # a model (tag/category/whatever) has been provided
+    if model then return true
+
+    # last check, if a collection has not been already loaded, render
+    unless @collection then return true
+
+    # default
+    false

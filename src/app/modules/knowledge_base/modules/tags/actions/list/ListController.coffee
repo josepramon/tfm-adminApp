@@ -106,9 +106,10 @@ module.exports = class ListController extends ViewController
   @param {View} view
   ###
   setupViewEvents: (view) =>
-    @listenTo view, 'edit:kb:tag',   (args) -> @API.editTag args.model
-    @listenTo view, 'delete:kb:tag', (args) -> @API.deleteTag args.model
-    @listenTo view, 'create:kb:tag',        -> @API.createTag()
+    @listenTo view, 'edit:kb:tag',         (args) -> @API.editTag args.model
+    @listenTo view, 'delete:kb:tag',       (args) -> @API.deleteTag args.model
+    @listenTo view, 'create:kb:tag',              -> @API.createTag()
+    @listenTo view, 'showArticles:kb:tag', (args) -> @API.showRelatedArticles args.model
 
 
   API:
@@ -138,3 +139,11 @@ module.exports = class ListController extends ViewController
     Bubbles up the event to the module so it can take the necessary actions
     ###
     createTag: -> tagsChannel.trigger 'create:kb:tag'
+
+
+    ###
+    Callback executed when the tag articles column is clicked
+
+    Bubbles up the event to the module so it can take the necessary actions
+    ###
+    showRelatedArticles: (model) -> tagsChannel.trigger 'displayArticles:kb:tag', model

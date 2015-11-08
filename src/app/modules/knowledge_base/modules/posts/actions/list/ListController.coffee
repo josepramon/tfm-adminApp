@@ -20,7 +20,8 @@ ListView       = require './views/ListView'
 kbChannel    = require '../../../../moduleChannel'
 postsChannel = require '../../moduleChannel'
 
-
+CategoryModel = require '../../../../entities/categories/Category'
+TagModel      = require '../../../../entities/tags/Tag'
 
 
 ###
@@ -46,9 +47,16 @@ module.
 module.exports = class ListController extends ViewController
 
   initialize: (options) ->
+    { collection, model } = options
 
-    # get the collection
-    collection = options.collection
+    # the view accepts an articles collection or a model
+    # with a nested articles collection
+    if model and !collection
+      collection = model.get 'articles'
+      # nested collections might not be initialised
+      @appChannel.request 'when:fetched', model, ->
+        if collection and collection.pending then collection.fetch()
+
 
     # create the view
     listView = @getView collection
@@ -60,12 +68,12 @@ module.exports = class ListController extends ViewController
     # render
     @show listView,
       loading:
-        entities: collection
+        entities: [model, collection]
 
     # this module 'sections' have a shared layout with common regions
     # (the header and the items list), so after loading the section, it
     # may be necessary to update other regions
-    kbChannel.trigger 'section:changed', getActionMetadata()
+    kbChannel.trigger 'section:changed', getActionMetadata model
 
     # refresh the list the user changes the language
     @listenTo @appChannel, 'locale:loaded', -> listView.render()
@@ -96,10 +104,17 @@ module.exports = class ListController extends ViewController
 
   @return {Object}
   ###
-  getActionMetadata = () ->
-    meta = postsChannel.request 'meta'
+  getActionMetadata = (model) ->
+    meta       = postsChannel.request 'meta'
     parentMeta = kbChannel.request 'meta'
 
+    actionName = i18n.t 'List'
+
+    if model
+      if model instanceof CategoryModel
+        actionName = i18n.t 'kb:::by category'
+      if model instanceof TagModel
+        actionName = i18n.t 'kb:::by tag'
     {
       parentModule:
         name: parentMeta.title()
@@ -109,7 +124,7 @@ module.exports = class ListController extends ViewController
         name: meta.title()
         url: meta.rootUrl
 
-      action:    i18n.t 'List'
+      action:    actionName
     }
 
 

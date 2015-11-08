@@ -50,6 +50,8 @@
     "Tags": "Etiquetes",
     "Title": "Títol"
   },
+  "by category": "per categoria",
+  "by tag": "per etiqueta",
   "sections": {
     "Categories": "Categories",
     "KB dashboard": "Escriptori",

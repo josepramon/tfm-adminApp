@@ -18,6 +18,8 @@ module.exports = class ModuleRouter extends Router
                      module rootUrl (supplied in the constructor)
   ###
   prefixedAppRoutes:
-    '/new'      : 'create'
-    '/:id/edit' : 'edit'
-    ''          : 'list'
+    '/new'                    : 'create'
+    '/:id/edit'               : 'edit'
+    '/byTag/:tagId'           : 'listTagArticles'
+    '/byCategory/:categoryId' : 'listCategoryArticles'
+    ''                        : 'list'

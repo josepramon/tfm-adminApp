@@ -122,6 +122,15 @@ module.exports = class KBPostsApp extends Module
     @listenTo moduleChannel, 'layout:rendered', (data) =>
       @list()
 
+    # additional handlers for the tags/categories modules
+    @listenTo kbChannel, 'categories:articles:list', (category) =>
+      @app.navigate "/#{@meta.rootUrl}/byCategory/#{category.id}"
+      @listByCategory category.id, category
+
+    @listenTo kbChannel, 'tags:articles:list', (tag) =>
+      @app.navigate "/#{@meta.rootUrl}/byTag/#{tag.id}"
+      @listByTag tag.id, tag
+
 
   ###
   Event handler executed after the module has been stopped
@@ -138,6 +147,24 @@ module.exports = class KBPostsApp extends Module
   List the articles
   ###
   list: -> moduleController.list()
+
+
+  ###
+  List the articles for some category
+
+  @param {Integer} id      model id
+  @param {Category} model  category model
+  ###
+  listByCategory: (id, model) -> moduleController.listCategoryArticles id, model
+
+
+  ###
+  List the articles for some tag
+
+  @param {Integer} id  model id
+  @param {Tag} model   tag model
+  ###
+  listByTag: (id, model) -> moduleController.listTagArticles id, model
 
 
   ###

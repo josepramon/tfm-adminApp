@@ -50,6 +50,8 @@
     "Tags": "Tags",
     "Title": "Title"
   },
+  "by category": "by category",
+  "by tag": "by tag",
   "sections": {
     "Categories": "Categories",
     "KB dashboard": "Dashboard",

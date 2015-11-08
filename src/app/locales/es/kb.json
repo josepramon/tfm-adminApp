@@ -50,6 +50,8 @@
     "Tags": "Etíquetas",
     "Title": "Título"
   },
+  "by category": "por categoría",
+  "by tag": "por etiqueta",
   "sections": {
     "Categories": "Categorías",
     "KB dashboard": "Escritorio",

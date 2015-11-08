@@ -45,8 +45,11 @@ module.exports = class CategoriesListView extends GridView
       name:      'slug'
       cell:      'string'
     ,
-      name:      'articles_total'
-      cell:      'integer'
+      name:        'articles_total'
+      cell:        'button'
+      buttonClass: 'btn btn-link'
+      clickEvent:  'showRelatedArticles'
+
     ,
       cell:        'button'
       btnLabel:    iconBtnTmpl { label: 'edit', icon: 'edit' }
@@ -73,8 +76,9 @@ module.exports = class CategoriesListView extends GridView
   @property {Object} event handlers for UI elements
   ###
   events:
-    'editCategory':       'editCategory'
-    'deleteCategory':     'deleteCategory'
+    'editCategory':        'editCategory'
+    'deleteCategory':      'deleteCategory'
+    'showRelatedArticles': 'showRelatedArticles'
 
   triggers:
     'click .newCategory': 'create:kb:category'
@@ -90,3 +94,6 @@ module.exports = class CategoriesListView extends GridView
   deleteCategory: (ev, args) ->
     if window.confirm(i18n.t 'Are you sure you want to delete this?')
       @triggerMethod 'delete:kb:category', args
+
+  showRelatedArticles: (ev, args) ->
+    @triggerMethod 'showArticles:kb:category', args
