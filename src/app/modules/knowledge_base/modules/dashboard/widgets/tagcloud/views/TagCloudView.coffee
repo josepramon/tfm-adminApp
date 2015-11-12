@@ -6,7 +6,7 @@ Knowledge base tag cloud view
 ==============================
 
 @class
-@augments CompositeView
+@augments ItemView
 
 ###
 module.exports = class TagCloudView extends ItemView
@@ -19,11 +19,14 @@ module.exports = class TagCloudView extends ItemView
       height:     130
 
     words = @collection.map (tag) ->
-      text:   tag.get 'name'
-      weight: tag.get('articles').length
-      link:   '#knowledge-base/tags/' + tag.get('id') + '/edit'
+      tagWeight = tag.get('articles')?.state?.totalRecords or 0
+      {
+        text:   tag.get 'name'
+        weight: tagWeight
+        link:   '#knowledge-base/tags/' + tag.get('id') + '/edit'
+      }
 
-    # although verything should have been rendered and
+    # although everything should have been rendered and
     # the DOM should be ready, this does not work if
     # executed immediatelly, so add a little delay
     setTimeout (=>
