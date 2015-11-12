@@ -19,7 +19,7 @@ Article edit view
 =======================
 
 @class
-@augments CompositeView
+@augments ItemView
 
 ###
 module.exports = class PostEditView extends ItemView
