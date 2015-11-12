@@ -113,6 +113,13 @@ module.exports = class KBPostsApp extends Module
       @destroyArticle model, ->
         moduleChannel.trigger 'deleted:kb:post', model
 
+    @listenTo moduleChannel, 'kb:search', (data) =>
+      if data.query
+        @search data.query
+
+    @listenTo moduleChannel, 'kb:search:reset', =>
+      @list()
+
     # done is executed when any of the previous actions finishes or is canceled
     @listenTo moduleChannel, 'done:kb:post', =>
       @app.navigate "/#{@meta.rootUrl}"
@@ -194,6 +201,14 @@ module.exports = class KBPostsApp extends Module
         flashMessage = i18n.t 'kb:::Article successfully deleted'
         @appChannel.request 'flash:success', flashMessage
         if _.isFunction callback then callback(model, response)
+
+
+  ###
+  Search
+
+  @param {String} query
+  ###
+  search: (query) -> moduleController.search query
 
 
 

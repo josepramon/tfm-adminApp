@@ -2,8 +2,9 @@
 # -----------------------
 
 # Libs/generic stuff:
-_    = require 'underscore'
-i18n = require 'i18next-client'
+_        = require 'underscore'
+i18n     = require 'i18next-client'
+Backbone = require 'backbone'
 
 # Base class (extends Marionette.Controller)
 ViewController = require 'msq-appbase/lib/appBaseComponents/controllers/ViewController'
@@ -152,6 +153,12 @@ module.exports = class ListController extends ViewController
     @listenTo view, 'create:kb:post', ->
       @API.createPost()
 
+    @listenTo view, 'kb:search:submit', ->
+      @API.search(view)
+
+    @listenTo view, 'kb:search:reset', ->
+      @API.searchReset()
+
 
   API:
     ###
@@ -220,3 +227,19 @@ module.exports = class ListController extends ViewController
       newStatus = if model.get('publishStatus') is 'unpublished' then 'published' else 'unpublished'
       model.patch
         publishStatus: newStatus
+
+    ###
+    Search form submit handler
+    ###
+    search: (view) ->
+      # pull data off of form
+      data = Backbone.Syphon.serialize view
+
+      # dispatch an event (it will be handled somewhere else)
+      postsChannel.trigger 'kb:search', data
+
+    ###
+    Search form reset handler
+    ###
+    searchReset: ->
+      postsChannel.trigger 'kb:search:reset'

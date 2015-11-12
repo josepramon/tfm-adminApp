@@ -2,10 +2,11 @@
 # -----------------------
 
 # Base class (extends Marionette.CompositeView)
-CompositeView              = require 'msq-appbase/lib/appBaseComponents/views/CompositeView'
+CompositeView = require 'msq-appbase/lib/appBaseComponents/views/CompositeView'
 
-# ItemView
-ListItemView               = require './ListItemView'
+# Aux. views
+ListItemView = require './ListItemView'
+NoDataView   = require './NoDataView'
 
 # View behaviours
 InfiniteScrollingBehaviour = require 'msq-appbase/lib/behaviours/InfiniteScrolling'
@@ -29,6 +30,7 @@ module.exports = class PostsListView extends CompositeView
 
   childView: ListItemView
   childViewContainer: '.items'
+  emptyView: NoDataView
 
 
   ###
@@ -43,6 +45,8 @@ module.exports = class PostsListView extends CompositeView
   ###
   triggers:
     'click @ui.createItemBtn': 'create:kb:post'
+    'submit':                  'kb:search:submit'
+    'reset':                   'kb:search:reset'
 
 
   ###
@@ -51,3 +55,17 @@ module.exports = class PostsListView extends CompositeView
   behaviors:
     InfiniteScrolling:
       behaviorClass: InfiniteScrollingBehaviour
+
+
+  ###
+  Inject some additional data
+  ###
+  serializeData: ->
+    data = super()
+
+    if @collection and @collection.isSearchResults
+      data.isSearch = true
+      if @collection.searchQuery
+        data.searchQuery = @collection.searchQuery
+
+    data

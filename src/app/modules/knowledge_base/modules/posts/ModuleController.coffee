@@ -1,7 +1,8 @@
 # Dependencies
 # -----------------------
 
-_ = require 'underscore'
+_          = require 'underscore'
+StringUtil = require 'msq-appbase/lib/utilities/string'
 
 # Base class (extends Marionette.Controller)
 Controller = require 'msq-appbase/lib/appBaseComponents/controllers/Controller'
@@ -50,18 +51,21 @@ module.exports = class ModuleController extends Controller
   @param {Model} model  some model that contains a nested articles collection
                         if null, the main collection will be loaded
   ###
-  list: _.throttle (model) ->
+  list: _.throttle (model, collection) ->
     region = @getRegion 'itemsList'
 
     # this action is a bit special because the list is always shown
     # so some considerations must be taken before rerendering it
-    if @_shouldRenderList region, model
+    if @_shouldRenderList region, model, collection
       options = {}
 
       if model
         options.model = model
       else
-        options.collection = @getCollection()
+        options.collection = collection or @getCollection()
+
+        # set a flag for the custom collection
+        if collection then @customCollectionLoaded = true
 
       # set the region where the controller's view will be rendered
       options.region = region
@@ -115,6 +119,25 @@ module.exports = class ModuleController extends Controller
       region:               @getRegion 'main'
       categoriesCollection: @getCategoriesCollection()
       tagsCollection:       @getTagsCollection()
+
+
+  ###
+  List all the articles that match some query
+
+  @param {String} query
+  ###
+  search: (query) ->
+    filterParam = StringUtil.escapeQueryParam query
+
+    results = @appChannel.request 'kb:articles:entities',
+      filters: ["search:#{filterParam}"]
+
+    # add some custom attributes (so it can be rendered in a special way or whatever)
+    results.isSearchResults = true
+    results.searchQuery     = query
+
+    @list null, results
+
 
 
 
@@ -182,12 +205,18 @@ module.exports = class ModuleController extends Controller
   The list is always displayed when the module is active, so in order to avoid
   unnecessary renders, some checks must be performed
   ###
-  _shouldRenderList: (region, model) ->
+  _shouldRenderList: (region, model, collection) ->
     # if empty, render
     unless region.hasView() then return true
 
-    # a model (tag/category/whatever) has been provided
-    if model then return true
+    # an entity (tag/category/whatever) has been provided
+    if model or collection then return true
+
+    # a custom collection was loaded (not all the articles,
+    # maybe the search results or something)
+    if @customCollectionLoaded
+      @customCollectionLoaded = false
+      return true
 
     # last check, if a collection has not been already loaded, render
     unless @collection then return true
