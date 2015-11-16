@@ -163,7 +163,7 @@ module.exports = class EditController extends ViewController
   ###
   formActionDone: (success = false) ->
     if success
-      flashMessage = i18n.t 'kb:::Category successfully updated'
+      flashMessage = i18n.t 'managers:::Agent successfully updated'
       @appChannel.request 'flash:success', flashMessage
     @region.empty()
     moduleChannel.trigger 'done:manager'
