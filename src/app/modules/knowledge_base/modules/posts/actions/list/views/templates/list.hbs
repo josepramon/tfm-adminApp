@@ -1,0 +1,38 @@
+<div id="moduleItemsTools">
+  <form>
+    <div class="input-group">
+      <input type="text" name="query" class="form-control" placeholder="{{t "Search"}}...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+          <i class="icon icon-search"></i>
+        </button>
+      </span>
+    </div>
+    {{#if isSearch}}
+    <div class="searchInfo">
+      {{#if searchQuery}}
+      <i class="icon icon-search"></i>  {{truncate searchQuery 20 '...' }}
+      {{/if}}
+      <button type="reset" class="close" aria-label="{{t "Close"}}"><span aria-hidden="true">&times;</span></button>
+    </div>
+    {{/if}}
+  </form>
+  <button id="moduleItemsCreate" type="button" class="btn btn-link btn-xs">
+    <i class="icon icon-plus"></i> {{t "kb:::New post"}}
+  </button>
+</div>
+
+<div class="itemsContainer">
+  <div class="itemsContainerInner">
+    <ul class="items"></ul>
+
+    <div class="loadingAnimation">
+      <p>
+        {{t "Loading"}}
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+      </p>
+    </div>
+  </div>
+</div>

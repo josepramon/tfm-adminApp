@@ -1,0 +1,217 @@
+/**
+ * # Mosaiqo frontend - nav
+ */
+
+// ## Sidebar
+#globalNav
+  flex: 1 0 auto
+  flex-grow: initial
+
+  width: 175px
+  padding: 0
+  background-color: $appTheme['bgColorDark']
+
+  &:empty
+    display: none
+
+  &, a
+    color: $appTheme['textColorDark']
+
+  ul, ol
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+
+// ## Modules nav
+#modules
+  li
+    position: relative
+    border-bottom: solid 1px $appTheme['bgColorDark']
+
+    for num in (1..20)
+      &:nth-child({num})
+        &, .modulesNav
+          background-color: lighten($appTheme['bgColorDark'], num*5%)
+
+    a
+      position: relative
+      z-index: 11
+      display: block
+      padding: 15px
+      transition: background-color 300ms
+
+      &:before
+        content: none
+
+      &:hover
+        text-decoration: none
+
+      &.active
+        background-color: $appTheme['logoPink']
+        &::after
+          content: ''
+          triangle( left, 15px, $appTheme['bgColorLight'] )
+          position: absolute
+          right: 0
+          top: 12px
+
+  // item text
+  span
+    line-height: 24px
+
+  // item icon
+  .icon
+    margin-right: 6px
+    font-size: 18px
+
+  // rollover
+  & > li:hover
+    & > a, a:hover
+      color: $appTheme['textColorHighlightDark']
+      background-color: $appTheme['bgColorHighlightDark']
+
+
+  // submenus
+  .modulesNav
+    position: absolute
+    z-index: 10
+    top: 0
+    width: 175px
+    overflow: hidden
+
+    li
+      position: relative
+      background-color: transparent
+
+
+
+    // submenus animations
+    li:nth-child(n+1)
+      left: -200px
+      transition: all 400ms ease-out
+      for num in (1..10)
+        &:nth-child({num})
+          transition-delay: num*40ms
+
+
+    html.no-csstransforms &
+      right: 175px
+      opacity: 0
+      transition: right 200ms, opacity 300ms
+
+    html.csstransforms &
+      right: -175px
+      transform-origin: 0 0
+      transform: perspective(800px) rotateY(90deg)
+      backface-visibility: hidden
+      transition: all 300ms
+
+
+  & > li:hover .modulesNav
+    li:nth-child(n+1)
+      left: 0
+
+    html.no-csstransforms &
+      right: -175px
+      opacity: 1
+    html.csstransforms &
+      transform: perspective(800px) rotateY(0deg)
+
+
+
+
+// Collapsed style
+// ---------------------------------------------
+#globalNav.collapsed
+  width: 40px
+
+  #modules
+    &>li>a
+      z-index: 99
+      width: 40px
+      padding: 15px 10px
+      overflow: hidden
+      transition: width 500ms, background-color 500ms
+
+      &.active::after
+        triangle( left, 8px, $appTheme['bgColorLight'] )
+        top: 18px
+
+      span
+        position: absolute
+        left: 50px
+        top: 12px
+        display: block
+        width: 0
+        overflow: hidden
+        transition: width 500ms
+
+      &:hover
+        width: 215px
+
+        span
+          width: 130px
+
+
+  .modulesNav
+    top: 100%
+    transition-delay: 200ms !important
+
+
+
+
+// Media queries
+// ---------------------------------------------
+@media screen and (max-width: 600px)
+  #globalNav
+    position: absolute
+    top: 45px
+    left: 0
+    z-index: 122
+    width: 100% !important
+
+    max-height: 100%
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
+
+    // mobile browsers optimizations
+    // offload the animation to the GPU
+    html.csstransforms3d &
+      transform: translate3d(0, 0, 0)
+      transition: transform 600ms
+
+    html.no-csstransforms3d &
+      transition: top 600ms
+
+    &.collapsed
+      html.csstransforms3d &
+        transform: translate3d(0, -600px, 0)
+
+      html.no-csstransforms3d &
+        top: -600px !important
+
+
+
+    #modules
+      a
+        &.active::after
+          content: none
+
+    .modulesNav
+      position: static
+      width: 100%
+      height: 0
+      overflow: hidden
+      transform: none !important
+
+      li
+        border-bottom: none
+
+      a
+        padding-left: 25px
+
+
+    #modules > li:hover .modulesNav
+      height: auto

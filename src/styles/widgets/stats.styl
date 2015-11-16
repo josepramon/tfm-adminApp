@@ -1,0 +1,38 @@
+.stats
+  display: flex
+  flex-wrap: wrap
+
+.stat
+  display: block
+  flex-grow: 1
+  width: 8em
+  margin-bottom: .5em
+  margin-right: .2em
+
+  &:last-child
+    margin-right: 0
+
+  .value, .label
+    display: block
+    text-align: center
+    text-transform: uppercase
+
+  .value
+    height: 1.2em
+    font-size: 3em
+    font-weight: 400
+    line-height: 1em
+
+
+  .label
+    height: 3em
+    margin: .2em 0 0
+    padding: 0
+
+    font-size: 1em
+    font-weight: 700
+    line-height: 1.4em
+    color: #444
+    background-color: transparent
+    white-space: normal
+

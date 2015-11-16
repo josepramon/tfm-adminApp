@@ -1,0 +1,129 @@
+/**
+ * # Mosaiqo frontend - preloaders & loading animations
+ */
+
+.loadingOverlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(220,220,220,.6)
+
+.loadingAnimation
+  font-weight: 500
+
+  p
+    margin: 0
+
+    // animated dots
+    span
+      text-shadow: none
+      animation: loadingAnimationDot 2.0s infinite ease-in-out
+      &:nth-child(2)
+        animation-delay: .5s
+      &:nth-child(3)
+        animation-delay: 1s
+
+
+.loadingOverlay .loadingAnimation
+  position: absolute
+  top:  50%
+  left: 50%
+  margin: -50px 0 0 -100px
+
+  display: inline-block
+  padding: 20px
+  border-radius: 4px
+  box-shadow: 2px 2px 2px rgba(0,0,0,.1)
+
+  vertical-align: middle
+  background: #fff
+
+  color: $appTheme['bgColorHighlightLight']
+  font-size: 24px
+
+  p
+    margin: 0
+
+    // logo
+    &, &:before
+      display: inline-block
+
+    &:before
+      content: ' '
+      width:  69px
+      height: 50px
+
+      position: relative
+      top:   -2px
+      right: -25px
+      margin-left: -25px
+
+      background: url(/assets/images/loaders/indeterminate-small.gif) no-repeat
+
+
+
+@keyframes loadingAnimationDot
+  0%, 100%
+    opacity: .4
+    transform: scale(1)
+  50%
+    opacity: 1
+    transform: scale(1.2)
+
+
+
+.spinner
+  position: absolute
+  left: 50%
+  top:  50%
+  margin-left: -35px
+  width: 70px
+  text-align: center
+
+  & > div
+    width:  18px
+    height: 18px
+    background-color: $appTheme['bgColorDark']
+
+    border-radius: 100%
+    display: inline-block
+    animation: bouncedelay 1.4s infinite ease-in-out
+    /* Prevent first frame from flickering when animation starts */
+    animation-fill-mode: both
+
+  .bounce1
+    animation-delay: -0.32s
+
+  .bounce2
+    animation-delay: -0.16s
+
+@keyframes  bouncedelay
+  0%, 80%, 100%
+    transform: scale(0.0)
+  40%
+    transform: scale(1.0)
+
+
+
+.blankslate .spinner
+  margin: 20px auto
+  position: static
+
+
+// blocker for forms when sending data
+.formLoadingOverlay
+  position: relative
+
+// view loading placeholder
+.loading-container
+  position: relative
+  min-height: 200px
+
+  // there might be multiple .loading-container
+  // simultaneously so make the spinner subtler
+  .spinner > div
+    background-color: lighten($appTheme['bgColorDark'], 35%)
+    width:  12px
+    height: 12px

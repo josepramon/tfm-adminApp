@@ -1,0 +1,140 @@
+/*
+  styles for backgrid grids
+  http://github.com/wyuenho/backgrid
+
+  Adapted from the library css file, removing everything that
+  is not essential (we are already using bootstrap)
+*/
+.backgrid
+
+  th, td
+    display: none
+    text-overflow: ellipsis
+    white-space: nowrap
+
+
+  th.renderable,
+  td.renderable
+    display: table-cell
+
+
+  th.sortable a
+    cursor: pointer
+
+
+  tbody tr.empty
+    font-style: italic
+    color: gray
+
+
+  tbody tr.empty td
+    display: table-cell
+    text-align: center
+
+
+  td.editor
+    padding: 0
+
+
+  td.editor,
+  tbody tr:nth-child(odd) td.editor
+    background-color: rgba(82, 168, 236, 0.1)
+    outline: 1px solid rgba(82, 168, 236, 0.8)
+    outline-offset: -1px
+    box-sizing: border-box
+    transition-duration: 200ms
+    transition-property: width, outline, background-color
+    transition-timing-function: ease-in-out
+
+
+  td.editor input[type=text]
+    display: block
+    width: 100%
+    height: 100%
+    padding: 0 5px
+    margin: 0
+    background-color: transparent
+    border: 0
+    outline: 0
+    box-shadow: none
+    box-sizing: border-box
+    appearance: none
+
+
+  td.editor input[type=text]::-ms-clear
+    display: none
+
+
+  td.error,
+  tbody tr:nth-child(odd) td.error
+    background-color: rgba(255, 210, 77, 0.1)
+    outline: 1px solid #ffd24d
+
+
+  td.editor :focus,
+  th.editor :focus
+    outline: 0
+
+
+  .sort-caret
+    display: none
+
+
+  .boolean-cell
+  .boolean-cell.editor input[type=checkbox]
+    text-align: center
+
+
+  .select-cell
+    text-align: center
+
+
+  .select-cell.editor
+    padding: 0
+
+
+  .select-cell.editor select
+    display: block
+    width: 100%
+    height: 28px
+    padding: 4px 5px
+    margin: 0
+    line-height: 28px
+    vertical-align: middle
+    background-color: white
+    border: 0
+    outline: 0
+    box-shadow: none
+    box-sizing: border-box
+
+
+  .select-cell.editor select[multiple]
+    height: auto
+
+
+  .select-cell.editor :focus
+    border: 0
+    outline: 0
+
+
+  .select-cell.editor select::-moz-focus-inner
+  .select-cell.editor optgroup::-moz-focus-inner
+  .select-cell.editor option::-moz-focus-inner
+  .select-cell.editor select::-o-focus-inner
+  .select-cell.editor optgroup::-o-focus-inner
+  .select-cell.editor option::-o-focus-inner
+    border: 0
+
+
+  .button-cell
+    width: 1em
+    .btn-link
+      padding: 0
+      outline: none
+
+
+.gridPagination
+  display: block
+
+.backgrid-paginator
+  //

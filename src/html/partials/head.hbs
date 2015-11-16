@@ -1,0 +1,86 @@
+<meta charset="UTF-8">
+
+<!-- meta -->
+<title>
+  {{#if title}}
+    {{ title }} &middot; MosaiqoCMS
+  {{ else }}
+    MosaiqoCMS
+  {{/if}}
+</title>
+{{#if description }}
+<meta name="description" content="{{ description }}">
+{{/if}}
+{{#if keywords }}
+<meta name="keywords" content="{{ keywords }}">
+{{/if}}
+
+<!-- loading progress -->
+<script src="/assets/vendor/pace/pace.min.js"></script>
+<link rel="stylesheet" href="/assets/vendor/pace/themes/blue/pace-theme-minimal.css" />
+
+<!-- app styles -->
+<link rel="stylesheet" href="/assets/css/theme.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+
+<!-- viewport settings -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- mobile OS standalone settings -->
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="<!-- @echo appName -->" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<!-- favicons -->
+{{> favicons }}
+
+<!-- startup images -->
+<!-- iOS 6 & 7 iPad (retina, portrait) -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-1536x2008.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: portrait)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 & 7 iPad (retina, landscape) -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-1496x2048.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 iPad (portrait) -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-768x1004.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: portrait)
+         and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 iPad (landscape) -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-748x1024.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 & 7 iPhone 5 -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-640x1096.png"
+      media="(device-width: 320px) and (device-height: 568px)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 & 7 iPhone (retina) -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-640x920.png"
+      media="(device-width: 320px) and (device-height: 480px)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
+
+<!-- iOS 6 iPhone -->
+<link href="/assets/images/webapp-startup/apple-touch-startup-image-320x460.png"
+      media="(device-width: 320px) and (device-height: 480px)
+         and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image">
+
+<!-- Modernizr, must be included on the head -->
+<script src="/assets/js/vendor/modernizr-custom.js"></script>

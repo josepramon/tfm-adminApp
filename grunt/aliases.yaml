@@ -1,0 +1,144 @@
+# PRIMARY TASKS
+# =========================================
+default:
+  description: 'Default task, rebuilds everything'
+  tasks:
+    - env:production          # setup the environment to 'production'
+    - html                    # generate/optimize the static html files
+    - scripts                 # build the js files
+    - css                     # build the css files
+    - clean:locales           # cleanup the locales dir
+    - copy:locales            # copy the fresh locales
+    - images                  # optimize the images, generate sprites, etc
+    - appcache                # generate the appcache for offline awesomeness
+    - notify:buildComplete    # show a notification
+
+
+dev:
+  description: 'Dev task, rebuilds everything with the debug opt and watches the files for changes'
+  tasks:
+    - env:dev                 # setup the environment to 'development'
+    - clean:appcache          # remove the appcache manifest
+    - html_dev                # generate/optimize the static html files
+    - clean:locales           # cleanup the locales dir
+    - copy:locales            # copy the fresh locales
+    - concurrent:assetsDev    # scripts_debug + css_debug + images
+    #- karma:dev:start watch   # start karma test runner
+    - browserSync             # start s simple static file server and reload
+                              # the browsers when anything changes
+    - watch                   # monitor the files so when changed the appropiate actions
+                              # are executed (validation, transpiling, tests, etc)
+
+
+serve:
+  description: 'Start a simple http server to test the app (make sure it has been buld first)'
+  tasks:
+    - connect:server:keepalive
+
+
+
+# BUILD TASKS
+# =========================================
+html:
+  description: 'Builds the html views'
+  tasks:
+    - favicons               # Generate the favicons, icons for IOS and other mobile OSes
+    - assemble               # Generate the HTML files from handlebars templates and md files
+    - preprocess:site        # Process directives deffined inside the HTML files (conditional blocks, vars, etc)
+    - htmlmin                # HTML minimization
+
+
+html_dev:
+  description: 'Builds the html views and the "static" ones for CSS developing'
+  tasks:
+    - favicons               # Generate the favicons, icons for IOS and other mobile OSes
+    - assemble               # Generate the HTML files from handlebars templates and md files
+    - preprocess:site        # Process directives deffined inside the HTML files (conditional blocks, vars, etc)
+
+
+scripts:
+  description: 'Builds the scripts for production'
+  tasks:
+    - coffeelint               # Check the syntax and code style of th coffee files
+    - clean:scripts            # Cleanup the scripts directory (might be 'dirty' from a previous build)
+    - momentLocales            # Custom task to generate a include file with the appropiate Moment locales
+    - browserify:app
+    - browserify:lib
+    - shell:modernizr          # Create a customized Modernizr build with only the required modules
+
+
+scripts_debug:
+  description: 'Builds the scripts without concatenation or minification'
+  tasks:
+    - clean:scripts
+    - momentLocales
+    - browserify:dev_app
+    - browserify:dev_lib
+    - shell:modernizr
+
+
+css:
+  description: 'Builds the css for production'
+  tasks:
+    - clean:styles        # Cleanup the css directory (might be 'dirty' from a previous build)
+    - copy:fonts          # Copy all the webfonts to the fonts directory (the fonts from some bower packages are stored in some funny dirs)
+    - stylus:main         # Stylus to css transpiling for the app styles
+    - stylus:theme        # Stylus to css transpiling for the app theme
+
+
+css_debug:
+  description: 'Builds the css without minification'
+  tasks:
+    - clean:styles
+    - copy:fonts
+    - stylus:dev
+    - stylus:theme_dev
+
+
+images:
+  description: 'Image optimization'
+  tasks:
+    - newer:imagemin
+    - notify:images
+
+
+locales:
+  description: 'Generate/update the app locales from the src files'
+  tasks:
+    - shell:locales
+
+
+
+# AUX TASKS (docs, test, metrics, etc)
+# =========================================
+docs:
+  description: 'Generate the project documentation'
+  tasks:
+    - clean:docs
+    - shell:docs
+
+
+test:
+  description: 'Execute ALL the tests on PhantomJS'
+  tasks:
+    - newer:browserify:lib
+    - karma:all
+
+test:all:
+  description: 'Execute ALL the tests on ALL the browsers'
+  tasks:
+    - newer:browserify:lib
+    - karma:allBrowsers
+
+test:coverage:
+  description: 'Execute ALL the tests on PhantomJS and generate a coverage report'
+  tasks:
+    - newer:browserify:lib
+    - karma:coverage
+
+
+metrics:
+  description: 'Helps front-end developers to reach a good quality and good performances, based on phantomas and grunt-phantomas'
+  tasks:
+    - default
+    - devperf

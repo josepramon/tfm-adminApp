@@ -1,0 +1,332 @@
+/**
+ * # Mosaiqo frontend - content area - items menu
+ *
+ * Module items menu, contains a list of editable items and a toolbar
+ * with a search widget and other tools
+ */
+
+// Layout:
+// ---------------------------
+#moduleItems
+  flex: 1 0 auto
+  flex-grow: initial
+
+  // module items container
+  .itemsContainer
+    flex: 1 1 auto
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
+
+  // module items list
+  .itemsContainerInner
+    height: 1px // hack...
+
+#moduleItemsTools
+  flex: 0 1 auto
+
+// Work area
+#contentEditArea
+  flex: 1 1 auto
+  padding: 20px 0
+
+
+
+// Styles:
+// ---------------------------
+#moduleItemsToggler
+  position: absolute
+  right: -1px
+  top: 50%
+  padding: 3px
+  margin: 0
+  border: none
+  font-size: 12px
+  color: $appTheme['bgColorLight2']
+  background: $appTheme['mutedDark']
+  outline: none
+
+  &, .icon
+    display: inline-block !important
+
+  .icon:before
+    content: "\f053"
+
+  &:hover
+    background: $appTheme['bgColorHighlightDark']
+
+
+
+#moduleItems
+  position: relative
+  width: 220px
+  padding-top: 20px
+  margin-right: 20px
+  border-right: dashed 1px $appTheme['mutedDark']
+  font-size: 10px
+
+  // set a minimum height, useful on mobile devices in landscape mode
+  min-height: 400px
+
+  &.collapsed
+    width: 0
+
+    // toggler
+    #moduleItemsToggler
+      right: -15px
+
+      .icon:before
+        content: "\f054"
+
+   // module items container
+  .itemsContainer
+    padding-right: 20px
+
+  // module items list
+  .items
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+    // item
+    // ---------------------------
+    & > li
+      position: relative
+      padding: 22px 6px 26px
+      margin-bottom: -1px
+      border: solid 1px $appTheme['mutedDark']
+      overflow: hidden
+      background-color: $appTheme['bgColorLight2']
+      transition: background-color 500ms
+
+      &.active, &:hover
+        padding-left: 4px
+        border-left-width: 3px
+        .date-created
+          margin-left: -2px
+        .meta
+          border-left-width: 0
+
+      &:hover
+        border-left-color: $appTheme['logoBlue']
+
+      &.active
+        border-left-color: $appTheme['logoPink']  !important
+        background-color:  $appTheme['bgColorHighlightLight2'] !important
+
+      &.inactive
+        background-color: darken($appTheme['bgColorLight2'], 8%)
+
+      &.noData
+        background-color: transparent
+        border: none
+        color: $appTheme['mutedLight']
+
+    // item title
+    h3
+      margin: 0
+      font-size: 14px
+
+    h3 + .excerpt
+      margin-top:  4px
+      padding-top: 4px
+      border-top: solid 1px darken($appTheme['bgColorLight'], 10%)
+
+    // item excerpt
+    .excerpt
+      margin-bottom: 0
+
+    // item dates
+    .date-created
+      position: absolute
+      top:  5px
+      left: 3px
+      font-size: 9px
+      color: #999
+
+      i
+        margin-right: 1px
+
+
+  // item metadata
+  // ---------------------------
+  // author, comments count, etc
+  .meta
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    border-left: solid 2px $appTheme['bgColorDark2']
+    background-color: $appTheme['bgColorDark2']
+
+    ul
+      display: table
+      width: 100%
+      padding: 0
+
+    &, a
+      color: $appTheme['textColorDark']
+
+    li
+      display: table-cell
+      padding: 1px 4px
+
+  .meta-comments
+    text-align: right
+
+
+
+
+// item inner toolbar
+// ---------------------------
+// with buttons to edit the item, delete it, or whatever
+#moduleItems .toolbar
+  position: absolute
+  top: -40px
+  right: 0
+  margin: 0
+  padding: 0 2px
+  font-size: 12px
+  background-color: lighten($appTheme['bgColorLight'], 40%)
+  border-left: solid 1px $appTheme['mutedDark']
+  border-bottom: solid 1px $appTheme['mutedDark']
+  transition: top 500ms
+
+  li, button
+    display: inline-block
+
+  button
+    padding: 2px
+    border: none
+    color: $appTheme['textColorLight']
+    background: transparent
+    outline: none
+
+    span // text
+      accessibleHiddenInline()
+
+
+#moduleItems .items>li
+  &.active, &:hover
+    .toolbar
+      top: 0
+
+
+// Toolbar device optimizations
+.csstransforms3d
+
+  #moduleItems .toolbar
+    top: 0
+    transform: translate3d(0, -40px, 0)
+    transition: transform 500ms
+
+  #moduleItems .items>li
+    &.active, &:hover
+      .toolbar
+        transform: translate3d(0, 0, 0)
+
+
+// On touch devices, the clickable areas should be large enough
+// The 'touch' class is added by Modernizr when appropiate
+.touch
+  #moduleItems .toolbar
+    font-size: 20px !important
+
+    button
+      padding: 5px !important
+
+
+
+// Module items tools (search, new, etc)
+// ---------------------------------------------
+#moduleItemsTools
+  overflow: auto
+  margin: 0 20px 10px 0
+
+  button
+    outline: none
+
+  .searchInfo
+    overflow: auto
+    width: 14em
+    padding: 3px 5px
+    margin: 5px auto 0
+    border: solid 1px $appTheme['mutedDark']
+    border-radius: 3px
+
+    font-size: 11px
+    font-style: italic
+    line-height: 21px
+
+    color: $appTheme['mutedLight']
+    background-color: lighten($appTheme['bgColorLight'], 40%)
+
+    .icon
+      margin-right: 5px
+      color: $appTheme['mutedDark']
+
+#moduleItemsCreate
+  float: right
+  margin-top: 5px
+
+
+// Loading animation
+// for lists with infinite scrolling
+// ---------------------------------------------
+.itemsContainer
+  .loadingAnimation
+    // widget style deffined on misc/loaders.styl
+    // just override some styles
+    padding: 10px
+    text-align: center
+    font-size: 12px
+    color: $appTheme['mutedDark']
+    opacity: 0
+
+  &.loading .loadingAnimation
+    opacity: 1
+
+
+
+// Media queries
+// ---------------------------------------------
+@media screen and (min-width: 600px)
+  #moduleItems.collapsed *
+    display: none
+
+@media screen and (max-width: 600px)
+  #moduleItemsToggler
+    // font-size: 11px
+    // padding: 20px 5px
+    display: none !important
+
+  #moduleItems
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 121
+    width: 100% !important
+    height: 100%
+    padding: 20px
+    border-right-style: solid
+    background: $appTheme['bgColorLight']
+
+
+    // mobile browsers optimizations
+    // offload the animation to the GPU
+    html.csstransforms3d &
+      transform: translate3d(0, 0, 0)
+      transition: transform 600ms
+
+      &.collapsed
+        transform: translate3d(-100%, 0, 0)
+
+    html.no-csstransforms3d &
+      transition: left 400ms
+
+      &.collapsed
+        left: -100%
+
+
+    &.collapsed #moduleItemsToggler
+        right: -20px

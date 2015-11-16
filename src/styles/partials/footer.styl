@@ -1,0 +1,54 @@
+/**
+ * # Mosaiqo frontend - footer
+ */
+
+#globalFooter
+  height: 40px
+  padding: 10px 20px
+  overflow: auto
+  color: $appTheme['textColorDark']
+
+
+  small, a
+    font-size: 10px
+    line-height: 20px
+
+  // copyright
+  small
+    display: inline-block
+    float: left
+
+  ul
+    float: right
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    padding: 0 10px
+    border-right: solid 1px $appTheme['textColorDark']
+    color: $appTheme['textColorDark']
+
+  li:last-child a
+    border-right: none
+
+
+.authenticated #globalFooter
+  background-color: darken($appTheme['bgColorDark'], 20%)
+
+
+@media screen and (max-width: 400px)
+  #globalFooter
+    height: 60px
+
+    ul
+      float: left
+
+    li:first-child a
+      padding-left: 0
+
+    a
+      padding: 0 5px

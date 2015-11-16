@@ -1,0 +1,44 @@
+/**
+ * # Mosaiqo frontend - app styles
+ */
+
+// ## Frameworks and libraries
+$bowerLibsPath = '../../dist/assets/vendor'
+
+// kouto-swiss stylus framework
+@require 'kouto-swiss'
+
+// disable the prefixer (we're using autoprefixr)
+ks-vendors-prefixes = false
+
+
+// animations
+//@require $bowerLibsPath+'/animate-stylus/static_effects/openUpRight'
+
+
+
+// ## General configuration
+@require 'config'
+
+// ## Mixins
+@require 'mixins'
+
+
+// ## General stuff
+@require 'misc/utilityClasses'
+@require 'misc/loaders'
+@require 'misc/selectize'
+@require 'widgets'
+
+
+// ## Partials
+@require 'partials/global'
+@require 'partials/header'
+@require 'partials/footer'
+@require 'partials/nav'
+@require 'partials/content'
+@require 'partials/moduleItems'
+
+
+// ## Module specific styles
+@require 'appModules/*'

@@ -1,0 +1,23 @@
+{{#if items}}
+
+  <div class="grid panel"></div>
+
+  <nav class="gridPagination text-right"></nav>
+
+{{else}}
+
+  <div class="blankslate large-format">
+    <i class="icon icon-folder"></i>
+    <h3>{{t "kb:::sections::Categories"}}</h3>
+    <p>{{t "kb:::There are no available categories"}}</p>
+  </div>
+
+{{/if}}
+
+<footer class="form-group form-actions">
+  <div class="pull-right">
+    <button type="button" class="btn btn-primary newCategory">
+      {{t "kb:::New category"}}
+    </button>
+  </div>
+</footer>

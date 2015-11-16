@@ -1,0 +1,29 @@
+# 3rd party stuff managed by package managers like npm or bower
+dist/assets/vendor
+dist/assets/editor
+node_modules
+
+# generated stuff
+dist/assets/js
+dist/assets/jsBuild
+dist/assets/css
+dist/assets/images
+dist/assets/fonts
+dist/assets/icons
+dist/assets/locales
+dist/**/*.html
+dist/**/*.appcache
+docs/dist
+src/html/partials/favicons.hbs
+src/app/lib-momentLocales.coffee
+devperf
+coverage
+
+# IDE files
+*.sublime-project
+*.sublime-workspace
+
+# other
+TODO.md
+env.json
+src/app/locales/**/*_old.json

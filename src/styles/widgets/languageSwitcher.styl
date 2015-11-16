@@ -1,0 +1,55 @@
+#languageSwitcherContainer
+  position: relative
+  width: 150px
+
+  &:empty
+    width: 0
+
+  .selectize-control
+    position: absolute
+    top:  -6px
+    right: 0
+    width: 120px
+
+  .selectize-input
+    color: $appTheme['mutedDark']
+    background-color: transparent
+    border-color: $appTheme['mutedLight']
+    font-size: 12px
+
+    &:after
+      border-color: $appTheme['mutedLight'] transparent transparent transparent
+
+  .selectize-control.single .selectize-input.dropdown-active:after
+    border-color: transparent transparent $appTheme['mutedLight'] transparent
+
+#languageSwitcher
+  width: 120px
+
+
+// Media queries
+// ---------------------------------------------
+@media screen and (max-width: 600px)
+  #languageSwitcherContainer
+    width: auto
+    margin-right: 10px
+    cursor: pointer
+
+    .selectize-input
+      display: none
+
+
+    .selectize-dropdown
+      width: 90% !important
+      top:  20px !important
+      left: 20px !important
+      position: fixed
+      text-align: center
+      box-shadow: 10px 10px 10px rgba(0,0,0,.2), -10px 10px 10px rgba(0,0,0,.2)
+
+      .option
+        padding: 8px 12px
+        border-bottom: solid 1px #ddd
+
+        &:last-child
+          border-bottom: none

@@ -1,0 +1,10 @@
+{{#if username}}
+  <a href="#user/account">
+    {{#if profile}}
+      {{#if profile.avatar}}
+    <img src="{{ profile.avatar }}" alt="">
+      {{/if}}
+    {{/if}}
+    <em>{{ username }}</em>
+  </a>
+{{/if}}

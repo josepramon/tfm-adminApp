@@ -1,0 +1,87 @@
+{{#if title}}
+  <h3 title="{{ title }}">
+    {{ truncate title 40 '...' }}
+  </h3>
+{{/if}}
+
+{{#if excerpt}}
+  <p class="excerpt">
+    {{ chain 'stripHTML' 'truncate' excerpt 110 '...' }}
+  </p>
+{{/if}}
+
+
+{{#if updated_at}}
+  <time class="date date-created" title="{{t "Updated at "}} {{formatDate updated_at "%d/%m/%Y %I:%M%p"}}">
+    <i class="icon icon-pencil"></i>
+    {{formatDate updated_at "%d/%m/%Y"}}
+  </time>
+{{else}}
+  {{#if created_at}}
+    <time class="date date-created" title="{{t "Created at "}} {{formatDate created_at "%d/%m/%Y %I:%M%p"}}">
+      <i class="icon icon-pencil"></i>
+      {{formatDate created_at "%d/%m/%Y"}}
+    </time>
+  {{/if}}
+{{/if}}
+
+<div class="meta">
+  <ul>
+
+    {{#is publishStatus 'published'}}
+      <li>
+        <time class="date date-published" title="{{t "Published at "}} {{formatDate publish_date "%d/%m/%Y %I:%M%p"}}">
+          <i class="icon icon-check-square"></i>
+          {{formatDate publish_date "%d/%m/%Y"}}
+        </time>
+      </li>
+    {{/is}}
+
+
+    {{#is publishStatus 'scheduled'}}
+      <li>
+        <time class="date date-published" title="{{t "Will be published on "}} {{formatDate publish_date "%d/%m/%Y %I:%M%p"}}">
+          <i class="icon icon-clock-o"></i>
+          {{formatDate publish_date "%d/%m/%Y"}}
+        </time>
+      </li>
+    {{/is}}
+
+  </ul>
+</div>
+
+
+<ul class="toolbar">
+  <li>
+    <button>
+      <i class="itemEdit icon icon-edit" title="{{t "Edit"}}"></i>
+      <span>{{t "Edit"}}</span>
+    </button>
+  </li>
+  <li>
+    <button>
+      {{#is publishStatus 'unpublished'}}
+        <i class="itemActive icon icon-toggle-off" title="{{t "Publish"}}"></i>
+        <span>{{t "Publish"}}</span>
+      {{/is}}
+
+
+      {{#is publishStatus 'published'}}
+        <i class="itemActive icon icon-toggle-on" title="{{t "Unpublish"}}"></i>
+        <span>{{t "Unpublish"}}</span>
+      {{/is}}
+
+
+      {{#is publishStatus 'scheduled'}}
+        <i class="itemEdit icon icon-clock-o" title="{{t "Edit publish schedule"}}"></i>
+        <span>{{t "Edit publish schedule"}}</span>
+      {{/is}}
+    </button>
+  </li>
+  <li>
+    <button>
+      <i class="itemDelete icon icon-times" title="{{t "Delete"}}"></i>
+      <span>{{t "Delete"}}</span>
+    </button>
+  </li>
+</ul>

@@ -1,0 +1,8 @@
+<a href="{{url}}" {{#if className}}class="{{className}}"{{/if}}>
+  {{#if icon}}
+    <i class="icon icon-{{icon}}" data-toggle="tooltip" data-placement="bottom" title="{{label}}"></i>
+    <span>{{label}}</span>
+  {{else}}
+    {{label}}
+  {{/if}}
+</a>
