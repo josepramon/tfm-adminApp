@@ -4,7 +4,7 @@ enquire    = require 'enquire.js'
 LayoutView = require 'msq-appbase/lib/appBaseComponents/views/LayoutView'
 
 # Other
-mobileLayoutWidth = require('config/App').mobileLayoutWidth
+mobileLayoutWidth = require('config/app').mobileLayoutWidth
 
 
 ###
