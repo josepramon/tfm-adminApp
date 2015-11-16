@@ -1,5 +1,7 @@
 {
   "Accounts not activated 12 hours after its creation will be automatically removed.": "Els comptes no activats en les 12 hores següents a la seva creació seran automàticament eliminats.",
+  "Agent successfully created": "L'agent s'ha creat correctament",
+  "Agent successfully updated": "L'agent s'ha actualitzat correctament",
   "ManagerModel": {
     "email": "Email",
     "password": "Contrassenya",

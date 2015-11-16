@@ -34,6 +34,7 @@
     "name": "Name",
     "slug": "Slug"
   },
+  "There are no available articles": "There are no available articles",
   "There are no available categories": "There are no available categories",
   "There are no available tags": "There are no available tags",
   "article": {

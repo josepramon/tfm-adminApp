@@ -34,6 +34,7 @@
     "name": "Nom",
     "slug": "Slug"
   },
+  "There are no available articles": "No hi ha articles disponibles",
   "There are no available categories": "No hi ha categories disponibles",
   "There are no available tags": "No hi ha etiquetes disponibles",
   "article": {
