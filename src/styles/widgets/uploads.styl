@@ -1,0 +1,62 @@
+// overrides and custom styles for Dropzone
+
+.dropzone
+  background-color: #f5f5f5
+  border: 1px solid #e4e4e4
+  border-radius: 3px
+  box-shadow: inset 0 0 10px rgba(0,0,0,.05)
+
+  .clickable .dz-details
+    cursor: pointer
+
+  .dz-message span:before
+    display: block
+    padding-bottom: 8px
+    content: '\f0ee'
+    font: normal normal normal 2.3em FontAwesome
+
+  .dz-preview
+    &.dz-image-preview
+      background-color: transparent
+
+    .dz-image
+      border-radius: 8px !important
+      box-shadow: rgba(0,0,0,.15) 2px 2px 2px
+
+      img
+        position: relative
+        z-index: 1
+        object-fit: cover
+        width: 100%
+        height: 100%
+
+        &:not([src])
+          display: none
+
+      &:after
+        display: inline-block
+        width: 100%
+        text-align: center
+        font: normal normal normal 40px/120px FontAwesome
+        content: '\f016' !important
+        color: #bbb
+
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 0
+
+    .dz-remove
+      position: absolute
+      top:    -9px
+      right: -13px
+      z-index: 10
+      width:  20px
+      height: 20px
+      overflow: hidden
+      color: transparent
+
+      &:before
+        content: '\f057'
+        font: normal normal normal 20px/20px FontAwesome
+        color: #888
