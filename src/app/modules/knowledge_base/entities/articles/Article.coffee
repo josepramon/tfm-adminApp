@@ -78,6 +78,11 @@ module.exports = class Article extends Model
     ###
     body: ''
 
+    ###
+    @property {Array} Attached files
+    ###
+    attachments: []
+
 
   ###
   @property {Array} Nested entities
@@ -112,7 +117,7 @@ module.exports = class Article extends Model
                                               }
   @static
   ###
-  @expandedRelations: ['tags', 'category']
+  @expandedRelations: ['tags', 'category', 'attachments.upload']
 
 
   ###
@@ -226,3 +231,6 @@ module.exports = class Article extends Model
     published     : -> i18n.t 'kb:::ArticleModel::published'
     publishDate   : -> i18n.t 'kb:::ArticleModel::publishDate'
     publishStatus : -> i18n.t 'kb:::ArticleModel::publishStatus'
+    attachments   : -> i18n.t 'kb:::ArticleModel::attachments'
+
+    # name, description, upload
