@@ -25,7 +25,6 @@
   "Unpublish": "Unpublish",
   "Update": "Actualizar",
   "Updated at ": "Updated at ",
-  "Upload new picture": "Subir una nueva imagen",
   "UserModel": {
     "email": "Email",
     "oldPassword": "Contraseña anterior",
@@ -37,17 +36,22 @@
     "username": "Nombre de usuario"
   },
   "UserProfileModel": {
-    "avatar": "Imagen de perfil",
+    "avatar": "Imagen del perfil",
     "company": "Empresa",
     "location": "Ubicación",
     "name": "Nombre",
     "phone": "Teléfono",
+    "profileImage": "Imagen del perfil",
     "surname": "Apellidos",
     "url": "URL"
   },
   "Validation error": "Error de validación",
   "Will be published on ": "Will be published on ",
   "You are not allowed to access to this section.": "No tienes privilegios para acceder a esta sección.",
+  "attachments": {
+    "Description": "Descripción",
+    "Title": "Título"
+  },
   "footer": {
     "About": "Sobre nosotros",
     "Contact Us": "Contacto",
@@ -82,8 +86,25 @@
     "Previous": "Anterior"
   },
   "password": "Contraseña",
+  "profile": {
+    "Click on the image or drag over a new image to upload a new profile picture": "Pincha en la imagen o arrastra encima una nueva imagen para el perfil"
+  },
   "sections": {
     "Managers": "Agentes"
+  },
+  "uploader": {
+    "Are you sure you want to cancel this upload?": "¿Estás seguro que quieres cancelar la subida de archivos?",
+    "Are you sure you want to delete this?": "¿Estás seguro que quieres eliminar esto?",
+    "Cancel upload": "Cancelar subida de archivos",
+    "Click or drop files here to upload": "Pincha o arrastra archivos aquí para subirlos",
+    "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.": "El archivo es demasiado pesado ({{filesize}}MiB). Peso máximo: {{maxFilesize}}MiB.",
+    "Only {{maxFiles}} files can be uploaded here.": "Solo {{maxFiles}} archivos se pueden subir aquí.",
+    "Please use the fallback form below to upload your files like in the olden days.": "Funcionalidad no soportada por tu navegador. Utiliza el formulario de debajo para subir los archivos.",
+    "Remove file": "Eliminar archivo",
+    "Server responded with {{statusCode}} code.": "El servidor ha respuesto con un código {{statusCode}}",
+    "There's already a file selected. Do you want to replace it?": "Ya existe un archivo seleccionado. ¿Lo quieres sustituir?",
+    "You can't upload files of this type.": "Tipo de archivo no admitido",
+    "Your browser does not support drag'n'drop file uploads.": "Tu navegador no soporta subidas arrastrando archivos"
   },
   "user": {
     "Account": "Cuenta",
