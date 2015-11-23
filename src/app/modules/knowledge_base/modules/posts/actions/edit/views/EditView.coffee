@@ -126,16 +126,15 @@ module.exports = class PostEditView extends ItemView
       addRemoveLinks: true
       clickedfile: _this.handleUploadClick
 
-      # override the serializarion methods
+      # override the serialitarion methods
       serialize:   _this.serializeUpload
       deserialize: _this.deserializeUpload
 
     # preexisting attachments
-    attachments = @model.get('attachments') or []
+    attachments = @model.get('attachments')?.toJSON() or []
 
     # instantiate the uploader
     uploader = @appChannel.request 'uploader:component', @$('#attachments'), opts, attachments
-    window.uploader = uploader
 
 
   ###
@@ -145,10 +144,12 @@ module.exports = class PostEditView extends ItemView
   ###
   handleUploadClick: (file) =>
     form = $(@modalTmpl(file))
+    form.on 'submit', -> false
+
     @appChannel.request 'dialogs:confirm', form, (result) ->
       if result
         data = form.serializeArray()
-        data.forEach (param) -> file.set param.key, param.value
+        data.forEach (param) -> file.set param.name, param.value
 
 
   ###
