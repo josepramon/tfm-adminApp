@@ -9,6 +9,10 @@
   .clickable .dz-details
     cursor: pointer
 
+  .dz-preview:hover .dz-image .dz-image-inner
+    transform: scale(1.05, 1.05) // Getting rid of that white bleed-in
+    filter: blur(8px)            // Getting rid of that white bleed-in
+
   .dz-message span:before
     display: block
     padding-bottom: 8px
@@ -23,15 +27,14 @@
       border-radius: 8px !important
       box-shadow: rgba(0,0,0,.15) 2px 2px 2px
 
-      img
-        position: relative
-        z-index: 1
-        object-fit: cover
+      .dz-image-inner
         width: 100%
         height: 100%
-
-        &:not([src])
-          display: none
+        position: relative
+        z-index: 1
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: cover
 
       &:after
         display: inline-block
@@ -45,6 +48,23 @@
         left: 0
         top: 0
         z-index: 0
+
+    .dz-size, .dz-filename
+      margin-bottom: .7em !important
+
+    .dz-preview-link a
+      color: #222
+      font-size: 24px
+      cursor: pointer
+
+      &:hover
+        color: #30b5e5
+
+      &:before
+        content: none
+
+    .dz-filename:hover span
+      background-color: rgba(255,255,255,0.4)
 
     .dz-remove
       position: absolute

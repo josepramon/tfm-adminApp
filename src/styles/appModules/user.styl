@@ -8,11 +8,9 @@
   background: rgba(0,0,0,.8) url(../images/logos/logo300x91.png) no-repeat center 40px
   box-shadow: 0 0 15px rgba(255,255,255,.1)
 
-
   .form-group
     width: 90%
     margin: 0 auto 15px
-
 
   label
     color: $appTheme['textColorDark']
@@ -22,9 +20,72 @@
     color: red
 
 
-
 @media screen and (max-width: 400px)
   .login
     width: 100%
     border: none
     box-shadow: none
+
+
+.profileImageContainer
+  overflow: auto
+
+  .uploader
+    width:      120px
+    height:     120px
+    min-height: 120px
+    padding: 0
+    background-repeat: no-repeat
+    background-size: cover
+    margin: 10px 20px 10px 0
+    box-shadow: 0 1px 2px rgba(0,0,0,.3)
+
+    &, .dz-preview, .dz-image
+      border-radius: 5px !important
+
+  .dz-preview
+    margin: 0
+    box-shadow: none
+
+  .dz-message
+    display: none
+
+  .uploader, #profileImageHelp
+    float: left
+
+  .help-block
+    clear: both
+
+
+#profileImageHelp
+  width: 250px
+  margin: 10px 0
+  color: $appTheme['mutedDark']
+  font-size: small
+
+  &, p
+    height: 120px
+
+  &
+    display: table
+  p
+    display: table-cell
+    margin: 0
+    vertical-align: middle
+    text-align: center
+
+
+@media screen and (max-width: 480px)
+  .profileImageContainer
+    margin-top: 10px
+
+    .uploader, #profileImageHelp
+      float: none
+      margin: auto
+
+    #profileImageHelp
+      width: auto
+      margin: 10px 0
+
+      &, p
+        height: auto
