@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "pace": "~1.0.2",
-    "summernote-adapter": "~0.0.9",
+    "summernote-adapter": "~0.0.10",
     "jqcloud2": "~2.0.1"
   },
   "devDependencies": {
