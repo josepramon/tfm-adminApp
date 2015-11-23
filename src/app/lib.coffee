@@ -26,7 +26,7 @@ window.$ = window.jQuery = require 'jquery'
 
 
 
-# Backbone, Mationette and related libs
+# Backbone, Marionette and related libs
 # -----------------------------------------------
 Backbone           = require 'backbone'
 Backbone.$         = $ # attach jQuery to Backbone
@@ -50,6 +50,8 @@ BackgridMomentCell = require 'backgrid-moment-cell'
 Enquire            = require 'enquire.js'
 Bootstrap          = require 'bootstrap'
 toastr             = require 'toastr'
+dropzone           = require 'dropzone'
+bootbox            = require 'bootbox'
 
 
 

@@ -35,6 +35,8 @@ taskOpts =
       'moment'
       'i18next-client'
       'toastr'
+      'dropzone'
+      'bootbox'
     ]
 
   lib:
@@ -59,6 +61,8 @@ taskOpts =
       'moment:'
       'i18next-client:'
       'toastr:'
+      'dropzone:'
+      'bootbox:'
     ]
 
 

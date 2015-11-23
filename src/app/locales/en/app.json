@@ -25,7 +25,6 @@
   "Unpublish": "Unpublish",
   "Update": "Update",
   "Updated at ": "Updated at ",
-  "Upload new picture": "Upload new picture",
   "UserModel": {
     "email": "Email",
     "oldPassword": "Old password",
@@ -42,12 +41,17 @@
     "location": "Location",
     "name": "Name",
     "phone": "Phone",
+    "profileImage": "Profile image",
     "surname": "Surname",
     "url": "URL"
   },
   "Validation error": "Validation error",
   "Will be published on ": "Will be published on ",
   "You are not allowed to access to this section.": "You are not allowed to access to this section.",
+  "attachments": {
+    "Description": "Description",
+    "Title": "Title"
+  },
   "footer": {
     "About": "About",
     "Contact Us": "Contact Us",
@@ -82,8 +86,25 @@
     "Previous": "Previous"
   },
   "password": "Password",
+  "profile": {
+    "Click on the image or drag over a new image to upload a new profile picture": "Click on the image or drag over a new image to upload a new profile picture"
+  },
   "sections": {
     "Managers": "Managers"
+  },
+  "uploader": {
+    "Are you sure you want to cancel this upload?": "Are you sure you want to cancel this upload?",
+    "Are you sure you want to delete this?": "Are you sure you want to delete this?",
+    "Cancel upload": "Cancel upload",
+    "Click or drop files here to upload": "Click or drop files here to upload",
+    "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.": "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+    "Only {{maxFiles}} files can be uploaded here.": "Only {{maxFiles}} files can be uploaded here.",
+    "Please use the fallback form below to upload your files like in the olden days.": "Please use the fallback form below to upload your files like in the olden days.",
+    "Remove file": "Remove file",
+    "Server responded with {{statusCode}} code.": "Server responded with {{statusCode}} code.",
+    "There's already a file selected. Do you want to replace it?": "There's already a file selected. Do you want to replace it?",
+    "You can't upload files of this type.": "You can't upload files of this type.",
+    "Your browser does not support drag'n'drop file uploads.": "Your browser does not support drag'n'drop file uploads."
   },
   "user": {
     "Account": "Account",

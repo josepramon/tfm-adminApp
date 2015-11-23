@@ -4,6 +4,7 @@
   "Article successfully updated": "Article successfully updated",
   "ArticleModel": {
     "A date must be provided when scheduling the article publication": "A date must be provided when scheduling the article publication",
+    "attachments": "Attachments",
     "body": "Body",
     "excerpt": "Excerpt",
     "publishDate": "Publish date",
@@ -43,13 +44,15 @@
     "Category": "Category",
     "Category and tags": "Category and tags",
     "Excerpt": "Excerpt",
+    "File attachments": "Attachments",
     "Not published": "Not published",
     "Publish status": "Publish status",
     "Published": "Published",
     "Scheduled publishing": "Scheduled publishing",
     "Slug": "Slug",
     "Tags": "Tags",
-    "Title": "Title"
+    "Title": "Title",
+    "attachments": "Attachments"
   },
   "by category": "by category",
   "by tag": "by tag",

@@ -105,12 +105,42 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <i class="icon icon-cog"></i> {{t "kb:::article::Advanced options"}}
+          <i class="icon icon-cloud-download"></i> {{t "kb:::article::File attachments"}}
         </a>
       </h4>
     </div>
 
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+
+        <div class="form-group">
+          <label for="attachments" class="control-label">
+            {{t "kb:::article::attachments"}}
+          </label>
+          <div>
+
+            <input type="text" class="form-control" id="attachments" name="attachments" placeholder="{{t "kb:::article::attachments"}}" data-max-files="10" data-accepted-files="" />
+
+            <span class="help-block hidden"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="panel">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <i class="icon icon-cog"></i> {{t "kb:::article::Advanced options"}}
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
 
         {{#if slug}} {{!-- the slug is created serverside, and then the user can edit it --}}

@@ -4,6 +4,7 @@
   "Article successfully updated": "L'article s'ha actualitzat correctament",
   "ArticleModel": {
     "A date must be provided when scheduling the article publication": "És obligatori seleccionar una data per a la publicació programada",
+    "attachments": "Arxius adjunts",
     "body": "Article",
     "excerpt": "Extracte",
     "publishDate": "Data publicació",
@@ -43,13 +44,15 @@
     "Category": "Categoria",
     "Category and tags": "Categoria i etiquetes",
     "Excerpt": "Extracte",
+    "File attachments": "Arxius adjunts",
     "Not published": "No publicat",
     "Publish status": "Estat de la publicació",
     "Published": "Publicat",
     "Scheduled publishing": "Publicació programada",
     "Slug": "Slug",
     "Tags": "Etiquetes",
-    "Title": "Títol"
+    "Title": "Títol",
+    "attachments": "Arxius adjunts"
   },
   "by category": "per categoria",
   "by tag": "per etiqueta",

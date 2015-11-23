@@ -5,14 +5,16 @@
   <label for="avatar" class="control-label">
     {{t "UserProfileModel::avatar"}}
   </label>
-  <div class="form-image-field">
-    {{#if avatar}}
-      <img src="{{avatar}}" alt="" />
-    {{/if}}
-    <button type="button" id="avatarBtn" class="btn btn-sm" disabled>
-      {{t "Upload new picture"}}
-    </button>
+  <div class="profileImageContainer">
+
     <input type="hidden" class="form-control" id="avatar" name="profile.avatar" value="{{avatar}}">
+
+    <input type="text" class="form-control" id="profileImage" name="profile.image" placeholder="{{t "UserProfileModel::profileImage"}}" data-max-files="1" {{#if avatar}}data-avatar="{{avatar}}"{{/if}} />
+
+    <div id="profileImageHelp">
+      <p>{{t "profile::Click on the image or drag over a new image to upload a new profile picture"}}</p>
+    </div>
+
     <span class="help-block hidden"></span>
   </div>
 </div>

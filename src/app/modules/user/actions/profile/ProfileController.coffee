@@ -35,6 +35,19 @@ module.exports = class ProfileController extends ViewController
     # wrap it into a form component
     formView = @wrapViewWithForm view, model
 
+    # The entire upload model is returned, stringified
+    # Convert it back to an object before processing it
+    @listenTo formView, 'form:submit', (data) ->
+      if data.profile?.image
+        newVal = null
+        try
+          newVal = JSON.parse data.profile.image
+        catch e
+          console.log 'Bad image value'
+        data.profile.image = newVal
+        data
+
+
     # render
     @show formView, region: layout.getRegion 'main'
 
@@ -78,11 +91,9 @@ module.exports = class ProfileController extends ViewController
 
   @param {View}       view
   @param {Model}      model
-  @param {Collection} collection
   ###
-  wrapViewWithForm: (view, model, collection) ->
+  wrapViewWithForm: (view, model) ->
     @appChannel.request 'form:component', view,
-      collection:       collection
       onFormCancel:  => @formActionDone()
       onFormSuccess: => @formActionDone(true)
 

@@ -1,9 +1,13 @@
 {{#if username}}
   <a href="#user/account">
     {{#if profile}}
-      {{#if profile.avatar}}
-    <img src="{{ profile.avatar }}" alt="">
-      {{/if}}
+      {{#with profile}}
+        {{#and image image.url}}
+          <div class="img" style="background-image:url({{ image.url }})"></div>
+        {{else}}
+          <div class="img" style="background-image:url({{ avatar }})"></div>
+        {{/and}}
+      {{/with}}
     {{/if}}
     <em>{{ username }}</em>
   </a>

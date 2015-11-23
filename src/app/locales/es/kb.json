@@ -4,6 +4,7 @@
   "Article successfully updated": "El artículo ha sido actualizado correctamente",
   "ArticleModel": {
     "A date must be provided when scheduling the article publication": "Es obligatorio seleccionar una fecha para la publicación programada",
+    "attachments": "Archivos adjuntos",
     "body": "Artículo",
     "excerpt": "Extracto",
     "publishDate": "Fecha publicación",
@@ -43,13 +44,15 @@
     "Category": "Categoría",
     "Category and tags": "Categoría y etiquetas",
     "Excerpt": "Extracto",
+    "File attachments": "Archivos adjuntos",
     "Not published": "No publicado",
     "Publish status": "Estado de la publicación",
     "Published": "Publicado",
     "Scheduled publishing": "Publicación programada",
     "Slug": "Slug",
     "Tags": "Etíquetas",
-    "Title": "Título"
+    "Title": "Título",
+    "attachments": "Archivos adjuntos"
   },
   "by category": "por categoría",
   "by tag": "por etiqueta",

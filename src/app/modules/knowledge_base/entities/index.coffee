@@ -8,14 +8,17 @@ channel = require 'msq-appbase/lib/utilities/appChannel'
 ModuleEntities = require 'msq-appbase/lib/appBaseComponents/modules/ModuleEntities'
 
 # Entities
-Article              = require './articles/Article'
-ArticlesCollection   = require './articles/ArticlesCollection'
+Article               = require './articles/Article'
+ArticlesCollection    = require './articles/ArticlesCollection'
 
-Tag                  = require './tags/Tag'
-TagsCollection       = require './tags/TagsCollection'
+Tag                   = require './tags/Tag'
+TagsCollection        = require './tags/TagsCollection'
 
-Category             = require './categories/Category'
-CategoriesCollection = require './categories/CategoriesCollection'
+Category              = require './categories/Category'
+CategoriesCollection  = require './categories/CategoriesCollection'
+
+Attachment            = require './uploads/Attachment'
+AttachmentsCollection = require './uploads/AttachmentsCollection'
 
 
 ###
@@ -55,6 +58,9 @@ module.exports = class KBEntities extends ModuleEntities
 
     'Category'                  : Category
     'CategoriesCollection'      : CategoriesCollection
+
+    'Attachment'                : Attachment
+    'AttachmentsCollection'     : AttachmentsCollection
 
 
 

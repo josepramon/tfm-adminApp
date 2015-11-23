@@ -91,6 +91,7 @@ module.exports = class PostEditView extends ItemView
   ###
   onRender: ->
     @togglePublishDateFields()
+    @setupUploader()
 
 
   ###
@@ -103,3 +104,70 @@ module.exports = class PostEditView extends ItemView
       @ui.publishDateFields.removeAttr 'disabled'
     else
       @ui.publishDateFields.attr 'disabled', 'disabled'
+
+
+
+  # Uploader related methods
+
+  ###
+  Template used in the attachment editing modal
+  ###
+  modalTmpl: require './templates/modal.hbs'
+
+
+  ###
+  Attachments uploader initialization
+  ###
+  setupUploader: ->
+    _this = @
+
+    # uploader settings
+    opts =
+      addRemoveLinks: true
+      clickedfile: _this.handleUploadClick
+
+      # override the serialitarion methods
+      serialize:   _this.serializeUpload
+      deserialize: _this.deserializeUpload
+
+    # preexisting attachments
+    attachments = @model.get('attachments')?.toJSON() or []
+
+    # instantiate the uploader
+    uploader = @appChannel.request 'uploader:component', @$('#attachments'), opts, attachments
+
+
+  ###
+  Click handler for the files
+
+  Opens a modal with a form to set th attachment metadata
+  ###
+  handleUploadClick: (file) =>
+    form = $(@modalTmpl(file))
+    form.on 'submit', -> false
+
+    @appChannel.request 'dialogs:confirm', form, (result) ->
+      if result
+        data = form.serializeArray()
+        data.forEach (param) -> file.set param.name, param.value
+
+
+  ###
+  Uploader component serialize method override
+  ###
+  serializeUpload: (file) ->
+    ret =
+      name:        file.name
+      description: file.description
+      upload:      file.uploadModel?.toJSON()
+
+
+  ###
+  Uploader component deserialize method override
+  ###
+  deserializeUpload: (obj) ->
+    name:   obj.name
+    size:   obj.upload?.size,
+    type:   obj.upload?.contentType
+    url:    obj.upload?.url
+    upload: obj.upload
