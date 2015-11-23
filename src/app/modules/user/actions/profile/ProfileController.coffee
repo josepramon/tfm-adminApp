@@ -38,14 +38,15 @@ module.exports = class ProfileController extends ViewController
     # The entire upload model is returned, stringified
     # Convert it back to an object before processing it
     @listenTo formView, 'form:submit', (data) ->
-      if data.profile?.image
-        newVal = null
+      data.profile or= {}
+      newVal = null
+      if data.profile.image
         try
           newVal = JSON.parse data.profile.image
         catch e
           console.log 'Bad image value'
-        data.profile.image = newVal
-        data
+      data.profile.image = newVal
+
 
 
     # render
