@@ -309,7 +309,7 @@ module.exports = class AdminApp extends Application
       # Navigate us to the root route unless we're already navigated somewhere else.
       # If the route is the login one and the user is already authenticated, navigate
       # to the default initial route.
-      initialRoute = @getCurrentRoute()
+      initialRoute = @getCurrentRoute() or ''
 
       if (initialRoute is @loginRoute) or !!initialRoute.match(@activationRoute)
         initialRoute = @rootRoute
