@@ -64,6 +64,18 @@ module.exports = class CreateController extends ViewController
     # wrap it into a form component
     formView = @wrapViewWithForm(view, model, collection)
 
+    # The entire uploads collection is returned, stringified
+    # Convert it back to an object before processing it
+    @listenTo formView, 'form:submit', (data) ->
+      if data.attachments
+        newVal = null
+        try
+          newVal = JSON.parse data.attachments
+        catch e
+          console.log 'Bad attachments value'
+        data.attachments = newVal
+        data
+
     # Syphon returns the tags and category a string.
     # Convert it back to the collection before saving the model
     @setupRelatedTags     model, tagsCollection,       view, formView

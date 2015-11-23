@@ -75,6 +75,26 @@ module.exports = class User extends Model
 
 
   ###
+  Relations to expand where querying the server
+
+  This is also used by the ArticleCollection, but can
+  be overrided there by setting a expandedRelations on
+  the collection
+
+  @property {Array} the attributes to expand. It accepts just the attribute names
+                                              or objects with the options, for example:
+                                              {
+                                                attribute: 'foo',
+                                                page: 4,
+                                                limit: 200,
+                                                order: {id: 1, name: -1}
+                                              }
+  @static
+  ###
+  @expandedRelations: ['profile', 'profile.image']
+
+
+  ###
   @property {Object} Model validation rules
   ###
   validation:

@@ -1,0 +1,82 @@
+// overrides and custom styles for Dropzone
+
+.dropzone
+  background-color: #f5f5f5
+  border: 1px solid #e4e4e4
+  border-radius: 3px
+  box-shadow: inset 0 0 10px rgba(0,0,0,.05)
+
+  .clickable .dz-details
+    cursor: pointer
+
+  .dz-preview:hover .dz-image .dz-image-inner
+    transform: scale(1.05, 1.05) // Getting rid of that white bleed-in
+    filter: blur(8px)            // Getting rid of that white bleed-in
+
+  .dz-message span:before
+    display: block
+    padding-bottom: 8px
+    content: '\f0ee'
+    font: normal normal normal 2.3em FontAwesome
+
+  .dz-preview
+    &.dz-image-preview
+      background-color: transparent
+
+    .dz-image
+      border-radius: 8px !important
+      box-shadow: rgba(0,0,0,.15) 2px 2px 2px
+
+      .dz-image-inner
+        width: 100%
+        height: 100%
+        position: relative
+        z-index: 1
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: cover
+
+      &:after
+        display: inline-block
+        width: 100%
+        text-align: center
+        font: normal normal normal 40px/120px FontAwesome
+        content: '\f016' !important
+        color: #bbb
+
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 0
+
+    .dz-size, .dz-filename
+      margin-bottom: .7em !important
+
+    .dz-preview-link a
+      color: #222
+      font-size: 24px
+      cursor: pointer
+
+      &:hover
+        color: #30b5e5
+
+      &:before
+        content: none
+
+    .dz-filename:hover span
+      background-color: rgba(255,255,255,0.4)
+
+    .dz-remove
+      position: absolute
+      top:    -9px
+      right: -13px
+      z-index: 10
+      width:  20px
+      height: 20px
+      overflow: hidden
+      color: transparent
+
+      &:before
+        content: '\f057'
+        font: normal normal normal 20px/20px FontAwesome
+        color: #888

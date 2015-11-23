@@ -2,7 +2,7 @@
   "Access denied": "Accés denegat",
   "Add language": "Afegir idioma",
   "Are you sure you want to delete this?": "Estàs segur què vols eliminar això?",
-  "Cancel": "Cancelar",
+  "Cancel": "Cancel·lar",
   "Close": "Tancar",
   "Create": "Crear",
   "Created at ": "Creat ",
@@ -25,7 +25,6 @@
   "Unpublish": "Despublicar",
   "Update": "Actualitzar",
   "Updated at ": "Actualitzat el ",
-  "Upload new picture": "Pujar una nova imatge",
   "UserModel": {
     "email": "Email",
     "oldPassword": "Contrassenya anterior",
@@ -42,12 +41,17 @@
     "location": "Ubicació",
     "name": "Nom",
     "phone": "Telèfon",
+    "profileImage": "Imatge del perfil",
     "surname": "Cognoms",
     "url": "URL"
   },
   "Validation error": "Error de validació",
   "Will be published on ": "Es publicarà el ",
   "You are not allowed to access to this section.": "No tens permisos per accedir a aquesta secció.",
+  "attachments": {
+    "Description": "Descripció",
+    "Title": "Títol"
+  },
   "footer": {
     "About": "Sobre nosaltres",
     "Contact Us": "Contacte",
@@ -82,8 +86,25 @@
     "Previous": "Anterior"
   },
   "password": "Contrassenya",
+  "profile": {
+    "Click on the image or drag over a new image to upload a new profile picture": "Fes click en la imatge o arrossega-hi a sobre una nova imatge per al perfil"
+  },
   "sections": {
     "Managers": "Agents"
+  },
+  "uploader": {
+    "Are you sure you want to cancel this upload?": "Estàs segur què vols cancel·lar la pujada d'arxius?",
+    "Are you sure you want to delete this?": "Estàs segur què vols eliminar això?",
+    "Cancel upload": "Cancel·lar pujada d'arxius",
+    "Click or drop files here to upload": "Fes click o arrossega els arxius aquí per pujar-los",
+    "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.": "L'arxiu és massa pesat ({{filesize}}MiB). Pes màxim {{maxFilesize}}MiB.",
+    "Only {{maxFiles}} files can be uploaded here.": "Només {{maxFiles}} arxius es poden pujar aquí.",
+    "Please use the fallback form below to upload your files like in the olden days.": "Funcionalitat no suportada pel teu navegador. Utilitza el formulari de sota per pujar els arxius.",
+    "Remove file": "Eliminar arxiu",
+    "Server responded with {{statusCode}} code.": "El servidor ha respost amb un codi {{statusCode}}.",
+    "There's already a file selected. Do you want to replace it?": "Ja hi ha un arxiu seleccionat. El vols substituir?",
+    "You can't upload files of this type.": "Tipus d'arxiu no admés.",
+    "Your browser does not support drag'n'drop file uploads.": "El teu navegador no suporta pujades arrossegant els arxius"
   },
   "user": {
     "Account": "Compte",
