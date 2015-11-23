@@ -58,7 +58,7 @@ module.exports = class ProfileView extends ItemView
     customImage = []
     if profile
       image = profile.get 'image'
-      if image then customImage = [image.toJSON()]
+      if image and image.id then customImage = [image.toJSON()]
 
     # instantiate the uploader
     uploader = @appChannel.request 'uploader:component', imageField, opts, customImage
@@ -73,5 +73,4 @@ module.exports = class ProfileView extends ItemView
   Uploader component serialize method override
   ###
   serializeUpload: (file) ->
-    # file.uploadModel?.get 'id'
     JSON.stringify file.uploadModel?.toJSON()
