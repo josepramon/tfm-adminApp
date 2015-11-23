@@ -68,14 +68,13 @@ module.exports = class EditController extends ViewController
     # The entire uploads collection is returned, stringified
     # Convert it back to an object before processing it
     @listenTo formView, 'form:submit', (data) ->
-      if data.attachments
-        newVal = null
-        try
-          newVal = JSON.parse data.attachments
-        catch e
-          console.log 'Bad attachments value'
-        data.attachments = newVal
-        data
+      data.attachments or= {}
+      newVal = null
+      try
+        newVal = JSON.parse data.attachments
+      catch e
+        console.log 'Bad attachments value'
+      data.attachments = newVal
 
     # Syphon returns the tags and category a string.
     # Convert it back to the appropiate entities before saving the model
