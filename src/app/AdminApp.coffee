@@ -355,7 +355,7 @@ module.exports = class AdminApp extends Application
     # if the user was trying to access some route before
     # the unauthenticated event, redirect to that route
     @listenTo @channel, 'auth:authenticated', =>
-      if prevRoute is @loginRoute
+      if (prevRoute is @loginRoute) or prevRoute.match(@activationRoute)
         prevRoute = null
       if prevRoute
         @navigate(prevRoute, trigger: true)
