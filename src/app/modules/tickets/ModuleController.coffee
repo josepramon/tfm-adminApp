@@ -54,5 +54,4 @@ module.exports = class ModuleController extends Controller
 
 
   _restrictToAuthorisedUsers: ->
-    console.log '_restrictToAuthorisedUsers'
     @appChannel.request 'auth:requireAuth', null, false
