@@ -81,12 +81,12 @@ module.exports = class StatusFormView extends ItemView
   ###
   getTitle: ->
     # default title
-    title = 'tickets:::Set status'
+    title = i18n.t 'tickets:::Set status'
 
     status = @model.get 'status'
 
     if status
-      if status.get 'open'   then title = 'tickets:::Reopen ticket'
-      if status.get 'closed' then title = 'tickets:::Close ticket'
+      if status.get 'open'   then title = i18n.t 'tickets:::Reopen ticket'
+      if status.get 'closed' then title = i18n.t 'tickets:::Close ticket'
 
-    i18n.t title
+    title
