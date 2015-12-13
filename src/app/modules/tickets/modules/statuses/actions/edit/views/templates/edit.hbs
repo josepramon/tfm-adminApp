@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label for="name" class="control-label">
+    {{t "tickets:::CategoryModel::name"}}
+  </label>
+  <div>
+    <input type="text" class="form-control" id="name" name="name" placeholder="{{t "tickets:::CategoryModel::name"}}" value="{{name}}">
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label for="body" class="control-label">
+    {{t "tickets:::CategoryModel::description"}}
+  </label>
+  <div>
+    <textarea class="editor" id="description" name="description" data-editor-settings='{"styles":false, "lists": false, "table": false, "picture": false, "horizontalrule": false, "align": false, "source": false}'>{{description}}</textarea>
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+

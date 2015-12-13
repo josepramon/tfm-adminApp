@@ -1,8 +1,6 @@
 # Dependencies
 # -------------------------
 
-_          = require 'underscore'
-
 # Base class (extends Backbone.Collection)
 Collection = require 'msq-appbase/lib/appBaseComponents/entities/Collection'
 

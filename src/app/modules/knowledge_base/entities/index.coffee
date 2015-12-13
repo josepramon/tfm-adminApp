@@ -17,9 +17,6 @@ TagsCollection        = require './tags/TagsCollection'
 Category              = require './categories/Category'
 CategoriesCollection  = require './categories/CategoriesCollection'
 
-Attachment            = require './uploads/Attachment'
-AttachmentsCollection = require './uploads/AttachmentsCollection'
-
 
 ###
 Knowledge base entities submodule
@@ -58,9 +55,6 @@ module.exports = class KBEntities extends ModuleEntities
 
     'Category'                  : Category
     'CategoriesCollection'      : CategoriesCollection
-
-    'Attachment'                : Attachment
-    'AttachmentsCollection'     : AttachmentsCollection
 
 
 

@@ -1,0 +1,94 @@
+{
+  "Add comment/note": "Nou comentari/nota",
+  "Agent": "Agent",
+  "Auto assign ticket": "Auto assignar tíquet",
+  "Category successfully created": "La categoria s'ha creat correctament",
+  "Category successfully deleted": "La categoria ha estat eliminada",
+  "Category successfully updated": "La categoria s'ha actualitzat correctament",
+  "CategoryModel": {
+    "description": "Descripció",
+    "managers": "Agents",
+    "name": "Nom"
+  },
+  "Change status": "Canviar estat",
+  "Close ticket": "Tancar tíquet",
+  "Closed tickets": "Tíquets tancats",
+  "Comment (visible to the user)": "Comentari (visible a l'usuari)",
+  "Comment visibility": "Visibilitat del comentari",
+  "CommentModel": {
+    "Attachments": "Arxius adjunts",
+    "Comment": "Comentari",
+    "Created_at": "Data creació",
+    "Updated_at": "Última actualització",
+    "User": "Usuari"
+  },
+  "Comments": "Comentaris",
+  "File attachments": "Arxius adjunts",
+  "My tickets": "Els meus tíquets",
+  "New category": "Nueva categoría",
+  "New comment": "Nou comentari",
+  "New status": "Nou estat",
+  "Open tickets": "Tíquets oberts",
+  "Private note (only visible to managers)": "Nota privada (només visible als agents)",
+  "Reopen ticket": "Reobrir tíquet",
+  "Search tickets": "Cercar tíquets",
+  "Select new ticket status...": "Selecciona un nou estat...",
+  "Status successfully created": "El estado se ha creado correctamente",
+  "Status successfully deleted": "L'estat s'ha liminat correctament",
+  "Status successfully updated": "L'estat s'ha actualitzat correctament",
+  "StatusModel": {
+    "description": "Descripció",
+    "name": "Nom",
+    "order": "Ordre"
+  },
+  "TagModel": {
+    "Description": "Descripció",
+    "Name": "Nom",
+    "Tickets": "Tíquets",
+    "Tickets_total": "Tíquets"
+  },
+  "There are no available categories": "No hi ha categories disponibles",
+  "There are no available statuses": "No hi ha estats disponibles",
+  "There are no available tickets": "No hi ha tíquets disponibles",
+  "There are no more available custom ticket statuses. To close the ticket click the \"close\" button.": "No hi ha més estats disponibles. Per tancar el tíquet prem el botó 'tancar'",
+  "This is a default status and cannot be deleted": "Aquest és un estat per defecte, i no pot ser eliminat",
+  "Ticket details": "Detalls",
+  "Ticket evolution": "Evolució del tíquet",
+  "Ticket successfully deleted": "El tíquet se ha eliminado correctamente",
+  "Ticket successfully saved": "El tíquet s'ha desat correctament",
+  "Ticket successfully updated": "El tíquet s'ha actualitzat correctament",
+  "TicketModel": {
+    "Attachments": "Arxius adjunts",
+    "Body": "Descripció",
+    "Category": "Categoria",
+    "Comments": "Comentaris",
+    "Created_at": "Creat",
+    "ID": "ID",
+    "Manager": "Agent",
+    "Priority": "Prioritat",
+    "Status": "Estat",
+    "Statuses": "Estats",
+    "Tags": "Etiquetes",
+    "Title": "Títol",
+    "Updated_at": "Actualitzat",
+    "User": "Usuari"
+  },
+  "TicketStatusModel": {
+    "Comments": "Comentaris",
+    "Status": "Estat"
+  },
+  "Tickets": "Tíquets",
+  "Unassigned tickets": "Tíquets sense assignar",
+  "User": "Usuari",
+  "priorities": {
+    "critical": "crítica",
+    "hight": "alta",
+    "low": "baixa",
+    "normal": "normal"
+  },
+  "sections": {
+    "Categories": "Categories",
+    "Statuses": "Estats",
+    "Tickets dashboard": "Tíquets"
+  }
+}

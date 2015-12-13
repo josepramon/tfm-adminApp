@@ -1,0 +1,67 @@
+.timeline
+  list-style: none
+  position: relative
+  padding: 10px 0
+  margin-left: 20px
+  border-left: solid 3px #ddd
+
+  li
+    position: relative
+    min-height:    30px
+    padding-left:  17px
+    margin-bottom: 30px
+
+    &:last-child
+      margin-bottom: 0
+
+
+.timeline-badge
+  position: absolute
+  top:        4px
+  left:     -19px
+  max-width: 36px
+
+
+.timeline-panel
+  position: relative
+  margin: 0 0 0 14px
+  padding: 8px 10px
+  max-width: 280px
+  background-color: #fff
+  border: 1px solid #d4d4d4
+  border-radius: 2px
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1)
+
+  &:before
+    position: absolute
+    top:    8px
+    left: -10px
+    display: inline-block
+    border-top:    10px solid transparent
+    border-right:  10px solid #d4d4d4
+    border-left:    0   solid #d4d4d4
+    border-bottom: 10px solid transparent
+    content: " "
+
+  &:after
+    position: absolute
+    top:   9px
+    left: -9px
+    display: inline-block
+    border-top:    9px solid transparent
+    border-right:  9px solid #fff
+    border-left:   0   solid #fff
+    border-bottom: 9px solid transparent
+    content: " "
+
+
+.timeline-panel-title
+  margin: 2px
+
+
+.timeline-panel-content
+  border-top: solid 1px #eee
+  padding-top: 5px
+  margin-top:  3px
+  font-size: .8em
+  color: #888

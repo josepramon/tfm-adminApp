@@ -1,0 +1,43 @@
+<h1>
+  {{#if item}}
+    {{ item }}
+  {{else}}
+    {{ module.name }} {{#if action}} - {{ action }}{{/if}}
+  {{/if}}
+</h1>
+
+{{>breadcrumbs}}
+
+<nav class="moduleNavigation">
+  <ul>
+    <li>
+      <a href="#tickets" id="dashboardBtn">
+        <i class="icon icon-dashboard"></i>
+        <span>
+          {{t "tickets:::sections::Tickets dashboard" }}
+        </span>
+      </a>
+    </li>
+
+    {{#if isAdmin}}
+      <li>
+        <a href="#tickets/statuses" id="statusesBtn">
+          <i class="icon icon-folder"></i>
+          <span>
+            {{t "tickets:::sections::Statuses" }}
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#tickets/categories" id="categoriesBtn">
+          <i class="icon icon-folder"></i>
+          <span>
+            {{t "tickets:::sections::Categories" }}
+          </span>
+        </a>
+      </li>
+
+    {{/if}}
+
+  </ul>
+</nav>

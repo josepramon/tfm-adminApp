@@ -1,0 +1,94 @@
+{
+  "Add comment/note": "Añadir comentario/nota",
+  "Agent": "Agente",
+  "Auto assign ticket": "Autoassignar tíquet",
+  "Category successfully created": "La categoría ha sido creada correctamente",
+  "Category successfully deleted": "La categoría ha sido eliminada",
+  "Category successfully updated": "La categoría ha sido actualizada correctamente",
+  "CategoryModel": {
+    "description": "Descripción",
+    "managers": "Agentes",
+    "name": "Nombre"
+  },
+  "Change status": "Cambiar estado",
+  "Close ticket": "Cerrar tíquet",
+  "Closed tickets": "Tíquets cerrados",
+  "Comment (visible to the user)": "Comentario (visible al usuario)",
+  "Comment visibility": "Visibilidad del comentario",
+  "CommentModel": {
+    "Attachments": "Archivos adjuntos",
+    "Comment": "Comentario",
+    "Created_at": "Fecha creación",
+    "Updated_at": "Última actualización",
+    "User": "User"
+  },
+  "Comments": "Comentarios",
+  "File attachments": "Archivos adjuntos",
+  "My tickets": "Mis tíquets",
+  "New category": "Nueva categoría",
+  "New comment": "Nuevo comentario",
+  "New status": "Nuevo estado",
+  "Open tickets": "Tíquets abiertos",
+  "Private note (only visible to managers)": "Nota privada (solo visible a los agentes)",
+  "Reopen ticket": "Reabrir tíquet",
+  "Search tickets": "Buscar tíquets",
+  "Select new ticket status...": "Selecciona un nuevo estado...",
+  "Status successfully created": "El estado se ha creado correctamente",
+  "Status successfully deleted": "El estado se ha eliminado correctamente",
+  "Status successfully updated": "El estado se ha actualizado correctamente",
+  "StatusModel": {
+    "description": "Descripción",
+    "name": "Nombre",
+    "order": "Órden"
+  },
+  "TagModel": {
+    "Description": "Descripción",
+    "Name": "Nombre",
+    "Tickets": "Tíquets",
+    "Tickets_total": "Tíquets"
+  },
+  "There are no available categories": "No hay categorías disponibles",
+  "There are no available statuses": "No hay estados disponibles",
+  "There are no available tickets": "No hay tíquets disponibles",
+  "There are no more available custom ticket statuses. To close the ticket click the \"close\" button.": "No hay mas estados disponibles. Para cerrar el tíquet pulsa el botón 'cerrar'",
+  "This is a default status and cannot be deleted": "Este es un estado por defecto y no puede ser eliminado",
+  "Ticket details": "Detalles",
+  "Ticket evolution": "Evolución",
+  "Ticket successfully deleted": "El tíquet se ha eliminado correctamente",
+  "Ticket successfully saved": "El tíquet se ha guardado correctamente",
+  "Ticket successfully updated": "El tíquet se ha actualizado correctamente",
+  "TicketModel": {
+    "Attachments": "Archivos adjuntos",
+    "Body": "Descripción",
+    "Category": "Categoría",
+    "Comments": "Comentarios",
+    "Created_at": "Creado",
+    "ID": "ID",
+    "Manager": "Agente",
+    "Priority": "Prioridad",
+    "Status": "Estado",
+    "Statuses": "Estados",
+    "Tags": "Etiquetas",
+    "Title": "Título",
+    "Updated_at": "Actualizado",
+    "User": "Usuario"
+  },
+  "TicketStatusModel": {
+    "Comments": "Comentarios",
+    "Status": "Estado"
+  },
+  "Tickets": "Tíquets",
+  "Unassigned tickets": "Tíquets sin asignar",
+  "User": "Usuario",
+  "priorities": {
+    "critical": "crítica",
+    "hight": "alta",
+    "low": "baja",
+    "normal": "normal"
+  },
+  "sections": {
+    "Categories": "Categorías",
+    "Statuses": "Estados",
+    "Tickets dashboard": "Tíquets"
+  }
+}

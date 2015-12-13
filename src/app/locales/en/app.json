@@ -77,6 +77,8 @@
     "Register": "Register",
     "Tags": "Tags",
     "Tickets": "Tickets",
+    "TicketsCategories": "Categories",
+    "TicketsStatuses": "Statuses",
     "User": "User"
   },
   "pagination": {
