@@ -1,0 +1,38 @@
+<header id="moduleHeader">
+  <h1>{{t "tickets:::Tickets"}}</h1>
+
+  <ol class="breadcrumb arrow">
+    <li>
+      <a href="#">
+        <i class="icon icon-home"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#tickets">
+        <i class="icon icon-ticket"></i>
+        {{t "tickets:::Tickets"}}
+      </a>
+    </li>
+    <li>
+      <span>
+        {{id}}
+      </span>
+    </li>
+  </ol>
+</header>
+
+<div class="gridFilter"></div>
+
+<div id="ticketsGridContainer">
+  <div class="grid panel table-responsive"></div>
+  <nav class="gridPagination text-right"></nav>
+</div>
+
+
+<div id="ticketsNodataContainer">
+  <div class="blankslate large-format clean-background">
+    <i class="icon icon-ticket"></i>
+    <h4>{{t "tickets:::Tickets"}}</h4>
+    <p>{{t "tickets:::There are no available tickets"}}</p>
+  </div>
+</div>

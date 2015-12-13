@@ -132,7 +132,7 @@ module.exports = class ManagersApp extends Module
       @edit model.id, model
 
     @listenTo moduleChannel, 'delete:manager', (model) =>
-      @destroyCategory model, =>
+      @destroyAgent model, =>
         @app.navigate "/#{@meta.rootUrl}", { trigger:true }
 
     # done is executed when any of the previous actions finishes or is canceled
@@ -161,36 +161,36 @@ module.exports = class ManagersApp extends Module
   # ------------------------
 
   ###
-  List the categories
+  List the agents
   ###
   list: -> moduleController.list()
 
 
   ###
-  Edit some category
+  Edit some agent
 
-  @param {Integer}  id      model id
-  @param {Category} model   category model
+  @param {Integer}  id   model id
+  @param {Agent} model   agent model
   ###
   edit: (id, model) -> moduleController.edit id, model
 
 
   ###
-  Create a new category
+  Create a new agent
   ###
   create: -> moduleController.create()
 
 
   ###
-  Category deletion
+  Agent deletion
 
-  @param {Category} model
+  @param {Agent}    model
   @param {Function} callback
   ###
-  destroyCategory: (model, callback) ->
+  destroyAgent: (model, callback) ->
     model.destroy
       success: (model, response) =>
-        flashMessage = i18n.t 'kb:::Category successfully deleted'
+        flashMessage = i18n.t 'managers:::Agent successfully deleted'
         @appChannel.request 'flash:success', flashMessage
         if _.isFunction callback then callback(model, response)
 

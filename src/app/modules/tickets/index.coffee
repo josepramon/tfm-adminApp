@@ -8,15 +8,9 @@ i18n = require 'i18next-client'
 Module          = require 'msq-appbase/lib/appBaseComponents/modules/Module'
 
 # Module components:
-Router          = require './ModuleRouter'
-RouteController = require './ModuleController'
-
-# Radio channels:
-# All the modules have inherited an @appChannel propperty,
-# which is a global communication channel. In this case,
-# there's an addittional independent channel specific to
-# the module
-moduleChannel = require './moduleChannel'
+LayoutController = require './layout/LayoutController'
+Entities         = require './entities'
+moduleChannel    = require './moduleChannel'
 
 
 
@@ -70,27 +64,14 @@ module.exports = class TicketsApp extends Module
   ###
   initialize: ->
 
+    # register the module entities
+    @app.module 'Entities.tickets', Entities
+
     # setup the module components
-    @initModuleRouter()
+    @initModuleLayout()
 
     # module metadata getter
     moduleChannel.reply 'meta', => @meta
-
-
-
-  # Module events
-  # ------------------------
-
-  ###
-  Event handler executed after the module has been started
-  ###
-  onStart: ->
-
-
-  ###
-  Event handler executed after the module has been stopped
-  ###
-  onStop: ->
 
 
 
@@ -98,9 +79,7 @@ module.exports = class TicketsApp extends Module
   # ------------------------
 
   ###
-  Setup the module router
+  Initialize the module layout
   ###
-  initModuleRouter: ->
-    moduleRouter = new Router
-      controller: new RouteController()
-      rootUrl:    @meta.rootUrl
+  initModuleLayout: ->
+    layout = new LayoutController()

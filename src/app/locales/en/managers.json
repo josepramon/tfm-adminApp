@@ -1,6 +1,7 @@
 {
   "Accounts not activated 12 hours after its creation will be automatically removed.": "Accounts not activated 12 hours after its creation will be automatically removed.",
   "Agent successfully created": "Agent successfully created",
+  "Agent successfully deleted": "Agent successfully deleted",
   "Agent successfully updated": "Agent successfully updated",
   "ManagerModel": {
     "email": "Email",

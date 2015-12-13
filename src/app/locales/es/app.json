@@ -77,6 +77,8 @@
     "Register": "Registro",
     "Tags": "Etiquetas",
     "Tickets": "Tickets",
+    "TicketsCategories": "Categorías",
+    "TicketsStatuses": "Estados",
     "User": "Usuario"
   },
   "pagination": {

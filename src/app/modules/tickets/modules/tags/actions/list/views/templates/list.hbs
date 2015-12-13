@@ -1,0 +1,23 @@
+{{#if items}}
+
+  <div class="grid panel"></div>
+
+  <nav class="gridPagination text-right"></nav>
+
+{{else}}
+
+  <div class="blankslate large-format">
+    <i class="icon icon-tags"></i>
+    <h3>{{t "kb:::sections::Tags"}}</h3>
+    <p>{{t "kb:::There are no available tags"}}</p>
+  </div>
+
+{{/if}}
+
+<footer class="form-group form-actions">
+  <div class="pull-right">
+    <button type="button" class="btn btn-primary newTag">
+      {{t "kb:::New tag"}}
+    </button>
+  </div>
+</footer>

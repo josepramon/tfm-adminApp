@@ -20,6 +20,9 @@ module.exports = [
     id:    'Managers'
     class: require 'modules/managers'
   ,
+    id:    'Uploads'
+    class: require 'modules/uploads'
+  ,
     id:    'KnowledgeBase'
     class: require 'modules/knowledge_base'
     submodules: [
@@ -38,6 +41,19 @@ module.exports = [
   ,
     id:    'Tickets'
     class: require 'modules/tickets'
+    submodules: [
+    #   id:    'Dashboard'
+    #   class: require 'modules/tickets/modules/dashboard'
+    # ,
+      id:    'Tickets'
+      class: require 'modules/tickets/modules/tickets'
+    ,
+      id:    'Categories'
+      class: require 'modules/tickets/modules/categories'
+    ,
+      id:    'Statuses'
+      class: require 'modules/tickets/modules/statuses'
+    ]
   ,
     id: 'UI'
     submodules: [

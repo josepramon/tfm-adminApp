@@ -180,7 +180,8 @@ module.exports = class AdminApp extends Application
     # Initialize app nav.
     @loginRoute = @channel.request 'auth:routes:login'
     @errorRoute = @channel.request 'auth:routes:error'
-    @activationRoute = /^user\/activate\//i
+    @activationRoute    = /^user\/activate\//i
+    @passwordResetRoute = /^user\/recover-password\//i
 
     @setupAuthNavigationHooks()
 
@@ -311,7 +312,7 @@ module.exports = class AdminApp extends Application
       # to the default initial route.
       initialRoute = @getCurrentRoute() or ''
 
-      if (initialRoute is @loginRoute) or !!initialRoute.match(@activationRoute)
+      if (initialRoute is @loginRoute)
         initialRoute = @rootRoute
 
       @navigate(initialRoute, trigger: true)
@@ -333,8 +334,12 @@ module.exports = class AdminApp extends Application
       prevRoute = @getCurrentRoute() or @rootRoute
 
       # send the user to the login route (unless the previous route was the
-      # user activation one, which is the only public route, for now, at least)
-      destRoute = if !!prevRoute.match(@activationRoute) then prevRoute else @loginRoute
+      # user activation one or the password reset, which are the only public
+      # route, for now, at least)
+      if !!prevRoute.match(@activationRoute) or !!prevRoute.match(@passwordResetRoute)
+        destRoute = prevRoute
+      else
+        destRoute = @loginRoute
 
       @navigate(destRoute, trigger: true)
 
@@ -355,7 +360,7 @@ module.exports = class AdminApp extends Application
     # if the user was trying to access some route before
     # the unauthenticated event, redirect to that route
     @listenTo @channel, 'auth:authenticated', =>
-      if prevRoute is @loginRoute
+      if (prevRoute is @loginRoute) or prevRoute.match(@activationRoute)
         prevRoute = null
       if prevRoute
         @navigate(prevRoute, trigger: true)

@@ -3,6 +3,8 @@ _          = require 'underscore'
 enquire    = require 'enquire.js'
 LayoutView = require 'msq-appbase/lib/appBaseComponents/views/LayoutView'
 
+ModalRegion = require '../regions/ModalRegion'
+
 # Other
 mobileLayoutWidth = require('config/app').mobileLayoutWidth
 
@@ -30,6 +32,9 @@ module.exports = class AppLayout extends LayoutView
     headerRegion: '> header'
     footerRegion: '> footer'
     navRegion:    '#globalNav'
+    modalRegion:
+      el:          '#modal-region'
+      regionClass: ModalRegion
 
 
   ###

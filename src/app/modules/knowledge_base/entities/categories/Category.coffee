@@ -15,8 +15,6 @@ Backbone  = require 'backbone'
 Article category model
 =======================
 
-TODO: parent category & nested categories
-
 @class
 @augments Model
 
@@ -39,12 +37,12 @@ module.exports = class Category extends Model
     articles: []
 
     ###
-    @property {String} Tag name
+    @property {String} Category name
     ###
     name: ''
 
     ###
-    @property {String} Tag description
+    @property {String} Category description
     ###
     description: ''
 

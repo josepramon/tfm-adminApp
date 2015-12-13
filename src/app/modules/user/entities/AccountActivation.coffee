@@ -4,7 +4,8 @@
 # Base class (extends Backbone.Model)
 Model = require 'msq-appbase/lib/appBaseComponents/entities/Model'
 
-
+# Libs/generic stuff:
+i18n  = require 'i18next-client'
 
 
 ###
