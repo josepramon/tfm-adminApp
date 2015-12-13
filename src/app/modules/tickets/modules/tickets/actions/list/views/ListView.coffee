@@ -25,8 +25,7 @@ module.exports = class CategoriesListView extends GridView
 
   template: require './templates/list.hbs'
 
-  id:        'ticketsList'
-  className: 'sectionContainer'
+  id: 'ticketsList'
 
   regions:
     grid:       '.grid'
