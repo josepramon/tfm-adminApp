@@ -140,7 +140,7 @@
 
 
               {{#and ../manager ../manager.id}}
-                <button type="button" id="changeStatus" class="btn btn-info btn-xs">
+                <button type="button" id="changeStatus" class="btn btn-link btn-xs">
                   {{t "tickets:::Change status"}}
                 </button>
               {{/and}}
@@ -163,13 +163,58 @@
                 {{/and}}
               {{/with}}
 
-              <em>
-                {{#if profile.name}}
-                  {{profile.name}}
-                {{else}}
-                  {{username}}
-                {{/if}}
-              </em>
+              <a role="button" data-toggle="collapse" href="#user-details" aria-expanded="false" aria-controls="user-details" class="collapsed">
+                <i class="caret"></i>
+                <em>
+                  {{#if profile.name}}
+                    {{profile.name}}
+                  {{else}}
+                    {{username}}
+                  {{/if}}
+                </em>
+              </a>
+
+              <div id="user-details" class="collapse">
+                <dl>
+                  <dt>{{t "UserModel::username"}}</dt>
+                  <dd>{{username}}</dd>
+                  {{#with profile}}
+
+                    {{#if name}}
+                      <dt>{{t "UserProfileModel::name"}}</dt>
+                      <dd>{{name}}</dd>
+                    {{/if}}
+
+                    {{#if surname}}
+                      <dt>{{t "UserProfileModel::surname"}}</dt>
+                      <dd>{{surname}}</dd>
+                    {{/if}}
+
+                    {{#if name}}
+                      <dt>{{t "UserProfileModel::phone"}}</dt>
+                      <dd>{{phone}}</dd>
+                    {{/if}}
+
+                    {{#if location}}
+                      <dt>{{t "UserProfileModel::location"}}</dt>
+                      <dd>{{location}}</dd>
+                    {{/if}}
+
+                    {{#if company}}
+                      <dt>{{t "UserProfileModel::company"}}</dt>
+                      <dd>{{company}}</dd>
+                    {{/if}}
+
+                    {{#if url}}
+                      <dt>{{t "UserProfileModel::url"}}</dt>
+                      <dd><a href="{{url}}" target="_blank">{{url}}</a></dd>
+                    {{/if}}
+                  {{/with}}
+                </dl>
+              </div>
+
+
+
             {{/with}}
           </dd>
         {{/and}}
