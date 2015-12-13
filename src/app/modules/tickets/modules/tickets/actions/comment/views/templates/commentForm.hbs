@@ -1,0 +1,60 @@
+<fieldsset class="form-group">
+  <legend class="form-label">{{t "tickets:::Comment visibility"}}</legend>
+  <div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="private" id="private2" value="false" checked>
+        {{t "tickets:::Comment (visible to the user)"}}
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="private" id="private1" value="true">
+        {{t "tickets:::Private note (only visible to managers)"}}
+      </label>
+    </div>
+  </div>
+</fieldsset>
+
+
+
+
+<div class="form-group">
+  <label for="comment" class="control-label">
+    {{t "tickets:::CommentModel::Comment"}}
+  </label>
+  <div>
+    <textarea class="editor" id="comment" name="comment" data-editor-settings='{"styles":false, "lists": false, "table": false, "picture": true, "horizontalrule": false, "align": false, "source": false}'>{{comment}}</textarea>
+    <span class="help-block hidden"></span>
+  </div>
+</div>
+
+
+<div class="panel-group" id="accordion">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+
+        <i class="icon icon-cloud-download"></i> {{t "tickets:::File attachments"}}
+      </a>
+    </h4>
+  </div>
+
+  <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="attachments" class="control-label">
+          {{t "tickets:::TicketModel::Attachments"}}
+        </label>
+        <div>
+
+          <input type="text" class="form-control" id="attachments" name="attachments" placeholder="{{t "tickets:::TicketModel::Attachments"}}" data-max-files="10" data-accepted-files="" />
+
+          <span class="help-block hidden"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

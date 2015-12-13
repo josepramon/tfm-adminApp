@@ -1,0 +1,327 @@
+<header id="moduleHeader">
+  <h1>{{t "tickets:::Tickets"}}</h1>
+
+  <ol class="breadcrumb arrow">
+    <li>
+      <a href="#">
+        <i class="icon icon-home"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#tickets">
+        <i class="icon icon-ticket"></i>
+        {{t "tickets:::Tickets"}}
+      </a>
+    </li>
+    <li>
+      <span>
+        {{id}}
+      </span>
+    </li>
+  </ol>
+</header>
+
+
+
+<article class="mainContent ticket row">
+
+  <div class="main col-xs-12 col-md-8 col-lg-9">
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+    <div class="ticketBody">
+      {{{body}}}
+
+      {{#if attachments}}
+        <div class="ticketAttachments">
+          <ul>
+            {{#each attachments}}
+              <li>
+                <h6>
+                  <a href="{{upload.url}}" target="_blank">
+                    <i class="icon icon-cloud-download"></i>
+                    {{name}}
+                  </a>
+                </h6>
+                {{#if description}}
+                  <div class="description">
+                    {{description}}
+                  </div>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+
+    </div>
+
+    <div class="ticketComments">
+      <header>
+        <h5>
+          <i class="icon icon-comments"></i> {{t "tickets:::Comments"}}
+        </h5>
+      </header>
+      <ul class="comments"></ul>
+    </div>
+
+    <div class="ticketActions">
+
+      <div class="btn-group" role="group">
+
+      {{#and manager manager.id}}
+
+        {{#if closed}}
+          <button type="button" class="btn btn-primary" id="reopenTicket">
+            <i class="icon icon-exclamation-circle"></i>
+            {{t "tickets:::Reopen ticket"}}
+          </button>
+        {{else}}
+          <button class="btn btn-default" id="addComment">
+            <i class="icon icon-comment"></i>
+            {{t "tickets:::Add comment/note"}}
+          </button>
+          <button type="button" class="btn btn-default" id="closeTicket">
+            <i class="icon icon-check-square"></i>
+            {{t "tickets:::Close ticket"}}
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="icon icon-check"></i>
+            {{t "Save"}}
+          </button>
+        {{/if}}
+
+      {{else}}
+        <button type="button" class="btn btn-primary" id="assignTicket">
+            <i class="icon icon-check-square"></i>
+            {{t "tickets:::Auto assign ticket"}}
+          </button>
+      {{/and}}
+
+      </div>
+    </div>
+  </div>
+
+
+  <aside class="col-xs-12 col-md-4 col-lg-3">
+
+    <div class="block ticketDetails">
+    <h4>{{t "tickets:::Ticket details"}}</h4>
+      <dl>
+        <dt>{{t "tickets:::TicketModel::ID"}}</dt>
+        <dd>
+          <code class="ticketCode">{{id}}</code>
+        </dd>
+
+        <dt>{{t "tickets:::TicketModel::Created_at"}}</dt>
+        <dd>{{moment updated_at format="LLL"}}</dd>
+
+        <dt>{{t "tickets:::TicketModel::Updated_at"}}</dt>
+        <dd>{{moment updated_at format="fromNow"}}</dd>
+
+        {{#if category}}
+          <dt>{{t "tickets:::TicketModel::Category"}}</dt>
+          <dd>{{category.name}}</dd>
+        {{/if}}
+
+        {{#any statuses}}
+          {{#withLast statuses}}
+            <dt>{{t "tickets:::TicketModel::Status"}}</dt>
+            <dd>
+              {{#if status.open}}
+                <span class="label">{{status.name}}</span>
+              {{else}}
+                {{#if status.closed}}
+                  <span class="label label-danger">{{status.name}}</span>
+                {{else}}
+                  <span class="label label-info">{{status.name}}</span>
+                {{/if}}
+              {{/if}}
+
+
+              {{#and ../manager ../manager.id}}
+                <button type="button" id="changeStatus" class="btn btn-link btn-xs">
+                  {{t "tickets:::Change status"}}
+                </button>
+              {{/and}}
+            </dd>
+          {{/withLast}}
+        {{/any}}
+
+
+        {{#and user user.id}}
+          <dt>
+            {{t "tickets:::User"}}
+          </dt>
+          <dd class="userWidget">
+            {{#with user}}
+              {{#with profile}}
+                {{#and image image.url}}
+                  <div class="img" style="background-image:url({{ image.url }})"></div>
+                {{else}}
+                  <div class="img" style="background-image:url({{ avatar }})"></div>
+                {{/and}}
+              {{/with}}
+
+              <a role="button" data-toggle="collapse" href="#user-details" aria-expanded="false" aria-controls="user-details" class="collapsed">
+                <i class="caret"></i>
+                <em>
+                  {{#if profile.name}}
+                    {{profile.name}}
+                  {{else}}
+                    {{username}}
+                  {{/if}}
+                </em>
+              </a>
+
+              <div id="user-details" class="collapse">
+                <dl>
+                  <dt>{{t "UserModel::username"}}</dt>
+                  <dd>{{username}}</dd>
+                  {{#with profile}}
+
+                    {{#if name}}
+                      <dt>{{t "UserProfileModel::name"}}</dt>
+                      <dd>{{name}}</dd>
+                    {{/if}}
+
+                    {{#if surname}}
+                      <dt>{{t "UserProfileModel::surname"}}</dt>
+                      <dd>{{surname}}</dd>
+                    {{/if}}
+
+                    {{#if name}}
+                      <dt>{{t "UserProfileModel::phone"}}</dt>
+                      <dd>{{phone}}</dd>
+                    {{/if}}
+
+                    {{#if location}}
+                      <dt>{{t "UserProfileModel::location"}}</dt>
+                      <dd>{{location}}</dd>
+                    {{/if}}
+
+                    {{#if company}}
+                      <dt>{{t "UserProfileModel::company"}}</dt>
+                      <dd>{{company}}</dd>
+                    {{/if}}
+
+                    {{#if url}}
+                      <dt>{{t "UserProfileModel::url"}}</dt>
+                      <dd><a href="{{url}}" target="_blank">{{url}}</a></dd>
+                    {{/if}}
+                  {{/with}}
+                </dl>
+              </div>
+
+
+
+            {{/with}}
+          </dd>
+        {{/and}}
+
+        {{#and manager manager.id}}
+          <dt>
+            {{t "tickets:::Agent"}}
+          </dt>
+          <dd class="userWidget">
+            {{#with manager}}
+              {{#with profile}}
+                {{#and image image.url}}
+                  <div class="img" style="background-image:url({{ image.url }})"></div>
+                {{else}}
+                  <div class="img" style="background-image:url({{ avatar }})"></div>
+                {{/and}}
+              {{/with}}
+
+              <em>
+                {{#if profile.name}}
+                  {{profile.name}}
+                {{else}}
+                  {{username}}
+                {{/if}}
+              </em>
+            {{/with}}
+          </dd>
+        {{/and}}
+
+        <dt>
+          <label for="priority" class="control-label">
+            {{t "tickets:::TicketModel::Priority"}}
+          </label>
+        </dt>
+        <dd>
+          <div>
+            <select name="priority" id="priority" class="form-control">
+              <option value="1" {{#is priority 1}}selected{{/is}}>{{t "tickets:::priorities::low"}}</option>
+              <option value="2" {{#is priority 2}}selected{{/is}}>{{t "tickets:::priorities::normal"}}</option>
+              <option value="3" {{#is priority 3}}selected{{/is}}>{{t "tickets:::priorities::hight"}}</option>
+              <option value="4" {{#is priority 4}}selected{{/is}}>{{t "tickets:::priorities::critical"}}</option>
+            </select>
+            <span class="help-block hidden"></span>
+          </div>
+        </dd>
+
+        <dt>
+          <label for="tags" class="control-label">
+            {{t "tickets:::TicketModel::Tags"}}
+          </label>
+        </dt>
+        <dd>
+          <div>
+            <input type="text" name="tags" id="tags" value="" class="form-control">
+            <span class="help-block hidden"></span>
+          </div>
+        </dd>
+
+      </dl>
+    </div>
+
+    {{#any statuses}}
+      <div class="block">
+        <h4>
+          <a role="button" data-toggle="collapse" href="#ticket-timeline" aria-expanded="false" aria-controls="ticket-timeline" class="collapsed">
+            <i class="caret"></i>
+            {{t "tickets:::Ticket evolution"}}
+          </a>
+        </h4>
+        <div id="ticket-timeline" class="collapse">
+
+          <ul class="timeline statusTimeline">
+            {{#each statuses}}
+              <li>
+                <div class="timeline-badge userWidget">
+
+                  {{#with user}}
+                    {{#if profile}}
+                      {{#with profile}}
+                        {{#and image image.url}}
+                          <div class="img" style="background-image:url({{ image.url }})"></div>
+                        {{else}}
+                          <div class="img" style="background-image:url({{ avatar }})"></div>
+                        {{/and}}
+                      {{/with}}
+                    {{/if}}
+                  {{/with}}
+
+                </div>
+                <div class="timeline-panel">
+                  <h5 class="timeline-panel-title">{{status.name}}</h5>
+                  <time class="date">{{moment updated_at format="LLL"}}</time>
+                  {{#if comments}}
+                    <div class="timeline-panel-content">
+                      {{{comments}}}
+                    </div>
+                  {{/if}}
+                </div>
+              </li>
+            {{/each}}
+
+          </ul>
+
+        </div>
+      </div>
+    {{/any}}
+
+  </aside>
+
+</article>

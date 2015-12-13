@@ -1,0 +1,95 @@
+{
+  "Add comment/note": "Add comment/note",
+  "Agent": "Agent",
+  "Auto assign ticket": "Auto assign ticket",
+  "Category successfully created": "Category successfully created",
+  "Category successfully deleted": "Category successfully deleted",
+  "Category successfully updated": "Category successfully updated",
+  "CategoryModel": {
+    "description": "Description",
+    "managers": "Agents",
+    "name": "Name"
+  },
+  "Change status": "Change status",
+  "Close ticket": "Close ticket",
+  "Closed tickets": "Closed tickets",
+  "Comment (visible to the user)": "Comment (visible to the user)",
+  "Comment visibility": "Comment visibility",
+  "CommentModel": {
+    "Attachments": "Attachments",
+    "Comment": "Comment",
+    "Created_at": "Created",
+    "Updated_at": "Updated",
+    "User": "User"
+  },
+  "Comments": "Comments",
+  "File attachments": "Attachments",
+  "My tickets": "My tickets",
+  "New category": "New category",
+  "New comment": "New comment",
+  "New status": "New status",
+  "Open tickets": "Open tickets",
+  "Private note (only visible to managers)": "Private note (only visible to managers)",
+  "Reopen ticket": "Reopen ticket",
+  "Search tickets": "Search tickets",
+  "Select new ticket status...": "Select new ticket status...",
+  "Set status": "Set status",
+  "Status successfully created": "Status successfully created",
+  "Status successfully deleted": "Status successfully deleted",
+  "Status successfully updated": "Status successfully updated",
+  "StatusModel": {
+    "description": "Description",
+    "name": "Name",
+    "order": "Order"
+  },
+  "TagModel": {
+    "Description": "Description",
+    "Name": "Name",
+    "Tickets": "Tickets",
+    "Tickets_total": "Tickets"
+  },
+  "There are no available categories": "There are no available categories",
+  "There are no available statuses": "There are no available statuses",
+  "There are no available tickets": "There are no available tickets",
+  "There are no more available custom ticket statuses. To close the ticket click the \"close\" button.": "There are no more available custom ticket statuses. To close the ticket click the \"close\" button.",
+  "This is a default status and cannot be deleted": "This is a default status and cannot be deleted",
+  "Ticket details": "Ticket details",
+  "Ticket evolution": "Ticket evolution",
+  "Ticket successfully deleted": "Ticket successfully deleted",
+  "Ticket successfully saved": "Ticket successfully saved",
+  "Ticket successfully updated": "Ticket successfully updated",
+  "TicketModel": {
+    "Attachments": "Attachments",
+    "Body": "Body",
+    "Category": "Category",
+    "Comments": "Comments",
+    "Created_at": "Created",
+    "ID": "ID",
+    "Manager": "Agent",
+    "Priority": "Priority",
+    "Status": "Status",
+    "Statuses": "Statuses",
+    "Tags": "Tags",
+    "Title": "Title",
+    "Updated_at": "Updated",
+    "User": "User"
+  },
+  "TicketStatusModel": {
+    "Comments": "Comments",
+    "Status": "Status"
+  },
+  "Tickets": "Tickets",
+  "Unassigned tickets": "Unassigned tickets",
+  "User": "User",
+  "priorities": {
+    "critical": "critical",
+    "hight": "hight",
+    "low": "low",
+    "normal": "normal"
+  },
+  "sections": {
+    "Categories": "Categories",
+    "Statuses": "Statuses",
+    "Tickets dashboard": "Tickets"
+  }
+}

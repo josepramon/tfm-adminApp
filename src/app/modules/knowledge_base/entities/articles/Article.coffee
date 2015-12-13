@@ -100,7 +100,7 @@ module.exports = class Article extends Model
     ,
       type:                 Backbone.Many
       key:                  'attachments'
-      collectionType:->     factory.invoke 'kb:entities|AttachmentsCollection'
+      collectionType:->     factory.invoke 'uploads:entities|AttachmentsCollection'
   ]
 
 

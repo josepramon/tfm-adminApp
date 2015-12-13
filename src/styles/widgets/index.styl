@@ -15,6 +15,7 @@
 @require 'stats'
 @require 'tagCloud'
 @require 'uploads'
+@require 'timeline'
 
 
 // badge
@@ -32,3 +33,10 @@
 // see loaders.stylus for the inner animation
 [data-wrapper].opacity
   opacity: 0.6
+
+// Override for the bootstrap modals:
+// add a stronger shadow to make the modals
+// more distinguisheable when displaying
+// multiple modals at the same time
+.modal-content
+  box-shadow: 0 0 20px rgba(0,0,0,.4) !important
