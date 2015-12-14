@@ -10,7 +10,6 @@ default:
     - clean:locales           # cleanup the locales dir
     - copy:locales            # copy the fresh locales
     - images                  # optimize the images, generate sprites, etc
-    - appcache                # generate the appcache for offline awesomeness
     - notify:buildComplete    # show a notification
 
 
@@ -18,7 +17,6 @@ dev:
   description: 'Dev task, rebuilds everything with the debug opt and watches the files for changes'
   tasks:
     - env:dev                 # setup the environment to 'development'
-    - clean:appcache          # remove the appcache manifest
     - html_dev                # generate/optimize the static html files
     - clean:locales           # cleanup the locales dir
     - copy:locales            # copy the fresh locales

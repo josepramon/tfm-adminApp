@@ -16,8 +16,5 @@ module.exports =
   html:
     src: ['<%= buildDir %>/*.html']
 
-  appcache:
-    src: ['<%= buildDir %>/*.appcache']
-
   locales:
     src: ['<%= assetsDir %>/locales']
