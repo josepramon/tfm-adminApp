@@ -157,7 +157,7 @@ module.exports = class PostEditView extends ItemView
   ###
   serializeUpload: (file) ->
     ret =
-      name:        file.name
+      name:        file.customName or file.name
       description: file.description
       upload:      file.uploadModel?.toJSON()
 
