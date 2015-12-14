@@ -1,5 +1,13 @@
 <!DOCTYPE html>
+
+<!-- @ifndef APP_LANG -->
 <html lang="en">
+<!-- @endif -->
+
+<!-- @ifdef APP_LANG -->
+<html lang="<!-- @echo APP_LANG -->">
+<!-- @endif -->
+
 <head>
   {{> head }}
 </head>

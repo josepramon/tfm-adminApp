@@ -5,7 +5,8 @@
   "author": "Josep Ramon Camps Lladó <jrcamps@gmail.com>",
   "homepage": "http://www.mosaiqo.com",
   "dependencies": {
-    "bower": "^1.6.5"
+    "bower": "^1.6.5",
+    "js-cookie": "^2.0.4"
   },
   "browser": {
     "backbone.webStorage": "./dist/assets/vendor/backbone.webStorage/backbone.webStorage.js",

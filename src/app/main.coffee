@@ -3,9 +3,31 @@ Application bootstraping
 ==========================
 ###
 
-$   = require 'jquery'
-_   = require 'underscore'
-App = require './AdminApp'
+$       = require 'jquery'
+_       = require 'underscore'
+Cookies = require 'js-cookie'
+App     = require './AdminApp'
+
+
+do ->
+  # Set the default language
+  # The application uses i18next to handle the locales. The library is configured
+  # to use the language saved on a cookie, if not found, it tries to detect the
+  # appropiate lang based on the user env., but since the user can't change the
+  # language (the switcher is not enabled), it's better to use the locale determined
+  # by the site owner (the one of the 'lang' attribute in the 'html' tag)
+  #
+  # This should be executed before everything else to avoid
+  # unnecessary locale files loading
+  savedLang = Cookies.get 'lang'
+
+  if !savedLang
+    pageLang = null
+    htmlEl   = document.querySelector 'html'
+
+    if htmlEl   then pageLang = htmlEl.getAttribute 'lang'
+    if pageLang then Cookies.set 'lang', pageLang
+
 
 $ ->
   # App options
@@ -20,6 +42,7 @@ $ ->
 
   # application modules
   opts.modules = require 'config/modules'
+
 
   # Instantiate and init the app
   setup = ->

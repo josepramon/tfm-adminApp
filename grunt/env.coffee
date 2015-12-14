@@ -5,6 +5,8 @@ module.exports =
   dev:
     NODE_ENV:     'DEVELOPMENT'
     API_ROOT_URL: '<%= api.rootURL %>'
+    APP_LANG:     '<%= lang %>'
   production:
     NODE_ENV :    'PRODUCTION'
     API_ROOT_URL: '<%= api.rootURL %>'
+    APP_LANG:     '<%= lang %>'
