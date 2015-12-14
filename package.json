@@ -1,6 +1,6 @@
 {
   "name": "TFM-Admins-App",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "author": "Josep Ramon Camps Lladó <jrcamps@gmail.com>",
   "homepage": "http://www.mosaiqo.com",
@@ -89,7 +89,7 @@
     "mocha": "^2.3.3",
     "modernizr": "^3.2.0",
     "moment": "^2.10.6",
-    "msq-appbase": "0.0.36",
+    "msq-appbase": "0.0.37",
     "selectize": "^0.12.1",
     "sinon": "^1.17.2",
     "slug": "^0.9.1",
