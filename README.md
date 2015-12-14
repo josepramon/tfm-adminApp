@@ -8,6 +8,14 @@ To build the app, node and npm must be installed. Once installed, install the ap
 npm install
 ```
 
+Some of the components might have some dependencies that need to be installed in order to run correctly.
+
+If the `npm install` or the `grunt` commands fail, check the output. Some systems have that libraries already installed, others not and require a manual install. For example, on Ubuntu 14.04.3 LTS, the following libraries needed to be installed:
+
+- imagemagick
+- libpng-dev
+- optipng
+
 
 ## Build
 
