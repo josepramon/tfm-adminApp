@@ -3,6 +3,9 @@
   "Agent successfully created": "Agent successfully created",
   "Agent successfully deleted": "Agent successfully deleted",
   "Agent successfully updated": "Agent successfully updated",
+  "Create managers to manage the users tickets. Managers also have access to the knowledge base, so they can create and manage articles and categories.": "Create agents to manage the users tickets. Agents also have access to the knowledge base, so they can create and manage articles and categories.",
+  "If a manager is deleted, any ticket assigned to that manager will become unassigned, so after deleting a manager check the unassigned tickets and assign them to a new manager, if appropiate.": "If an agent is deleted, any ticket assigned to that agent will become unassigned, so after deleting an agent check the unassigned tickets and assign them to a new agent, if appropiate.",
+  "Manage ticket categories": "Manage ticket categories",
   "ManagerModel": {
     "email": "Email",
     "password": "Password",
@@ -11,5 +14,14 @@
   "New manager": "New agent",
   "Please, insert the user name and email for the new agent.": "Please, insert the user name and email for the new agent.",
   "The agent will receive an email with a link to activate the account and set a password.": "The agent will receive an email with a link to activate the account and set a password.",
-  "There are no available managers": "There are no available agents"
+  "There are no available managers": "There are no available agents",
+  "To assign ticket categories to the managers go to the Tickets categories section.": "To assign ticket categories to the agents go to the Tickets categories section.",
+  "UserModel": {
+    "email": "Email",
+    "username": "Username"
+  },
+  "sections": {
+    "Managers": "Agents",
+    "Users": "Users"
+  }
 }

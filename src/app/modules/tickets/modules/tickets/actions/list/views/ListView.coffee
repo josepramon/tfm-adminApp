@@ -12,6 +12,9 @@ Filter   = require 'msq-appbase/lib/appBaseComponents/views/grid/CustomServerSid
 # Base class (extends Marionette.LayoutView)
 GridView = require 'msq-appbase/lib/appBaseComponents/views/grid/GridView'
 
+# Radio channels:
+ticketsChannel = require '../../../../../moduleChannel'
+moduleChannel  = require '../../../moduleChannel'
 
 ###
 Tickets list
@@ -24,6 +27,8 @@ Tickets list
 module.exports = class CategoriesListView extends GridView
 
   template: require './templates/list.hbs'
+
+  className: 'sectionContainer'
 
   id: 'ticketsList'
 
@@ -41,6 +46,7 @@ module.exports = class CategoriesListView extends GridView
   initialize: (options = {}) ->
     lang = @appChannel.request 'locale:get'
     statusLabel = i18n.t 'tickets:::TicketModel::Status'
+    baseUrl = '#' + moduleChannel.request('meta').rootUrl
 
     @columns = [
         name: 'id'
@@ -48,15 +54,16 @@ module.exports = class CategoriesListView extends GridView
         formatter: _.extend {}, Backgrid.CellFormatter.prototype,
           fromRaw: (rawValue, model) ->
             label = rawValue
-            link  = '#tickets/' + label
+            link  = "#{baseUrl}/#{label}"
             "<a href='#{link}'><code class='ticketCode'>#{label}</code></a>"
       ,
         name: 'title'
         cell: 'html'
         formatter: _.extend {}, Backgrid.CellFormatter.prototype,
           fromRaw: (rawValue, model) ->
-            label = _s(rawValue).truncate(80).value()
-            link  = '#tickets/' + model.get('id')
+            label    = _s(rawValue).truncate(80).value()
+            ticketId = model.get 'id'
+            link     = "#{baseUrl}/#{ticketId}"
             "<a href='#{link}'>#{label}</a>"
       ,
         name: 'category'
@@ -113,13 +120,17 @@ module.exports = class CategoriesListView extends GridView
               ''
       ,
         name: 'user'
-        cell: 'string'
+        cell: 'html'
         formatter: _.extend {}, Backgrid.CellFormatter.prototype,
           fromRaw: (rawValue, model) ->
-            if rawValue
-              rawValue.get 'username'
-            else
-              ''
+            u = rawValue.toJSON()
+            img = u.profile?.image?.url or u.profile?.avatar
+            """
+            <span class="label image user">
+              <img src="#{img}" alt="" />
+              #{u.username}
+            </span>
+            """
       ,
         name: 'tags'
         cell: 'html'
@@ -128,7 +139,7 @@ module.exports = class CategoriesListView extends GridView
             if rawValue
               labels = rawValue.pluck 'name'
               labels = labels.map (label) ->
-                "<span class='label label-info'>#{label}</span>"
+                "<span class='label label-info tag'>#{label}</span>"
               labels.join ' '
             else
               ''

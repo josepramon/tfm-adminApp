@@ -30,7 +30,7 @@
  */
 
 
-// Layout (flex stuff, pretty weird):
+// Layout (flex stuff):
 // ---------------------------------------------
 main
   display: flex
@@ -44,7 +44,6 @@ main
   .inner
     display: flex
     flex: 1
-
 
 // Section header, duh
 #moduleHeader
@@ -85,6 +84,16 @@ main > .inner,
   display: flex
   flex: 1
   flex-direction: column
+
+
+
+@media screen and (max-width: 400px)
+  main
+    padding: 15px 8px
+
+  .sectionContainer,
+  #moduleContent > form
+    padding: 10px
 
 
 

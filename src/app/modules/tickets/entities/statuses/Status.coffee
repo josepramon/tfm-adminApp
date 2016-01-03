@@ -43,7 +43,7 @@ module.exports = class Status extends Model
     @property {Number} Order in the tickets flow sequence
                        for example open->in progress->closed
     ###
-    order: 0
+    order: null
 
 
   ###
@@ -53,7 +53,6 @@ module.exports = class Status extends Model
     name:
       required: true
     order:
-      required: true
       pattern: 'number'
 
 

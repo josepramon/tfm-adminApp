@@ -77,6 +77,7 @@ module.exports = class ModuleController extends Controller
       state =
         paginator:
           sort:
+            weight: -1
             articles: -1
             name: 1
 

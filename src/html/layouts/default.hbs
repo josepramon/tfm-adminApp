@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<!-- @if NODE_ENV == 'DEVELOPMENT' -->
+<!-- @ifndef APP_LANG -->
 <html lang="en">
 <!-- @endif -->
 
-<!-- @if NODE_ENV == 'PRODUCTION' -->
-<html lang="en" manifest="manifest.appcache">
+<!-- @ifdef APP_LANG -->
+<html lang="<!-- @echo APP_LANG -->">
 <!-- @endif -->
 
 <head>

@@ -1,0 +1,27 @@
+<div class="panel panel-default stats-block" id="stats-byDate">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      {{t "tickets:::stats::Ticket stats by date"}}
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="chart" id="chart-byDate"></div>
+
+    <div class="actions">
+      <div class="btn-group btn-group-xs" data-toggle="buttons">
+        <label class="btn btn-info">
+          <input type="radio" name="stats-byDate" id="stats-byDate-year" autocomplete="off" value="year">
+          {{t "tickets:::stats::By year"}}
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="stats-byDate" id="stats-byDate-month" autocomplete="off" value="month">
+          {{t "tickets:::stats::By month"}}
+        </label>
+        <label class="btn btn-info active">
+          <input type="radio" name="stats-byDate" id="stats-byDate-day" autocomplete="off" value="day" checked>
+          {{t "tickets:::stats::By day"}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -63,7 +63,7 @@ module.exports = class Category extends Model
   @property {Array} the attributes to expand.
   @static
   ###
-  @expandedRelations: ['managers']
+  @expandedRelations: ['managers', 'managers.profile', 'managers.profile.image']
 
 
   ###

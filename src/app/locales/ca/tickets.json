@@ -23,7 +23,11 @@
     "User": "Usuari"
   },
   "Comments": "Comentaris",
+  "Create categories for the for the different ticket types (like 'suport' or 'info') or departments (like 'Billing', or 'Technical') and assign the categories to the managers.": "Pot crear categories per als diferents tipus de tíquets (com 'suport' o 'informació') o departments (com 'Facturació' o 'Suport tècnic') i assigni les categories als agents.",
+  "Create statuses (like 'in progress' or 'pending info') to customise the tickets resolution flow. The 'open' and 'closed' statuses can't be deleted, althought their names can be edited.": "Pot crear estats (com 'en curs' o 'pendent de més informació') per a personalitzar el fluxe de resolució dels tíquets. Els estats 'obert' i 'tancat' no es poden eliminar, tot i què els seus noms poden ser editats.",
   "File attachments": "Arxius adjunts",
+  "If a category is deleted, any assigned ticket to that category will become uncategorised, so the managers will not be able to access to that tickets. After deleting a category, you should check if there's any orphan ticket and assign a new category.": "Si s'elimina una categoria, qualsevol tíquet que tingués assignat quedarà sense categoria, i els agents no tindran accés a aquells tíquets. Després d'eliminar una categoria, revisi si hi ha cap tíquet sense categoria i assigni'ls-hi una.",
+  "If a status is deleted, it will be removed from any ticket that contains that status, so if the deleted status is the current one, the ticket status will automatically revert to the previous one.": "Si s'elimina un estat, aquest estat s'eliminarà de qualsevol tíquet que el tingui assignat, i si l'estat era l'estat actual del tíquet, el tíquet automàticament passarà a l'estat anterior.",
   "My tickets": "Els meus tíquets",
   "New category": "Nova categoria",
   "New comment": "Nou comentari",
@@ -32,9 +36,10 @@
   "Private note (only visible to managers)": "Nota privada (només visible als agents)",
   "Reopen ticket": "Reobrir tíquet",
   "Search tickets": "Cercar tíquets",
+  "Select a category...": "Seleccioni una categoria",
   "Select new ticket status...": "Selecciona un nou estat...",
   "Set status": "Establir estat",
-  "Status successfully created": "El estado se ha creado correctamente",
+  "Status successfully created": "L'estat s'ha creat correctament",
   "Status successfully deleted": "L'estat s'ha liminat correctament",
   "Status successfully updated": "L'estat s'ha actualitzat correctament",
   "StatusModel": {
@@ -48,6 +53,7 @@
     "Tickets": "Tíquets",
     "Tickets_total": "Tíquets"
   },
+  "The managers will only have access to the assigned categories.": "Els agents només tenen accés a les categories assignades.",
   "There are no available categories": "No hi ha categories disponibles",
   "There are no available statuses": "No hi ha estats disponibles",
   "There are no available tickets": "No hi ha tíquets disponibles",
@@ -55,7 +61,6 @@
   "This is a default status and cannot be deleted": "Aquest és un estat per defecte, i no pot ser eliminat",
   "Ticket details": "Detalls",
   "Ticket evolution": "Evolució del tíquet",
-  "Ticket successfully deleted": "El tíquet se ha eliminado correctamente",
   "Ticket successfully saved": "El tíquet s'ha desat correctament",
   "Ticket successfully updated": "El tíquet s'ha actualitzat correctament",
   "TicketModel": {
@@ -80,6 +85,7 @@
   },
   "Tickets": "Tíquets",
   "Unassigned tickets": "Tíquets sense assignar",
+  "Uncategorised tickets": "Tíquets sense categoria",
   "User": "Usuari",
   "priorities": {
     "critical": "crítica",
@@ -90,6 +96,36 @@
   "sections": {
     "Categories": "Categories",
     "Statuses": "Estats",
-    "Tickets dashboard": "Tíquets"
+    "Tickets": "Tíquets",
+    "Tickets dashboard": "Tíquets",
+    "Uncategorised": "Sense categoria"
+  },
+  "stats": {
+    "Assigned tickets": "Tíquets assignats",
+    "Back to global stats": "Tornar a les estadístiques generals",
+    "By category": "Per categoria",
+    "By day": "Per dia",
+    "By manager": "Per agent",
+    "By month": "Per mes",
+    "By status": "Per estat",
+    "By user": "Per usuari",
+    "By year": "Per any",
+    "Click on the chart to display more details": "Fes click en el gràfic per mostrar més detalls",
+    "Global stats": "Estadístiques generals",
+    "Open tickets": "Tíquets oberts",
+    "Ticket resolution times": "Temps de resol·lució dels tíquets",
+    "Ticket stats by date": "Tíquets per data",
+    "assigned": "assignats",
+    "average": "mitjana",
+    "closed": "tancats",
+    "created": "creats",
+    "max": "max",
+    "min": "min",
+    "name": "nom",
+    "open": "oberts",
+    "reopened": "reoberts",
+    "status": "estat",
+    "total": "total",
+    "unassigned": "sense assignar"
   }
 }

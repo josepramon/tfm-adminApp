@@ -9,13 +9,30 @@
       </span>
     </div>
     {{#if isSearch}}
-    <div class="searchInfo">
+    <div class="filter searchInfo">
       {{#if searchQuery}}
       <i class="icon icon-search"></i>  {{truncate searchQuery 20 '...' }}
       {{/if}}
       <button type="reset" class="close" aria-label="{{t "Close"}}"><span aria-hidden="true">&times;</span></button>
     </div>
     {{/if}}
+
+    {{#if category}}
+      <div class="filter">
+        <h5>{{t "kb:::Category"}}:</h5>
+        <span class="label label-info">{{category.name}}</span>
+        <button type="reset" class="close" aria-label="{{t "Close"}}"><span aria-hidden="true">&times;</span></button>
+      </div>
+    {{/if}}
+
+    {{#if tag}}
+      <div class="filter">
+        <h5>{{t "kb:::Tag"}}:</h5>
+        <span class="label label-info tag">{{tag.name}}</span>
+        <button type="reset" class="close" aria-label="{{t "Close"}}"><span aria-hidden="true">&times;</span></button>
+      </div>
+    {{/if}}
+
   </form>
   <button id="moduleItemsCreate" type="button" class="btn btn-link btn-xs">
     <i class="icon icon-plus"></i> {{t "kb:::New post"}}

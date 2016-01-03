@@ -16,6 +16,7 @@
 @require 'tagCloud'
 @require 'uploads'
 @require 'timeline'
+@require 'labels'
 
 
 // badge
@@ -34,9 +35,36 @@
 [data-wrapper].opacity
   opacity: 0.6
 
+// Theme overrides:
+
 // Override for the bootstrap modals:
 // add a stronger shadow to make the modals
 // more distinguisheable when displaying
 // multiple modals at the same time
 .modal-content
   box-shadow: 0 0 20px rgba(0,0,0,.4) !important
+
+// Extend the bootstrap alerts
+.alert .actions
+  text-align: right
+  margin: 15px 0 0
+
+.blankslate
+  p + .alert
+  div + .alert
+    margin-top: 20px
+
+  &.large-format
+    .alert
+      text-align: left
+
+    .alert p, .btn .icon
+      font-size: 1em
+
+    &.alert p
+      margin-bottom: 10px
+      .alert p
+        margin-bottom: 0
+
+  &.section-info p
+    font-size: 14px

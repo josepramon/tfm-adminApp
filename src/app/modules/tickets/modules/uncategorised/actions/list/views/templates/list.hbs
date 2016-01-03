@@ -1,0 +1,18 @@
+{{#if items}}
+
+  <div id="ticketsGridContainer">
+    <div class="grid panel table-responsive"></div>
+    <nav class="gridPagination text-right"></nav>
+  </div>
+
+{{else}}
+
+  <div>
+    <div class="blankslate large-format clean-background">
+      <i class="icon icon-ticket"></i>
+      <h4>{{t "tickets:::Tickets"}}</h4>
+      <p>{{t "tickets:::There are no available tickets"}}</p>
+    </div>
+  </div>
+
+{{/if}}

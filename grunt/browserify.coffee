@@ -14,12 +14,12 @@ taskOpts =
   app:
     files:     '<%= assetsDir %>/js/main.js' : ['<%= srcDir %>/app/main.coffee']
     paths:     ['<%= srcDir %>/app']
-    transform: ['coffeeify', 'hbsfy']
     external:  [
       'modernizr'
       'jquery'
       'underscore'
       'underscore.string'
+      'underscore-deep-extend'
       'backbone'
       'backbone.radio'
       'backbone.syphon'
@@ -41,11 +41,11 @@ taskOpts =
 
   lib:
     files:     '<%= assetsDir %>/js/lib.js' : ['<%= srcDir %>/app/lib.coffee']
-    transform: ['coffeeify']
     alias:  [
       'jquery:'
       'underscore:'
       'underscore.string:'
+      'underscore-deep-extend:'
       'backbone:'
       'backbone.radio:'
       'backbone.syphon:'
@@ -66,7 +66,8 @@ taskOpts =
     ]
 
 
-module.exports =
+module.exports = (grunt) ->
+
   options:
     browserifyOptions:
       paths: taskOpts.app.paths
@@ -77,15 +78,18 @@ module.exports =
   app:
     files:       taskOpts.app.files
     options:
-      transform: taskOpts.app.transform
+      transform: ['coffeeify', 'hbsfy', ['envify', {CUSTOM_FOOTER: '<%= footer %>'}]]
       external:  taskOpts.app.external
       banner:    '<%= banner %>'
-      plugin: [[ (b) -> minify b ]]
+      plugin: [
+        [ (b) -> b.plugin 'licensify', {scanBrowser: true} ]
+        [ (b) -> minify b ]
+      ]
 
   lib:
     files:       taskOpts.lib.files
     options:
-      transform: taskOpts.lib.transform
+      transform: ['coffeeify']
       alias:     taskOpts.lib.alias
       plugin: [
         [ (b) -> b.plugin 'licensify', {scanBrowser: true} ]
@@ -96,13 +100,13 @@ module.exports =
   dev_app:
     files:       taskOpts.app.files
     options:
-      transform: taskOpts.app.transform
+      transform: ['coffeeify', 'hbsfy', ['envify', {CUSTOM_FOOTER: '<%= footer %>'}]]
       external:  taskOpts.app.external
       plugin: [[ (b) -> minify b, 'dist/assets/js/app.map' ]]
 
   dev_lib:
     files:       taskOpts.lib.files
     options:
-      transform: taskOpts.lib.transform
+      transform: ['coffeeify']
       alias:     taskOpts.lib.alias
       plugin: [[ (b) -> minify b, 'dist/assets/js/lib.map' ]]

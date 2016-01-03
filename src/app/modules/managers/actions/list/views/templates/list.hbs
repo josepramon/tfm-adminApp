@@ -1,6 +1,28 @@
 {{#if items}}
 
-  <div class="grid panel"></div>
+  <div class="blankslate large-format clean-background alert alert-dismissible section-info">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    <span class="icon icon-users"></span>
+    <h3>{{t "sections::Managers"}}</h3>
+
+    <p>{{t "managers:::Create managers to manage the users tickets. Managers also have access to the knowledge base, so they can create and manage articles and categories."}}</p>
+
+    <p>{{t "managers:::To assign ticket categories to the managers go to the Tickets categories section."}}</p>
+
+    <div class="actions">
+      <a href="#tickets/categories" class="btn btn-sm btn-default">
+        <i class="icon icon-folder"></i>
+          {{t "managers:::Manage ticket categories"}}
+        </a>
+      </div>
+
+    <div class="alert alert-warning">
+      <strong>{{t "Warning"}}:</strong> {{t "managers:::If a manager is deleted, any ticket assigned to that manager will become unassigned, so after deleting a manager check the unassigned tickets and assign them to a new manager, if appropiate."}}
+    </div>
+  </div>
+
+  <div class="grid panel table-responsive"></div>
 
   <nav class="gridPagination text-right"></nav>
 

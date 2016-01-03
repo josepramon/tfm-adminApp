@@ -42,6 +42,22 @@ module.exports = class CategoriesListView extends GridView
         fromRaw: (rawValue, model) ->
           _s(rawValue).stripTags().truncate(20).value()
     ,
+      name:      'managers'
+      cell:      'html'
+      formatter: _.extend {}, Backgrid.CellFormatter.prototype,
+        fromRaw: (rawValue, model) ->
+
+          managers = rawValue?.toJSON().map (u) ->
+            img = u.profile?.image?.url or u.profile?.avatar
+            """
+            <a class="label image manager" href="#managers/#{u.id}/edit">
+              <img src="#{img}" alt="" />
+              #{u.username}
+              <span class="detail">#{u.email}</span>
+            </a>
+            """
+          (managers or []).join '<br />'
+    ,
       cell:        'button'
       btnLabel:    iconBtnTmpl { label: 'edit', icon: 'edit' }
       buttonClass: 'btn btn-link'

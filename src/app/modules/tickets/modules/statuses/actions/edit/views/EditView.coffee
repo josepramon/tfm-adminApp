@@ -48,7 +48,7 @@ module.exports = class CategoryEditView extends ItemView
             text: -> i18n.t 'Cancel'
 
     if @model.get 'deleteable'
-      conf.buttons.secondaryActions
+      conf.buttons.secondaryActions =
         delete:
           type:      'delete'
           className: 'btn btn-danger'

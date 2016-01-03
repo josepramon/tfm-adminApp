@@ -7,6 +7,8 @@ Model = require 'msq-appbase/lib/appBaseComponents/entities/Model'
 # Libs/generic stuff:
 _         = require 'underscore'
 i18n      = require 'i18next-client'
+factory   = require 'msq-appbase/lib/utilities/factory'
+Backbone  = require 'backbone'
 
 
 ###
@@ -39,6 +41,30 @@ module.exports = class Manager extends Model
     @property {String} Email
     ###
     email: null
+
+    ###
+    @property {Profile} Profile model
+    ###
+    profile: null
+
+
+  ###
+  @property {Array} Nested entities
+  ###
+  relations: [
+      type:           Backbone.One
+      key:            'profile'
+      relatedModel:-> factory.invoke 'user:entities|Profile'
+  ]
+
+
+  ###
+  Relations to expand where querying the server
+
+  @property {Array} the attributes to expand.
+  @static
+  ###
+  @expandedRelations: ['profile', 'profile.image']
 
 
   ###

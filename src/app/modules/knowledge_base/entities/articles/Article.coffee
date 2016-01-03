@@ -83,6 +83,11 @@ module.exports = class Article extends Model
     ###
     attachments: []
 
+    ###
+    @property {Number} Determines the ordering
+    ###
+    weight: null
+
 
   ###
   @property {Array} Nested entities
@@ -201,6 +206,8 @@ module.exports = class Article extends Model
       required: true
     publishStatus:
       fn: 'validatePublishStatus'
+    weight:
+      pattern: 'number'
 
 
   ###
@@ -236,3 +243,4 @@ module.exports = class Article extends Model
     publishDate   : -> i18n.t 'kb:::ArticleModel::publishDate'
     publishStatus : -> i18n.t 'kb:::ArticleModel::publishStatus'
     attachments   : -> i18n.t 'kb:::ArticleModel::attachments'
+    weight        : -> i18n.t 'kb:::ArticleModel::weight'

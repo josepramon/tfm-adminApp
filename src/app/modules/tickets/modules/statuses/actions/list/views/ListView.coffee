@@ -42,6 +42,9 @@ module.exports = class CategoriesListView extends GridView
         fromRaw: (rawValue, model) ->
           _s(rawValue).stripTags().truncate(20).value()
     ,
+      name:      'order'
+      cell:      'string'
+    ,
       cell:        'button'
       btnLabel:    iconBtnTmpl { label: 'edit', icon: 'edit' }
       buttonClass: 'btn btn-link'

@@ -1,15 +1,16 @@
 # Dependencies
 # -----------------------
 
+# Libs/generic stuff:
+_          = require 'underscore'
+i18n       = require 'i18next-client'
+Collection = require 'msq-appbase/lib/appBaseComponents/entities/Collection'
+
 # Base class (extends Marionette.Controller)
 ViewController = require 'msq-appbase/lib/appBaseComponents/controllers/ViewController'
 
 # The view
-FooterView     = require './FooterView'
-
-# Libs/generic stuff:
-Collection     = require 'msq-appbase/lib/appBaseComponents/entities/Collection'
-i18n           = require 'i18next-client'
+FooterView = require './FooterView'
 
 
 ###
@@ -61,37 +62,15 @@ module.exports = class ListController extends ViewController
   @return {Collection}
   ###
   getLinksCollection: ->
-    new Collection @getLinks() # tmp
+    new Collection @getLinks()
 
 
   ###
-  @todo replace this with models
   @return {Array}
   ###
   getLinks: ->
-    [
-      {
-        "text" : i18n.t "footer::About"
-        "url"  : "#"
-      }
-      {
-        "text" : i18n.t "footer::Support"
-        "url"  : "#"
-      }
-      {
-        "text" : i18n.t "footer::Terms of Service"
-        "url"  : "#"
-      }
-      {
-        "text" : i18n.t "footer::Legal"
-        "url"  : "#"
-      }
-      {
-        "text" : i18n.t "footer::Help"
-        "url"  : "#"
-      }
-      {
-        "text" : i18n.t "footer::Contact Us"
-        "url"  : "#"
-      }
-    ]
+    if process.env.CUSTOM_FOOTER
+      if _.isArray process.env.CUSTOM_FOOTER
+        process.env.CUSTOM_FOOTER
+      else
+        []

@@ -37,12 +37,12 @@ module.exports = class TicketsCategoriesApp extends Module
     ###
     @property {String} human readable module name
     ###
-    title: -> i18n.t 'modules::Tickets'
+    title: -> i18n.t 'modules::TicketsManage'
 
     ###
     @property {String} root url for all module routes
     ###
-    rootUrl: 'tickets'
+    rootUrl: 'tickets/manage'
 
     ###
     @property {Boolean} let the main app start/stop this whenever appropiate (for example on auth events)
@@ -87,10 +87,6 @@ module.exports = class TicketsCategoriesApp extends Module
       @app.navigate "/#{@meta.rootUrl}/#{model.id}/edit"
       @edit model.id, model
 
-    @listenTo moduleChannel, 'delete:tickets:ticket', (model) =>
-      @destroyTicket model, =>
-        @app.navigate "/#{@meta.rootUrl}", { trigger:true }
-
     # done is executed when any of the previous actions finishes or is canceled
     @listenTo moduleChannel, 'done:tickets:ticket', =>
       @app.navigate "/#{@meta.rootUrl}", { trigger:true }
@@ -121,20 +117,6 @@ module.exports = class TicketsCategoriesApp extends Module
   @param {Ticket}  model   category model
   ###
   edit: (id, model) -> moduleController.edit id, model
-
-
-  ###
-  Ticket deletion
-
-  @param {Ticket}   model
-  @param {Function} callback
-  ###
-  destroyTicket: (model, callback) ->
-    model.destroy
-      success: (model, response) =>
-        flashMessage = i18n.t 'tickets:::Ticket successfully deleted'
-        @appChannel.request 'flash:success', flashMessage
-        if _.isFunction callback then callback(model, response)
 
 
 

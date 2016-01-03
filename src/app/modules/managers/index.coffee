@@ -15,6 +15,9 @@ Router           = require './ModuleRouter'
 RouteController  = require './ModuleController'
 LayoutController = require './layout/LayoutController'
 
+# Widgets
+StatsWidget = require './widgets/stats'
+
 
 
 
@@ -93,6 +96,10 @@ module.exports = class ManagersApp extends Module
 
     # module metadata getter
     moduleChannel.reply 'meta', => @meta
+
+    # widget getters:
+    # expose the widgets on the global channel so they can be used anywhere
+    @appChannel.reply 'widgets:users:stats', (opts) -> new StatsWidget opts
 
 
 

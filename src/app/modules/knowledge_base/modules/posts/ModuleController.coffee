@@ -95,7 +95,6 @@ module.exports = class ModuleController extends Controller
     @list model
 
 
-
   ###
   Create a new article
   ###
@@ -149,7 +148,8 @@ module.exports = class ModuleController extends Controller
   ###
   getCollection: ->
     unless @collection
-      @collection = @appChannel.request 'kb:articles:entities'
+      @collection = @appChannel.request 'kb:articles:entities',
+        sort: {'weight': -1,'publish_date': -1}
     @collection
 
 
@@ -162,7 +162,8 @@ module.exports = class ModuleController extends Controller
   ###
   getCategoriesCollection: ->
     unless @categoriesCollection
-      @categoriesCollection = @appChannel.request 'kb:categories:entities'
+      @categoriesCollection = @appChannel.request 'kb:categories:entities',
+        sort: {'weight': -1}
     @categoriesCollection
 
   ###

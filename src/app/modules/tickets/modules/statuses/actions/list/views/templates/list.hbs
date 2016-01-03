@@ -1,6 +1,18 @@
 {{#if items}}
 
-  <div class="grid panel"></div>
+  <div class="blankslate large-format clean-background alert alert-dismissible section-info">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <span class="icon icon-clock-o"></span>
+    <h3>{{t "tickets:::sections::Statuses"}}</h3>
+
+    <p>{{t "tickets:::Create statuses (like 'in progress' or 'pending info') to customise the tickets resolution flow. The 'open' and 'closed' statuses can't be deleted, althought their names can be edited."}}</p>
+
+    <div class="alert alert-warning">
+      <strong>{{t "Warning"}}:</strong> {{t "tickets:::If a status is deleted, it will be removed from any ticket that contains that status, so if the deleted status is the current one, the ticket status will automatically revert to the previous one."}}
+    </div>
+  </div>
+
+  <div class="grid panel table-responsive"></div>
 
   <nav class="gridPagination text-right"></nav>
 

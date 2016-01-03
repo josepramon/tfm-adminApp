@@ -51,6 +51,11 @@ module.exports = class Category extends Model
     ###
     slug: null
 
+    ###
+    @property {Number} Determines the ordering
+    ###
+    weight: null
+
 
 
   ###
@@ -82,6 +87,8 @@ module.exports = class Category extends Model
   validation:
     name:
       required: true
+    weight:
+      pattern: 'number'
 
 
   ###
@@ -95,3 +102,4 @@ module.exports = class Category extends Model
     slug            : -> i18n.t 'kb:::CategoryModel::slug'
     articles        : -> i18n.t 'kb:::CategoryModel::articles'
     articles_total  : -> i18n.t 'kb:::CategoryModel::articles'
+    weight          : -> i18n.t 'kb:::CategoryModel::weight'

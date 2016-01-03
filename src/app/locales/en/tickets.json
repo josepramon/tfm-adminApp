@@ -23,15 +23,20 @@
     "User": "User"
   },
   "Comments": "Comments",
+  "Create categories for the for the different ticket types (like 'suport' or 'info') or departments (like 'Billing', or 'Technical') and assign the categories to the managers.": "Create categories for the for the different ticket types (like 'suport' or 'info') or departments (like 'Billing', or 'Technical') and assign the categories to the agents.",
+  "Create statuses (like 'in progress' or 'pending info') to customise the tickets resolution flow. The 'open' and 'closed' statuses can't be deleted, althought their names can be edited.": "Create statuses (like 'in progress' or 'pending info') to customise the tickets resolution flow. The 'open' and 'closed' statuses can't be deleted, althought their names can be edited.",
   "File attachments": "Attachments",
+  "If a category is deleted, any assigned ticket to that category will become uncategorised, so the managers will not be able to access to that tickets. After deleting a category, you should check if there's any orphan ticket and assign a new category.": "If a category is deleted, any assigned ticket to that category will become uncategorised, so the agents will not be able to access to that tickets. After deleting a category, you should check if there's any orphan ticket and assign a new category.",
+  "If a status is deleted, it will be removed from any ticket that contains that status, so if the deleted status is the current one, the ticket status will automatically revert to the previous one.": "If a status is deleted, it will be removed from any ticket that contains that status, so if the deleted status is the current one, the ticket status will automatically revert to the previous one.",
   "My tickets": "My tickets",
   "New category": "New category",
   "New comment": "New comment",
   "New status": "New status",
   "Open tickets": "Open tickets",
-  "Private note (only visible to managers)": "Private note (only visible to managers)",
+  "Private note (only visible to managers)": "Private note (only visible to agents)",
   "Reopen ticket": "Reopen ticket",
   "Search tickets": "Search tickets",
+  "Select a category...": "Select a category...",
   "Select new ticket status...": "Select new ticket status...",
   "Set status": "Set status",
   "Status successfully created": "Status successfully created",
@@ -48,6 +53,7 @@
     "Tickets": "Tickets",
     "Tickets_total": "Tickets"
   },
+  "The managers will only have access to the assigned categories.": "The agents will only have access to the assigned categories.",
   "There are no available categories": "There are no available categories",
   "There are no available statuses": "There are no available statuses",
   "There are no available tickets": "There are no available tickets",
@@ -55,7 +61,6 @@
   "This is a default status and cannot be deleted": "This is a default status and cannot be deleted",
   "Ticket details": "Ticket details",
   "Ticket evolution": "Ticket evolution",
-  "Ticket successfully deleted": "Ticket successfully deleted",
   "Ticket successfully saved": "Ticket successfully saved",
   "Ticket successfully updated": "Ticket successfully updated",
   "TicketModel": {
@@ -80,6 +85,7 @@
   },
   "Tickets": "Tickets",
   "Unassigned tickets": "Unassigned tickets",
+  "Uncategorised tickets": "Uncategorised tickets",
   "User": "User",
   "priorities": {
     "critical": "critical",
@@ -90,6 +96,36 @@
   "sections": {
     "Categories": "Categories",
     "Statuses": "Statuses",
-    "Tickets dashboard": "Tickets"
+    "Tickets": "Tickets",
+    "Tickets dashboard": "Tickets",
+    "Uncategorised": "Uncategorised"
+  },
+  "stats": {
+    "Assigned tickets": "Assigned tickets",
+    "Back to global stats": "Back to global stats",
+    "By category": "By category",
+    "By day": "By day",
+    "By manager": "By agent",
+    "By month": "By month",
+    "By status": "By status",
+    "By user": "By user",
+    "By year": "By year",
+    "Click on the chart to display more details": "Click on the chart to display more details",
+    "Global stats": "Global stats",
+    "Open tickets": "Open tickets",
+    "Ticket resolution times": "Ticket resolution times",
+    "Ticket stats by date": "Ticket by date",
+    "assigned": "assigned",
+    "average": "average",
+    "closed": "closed",
+    "created": "created",
+    "max": "max",
+    "min": "min",
+    "name": "name",
+    "open": "open",
+    "reopened": "reopened",
+    "status": "status",
+    "total": "total",
+    "unassigned": "unassigned"
   }
 }

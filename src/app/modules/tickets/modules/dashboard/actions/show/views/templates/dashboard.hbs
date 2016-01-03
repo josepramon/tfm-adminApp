@@ -1,0 +1,110 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-12" id="stats-byDate-container">
+      {{!--
+        by date chart container:
+        this is a region, the chart is implemented as a widget because its also
+        used somewhere else, so to avoid repeating code, the chart is self contained
+      --}}
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-5">
+
+      <div class="panel panel-default stats-block" id="stats-detailed">
+        <div class="panel-heading">
+          <h3 class="panel-title" data-original-title="{{t "tickets:::stats::Global stats"}}" id="stats-detailed-title">
+            {{t "tickets:::stats::Global stats"}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="chart-byClosedStatus"></div>
+          <div class="chart" id="chart-byAssignedStatus"></div>
+          <div class="chart" id="chart-byResolutionTime"></div>
+
+          <div class="actions">
+            <button id="stats-detailed-reset" type="button" class="btn btn-xs btn-info">
+              <i class="icon icon-ticket"></i>
+              {{t "tickets:::stats::Back to global stats"}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-7">
+
+      <div class="panel panel-default stats-block" id="stats-byManager">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            {{t "tickets:::stats::By manager"}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="chart-byManager"></div>
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{t "tickets:::stats::Click on the chart to display more details"}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default stats-block" id="stats-byUser">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            {{t "tickets:::stats::By user"}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="chart-byUser"></div>
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{t "tickets:::stats::Click on the chart to display more details"}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default stats-block" id="stats-byCategory">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            {{t "tickets:::stats::By category"}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="chart-byCategory"></div>
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{t "tickets:::stats::Click on the chart to display more details"}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default stats-block" id="stats-byStatus">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            {{t "tickets:::stats::By status"}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="chart-byStatus"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
