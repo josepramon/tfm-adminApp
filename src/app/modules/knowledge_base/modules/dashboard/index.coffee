@@ -14,6 +14,10 @@ Module          = require 'msq-appbase/lib/appBaseComponents/modules/Module'
 Router          = require './ModuleRouter'
 RouteController = require './ModuleController'
 
+# Widgets
+StatsWidget    = require './widgets/stats'
+TagCloudWidget = require './widgets/tagcloud'
+
 # Radio channels:
 # All the modules have inherited an @appChannel propperty,
 # which is a global communication channel. In this case,
@@ -76,6 +80,11 @@ module.exports = class KBDashboardApp extends Module
 
     # module metadata getter
     moduleChannel.reply 'meta', => @meta
+
+    # widget getters:
+    # expose the widgets on the global channel so they can be used anywhere
+    @appChannel.reply 'widgets:kb:stats',    (opts) -> new StatsWidget opts
+    @appChannel.reply 'widgets:kb:tagCloud', (opts) -> new TagCloudWidget opts
 
 
 

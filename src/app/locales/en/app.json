@@ -46,19 +46,13 @@
     "url": "URL"
   },
   "Validation error": "Validation error",
+  "Warning": "Warning",
+  "When creating a new ticket the user must select a category (if there's only one, the category selection dropdown will not be displayed, and the category will be preselected), so make sure that at least one category exists.": "When creating a new ticket the user must select a category (if there's only one, the category selection dropdown will not be displayed, and the category will be preselected), so make sure that at least one category exists.",
   "Will be published on ": "Will be published on ",
   "You are not allowed to access to this section.": "You are not allowed to access to this section.",
   "attachments": {
     "Description": "Description",
     "Title": "Title"
-  },
-  "footer": {
-    "About": "About",
-    "Contact Us": "Contact Us",
-    "Help": "Help",
-    "Legal": "Legal",
-    "Support": "Support",
-    "Terms of Service": "Terms of Service"
   },
   "forgot password?": "forgot password?",
   "header": {
@@ -78,8 +72,11 @@
     "Tags": "Tags",
     "Tickets": "Tickets",
     "TicketsCategories": "Categories",
+    "TicketsManage": "Tickets management",
     "TicketsStatuses": "Statuses",
-    "User": "User"
+    "TicketsUncategorised": "Uncategorised tickets",
+    "User": "User",
+    "Users": "Users"
   },
   "pagination": {
     "First": "First",

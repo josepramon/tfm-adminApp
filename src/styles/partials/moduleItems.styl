@@ -228,7 +228,7 @@
 
 // On touch devices, the clickable areas should be large enough
 // The 'touch' class is added by Modernizr when appropiate
-.touch
+.touchevents
   #moduleItems .toolbar
     font-size: 20px !important
 
@@ -246,9 +246,9 @@
   button
     outline: none
 
-  .searchInfo
+  .filter
     overflow: auto
-    width: 14em
+    width: 15em
     padding: 3px 5px
     margin: 5px auto 0
     border: solid 1px $appTheme['mutedDark']
@@ -264,6 +264,13 @@
     .icon
       margin-right: 5px
       color: $appTheme['mutedDark']
+
+    h5
+      display: inline-block
+      margin: 0 .5em 0 0
+      font-size: 1em
+      font-style: normal
+      line-height: 21px
 
 #moduleItemsCreate
   float: right
@@ -296,9 +303,10 @@
 
 @media screen and (max-width: 600px)
   #moduleItemsToggler
-    // font-size: 11px
-    // padding: 20px 5px
     display: none !important
+
+  #moduleItems .itemsContainer
+    padding-right: 0
 
   #moduleItems
     position: absolute
@@ -307,7 +315,8 @@
     z-index: 121
     width: 100% !important
     height: 100%
-    padding: 20px
+    padding: 10px
+    margin-right: 0
     border-right-style: solid
     background: $appTheme['bgColorLight']
 

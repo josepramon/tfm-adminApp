@@ -19,3 +19,4 @@ Tickets Statuses Collection
 module.exports = class StatusesCollection extends Collection
   model: Status
   url: '/api/tickets/statuses'
+  initialSort: 'order|asc'

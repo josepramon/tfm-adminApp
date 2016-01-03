@@ -20,7 +20,8 @@ CommentController = require '../comment/CommentController'
 StatusController  = require '../status/StatusController'
 
 # Radio channels:
-ticketsChannel = require '../../moduleChannel'
+ticketsChannel = require '../../../../moduleChannel'
+moduleChannel  = require '../../moduleChannel'
 
 
 ###
@@ -53,7 +54,12 @@ module.exports = class EditController extends ViewController
     # render
     @show formView,
       loading:
-        loading: [model, collection, statuses]
+        entities: [model, collection, statuses]
+
+    # this module 'sections' have a shared layout with common regions
+    # (the header and the items list), so after loading the section, it
+    # may be necessary to update other regions
+    ticketsChannel.trigger 'section:changed', getActionMetadata model
 
     # save some references as instance attributes
     @model    = model
@@ -182,6 +188,32 @@ module.exports = class EditController extends ViewController
       model:      model
       collection: model.get 'comments'
 
+
+  ###
+  Action metadata getter
+
+  When this controller gets executed, it might be necessary
+  to update the UI to show the current section or something
+
+  @param  {Model}
+  @return {Object}
+  ###
+  getActionMetadata = (model) ->
+    meta = moduleChannel.request 'meta'
+    parentMeta = ticketsChannel.request 'meta'
+
+    {
+      parentModule:
+        name: parentMeta.title()
+        url:  parentMeta.rootUrl
+
+      module:
+        name: meta.title()
+        url: meta.rootUrl
+
+      item:      model.id
+      action:    i18n.t 'Edit'
+    }
 
 
   ###

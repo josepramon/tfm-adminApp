@@ -31,14 +31,20 @@ module.exports = class Header extends ItemView
     moduleName   = if module then module.name else ''
     btn          = null
 
-    if moduleName is i18n.t('modules::KnowledgeBase') and !action then btn = @ui.dashboardBtn
+    if moduleName is i18n.t('modules::KnowledgeBase') and !action
+      btn = @ui.dashboardBtn
 
-    if moduleName is i18n.t('modules::KBPosts') and action is i18n.t('List')   then btn = @ui.postsBtn
-    if moduleName is i18n.t('modules::KBPosts') and action is i18n.t('Edit')   then btn = @ui.postsBtn
-    if moduleName is i18n.t('modules::KBPosts') and action is i18n.t('Create') then btn = @ui.postsCreateBtn
+    else if moduleName is i18n.t('modules::KBPosts') and action is i18n.t('Create')
+      btn = @ui.postsCreateBtn
 
-    if moduleName is i18n.t('modules::KBTags')       then btn = @ui.tagsBtn
-    if moduleName is i18n.t('modules::KBCategories') then btn = @ui.categoriesBtn
+    else if moduleName is i18n.t('modules::KBTags')
+      btn = @ui.tagsBtn
+
+    else if moduleName is i18n.t('modules::KBCategories')
+      btn = @ui.categoriesBtn
+
+    else
+      btn = @ui.postsBtn
 
     if btn
       btn.addClass 'active'

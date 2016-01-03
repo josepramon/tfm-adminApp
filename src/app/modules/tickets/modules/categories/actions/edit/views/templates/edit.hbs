@@ -26,12 +26,22 @@
   </label>
   <div>
 
-    <ul class="checkbox">
+    <ul>
       {{#each allManagers}}
-        <li>
+        <li class="checkbox">
           <label>
             <input type="checkbox" name="assignedManagers[]" value="{{id}}" {{#inArray ../managers id}}checked{{/inArray}} />
-            {{username}} - {{email}}
+            <a class="label image manager" href="#managers/{{id}}/edit">
+              {{#with profile}}
+                {{#and image image.url}}
+                  <img src="{{ image.url }}" alt="" />
+                {{else}}
+                  <img src="{{ avatar }}" alt="" />
+                {{/and}}
+              {{/with}}
+              {{username}}
+              <span class="detail">{{email}}</span>
+            </a>
           </label>
         </li>
       {{/each}}

@@ -56,3 +56,22 @@ For example:
 ```
 
 It's possible to change the language without rebuilding the project changing the `lang` attribute of the `html` tag on `dist/index.html`
+
+
+## Other customisations
+
+The links on the footer can be customised adding to the `env.json` file a node called "footer" with something like:
+
+```
+{
+  "footer": [
+    { "text": "About us", "url": "http://whatever.com/about" },
+    { "text": "Legal", "url": "http://whatever.com/legal" },
+    { "text": "contact", "url": "contact.html" }
+  ]
+}
+```
+
+and rebuild the project.
+
+Any other customisation requires editing the code.

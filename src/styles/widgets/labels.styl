@@ -1,0 +1,58 @@
+// bootstrap labels extensions
+.label.image
+  display: inline-block
+  height: 2em
+  line-height: 2em
+  padding: 0 .5em
+  overflow: hidden
+
+  img
+    height: 100%
+    width: auto
+    max-width: 100%
+    margin: 0 .6em 0 -.5em
+    position: relative
+    top: -1px
+
+  .detail
+    display: inline-block
+    margin: 0 -.5em 0 .6em
+    padding: 0 .5em
+    background: rgba(0,0,0,.1)
+
+
+.label.user, .label.user.manager
+  color: #fff
+
+.label.user
+  background-color: $appTheme['logoBlue']
+
+
+.label.tag
+  position: relative
+  display: inline-block
+  margin-left: 1em
+  padding: .45em 1.3em
+  border-top-left-radius: 0
+  border-bottom-left-radius: 0
+
+  &:before, &:after
+    content: ''
+    position: absolute
+    top: 50%
+
+  &:before
+    background-color: inherit
+    right: 100%
+    width:  1.31em
+    height: 1.31em
+    transform: translateY(-50%) translateX(50%) rotate(-45deg)
+
+  &:after
+    left: -.25em
+    background-color: #fff !important
+    width: .5em
+    height: .5em
+    margin-top: -.25em
+    border-radius: 100%
+    box-shadow: 0 -1px 1px 0 rgba(0,0,0,.3)

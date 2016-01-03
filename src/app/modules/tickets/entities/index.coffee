@@ -8,8 +8,11 @@ channel = require 'msq-appbase/lib/utilities/appChannel'
 ModuleEntities = require 'msq-appbase/lib/appBaseComponents/modules/ModuleEntities'
 
 # Entities
-Ticket                   = require './tickets/Ticket'
-TicketsCollection        = require './tickets/TicketsCollection'
+Ticket                         = require './tickets/Ticket'
+TicketsCollection              = require './tickets/TicketsCollection'
+
+UncategorisedTicket            = require './tickets/UncategorisedTicket'
+UncategorisedTicketsCollection = require './tickets/UncategorisedTicketsCollection'
 
 Category                 = require './categories/Category'
 CategoriesCollection     = require './categories/CategoriesCollection'
@@ -25,6 +28,15 @@ CommentsCollection       = require './comments/CommentsCollection'
 
 Tag                      = require './tags/Tag'
 TagsCollection           = require './tags/TagsCollection'
+
+# general stats entities
+Stats                    = require './stats/Stats'
+
+# custom stats entities, exposing only the ByDateStats model,
+# but there are more of them. Since they are not needed, because
+# they're only used when embedded inside a Stats model, there's
+# no point to expose them.
+ByDateStats              = require './stats/ByDateStats'
 
 
 ###
@@ -56,8 +68,10 @@ module.exports = class TicketsEntities extends ModuleEntities
   @property {Object} Maps the identifiers to the classes
   ###
   factoryClassMap:
-    'Ticket':                   Ticket
-    'TicketsCollection':        TicketsCollection
+    'Ticket':                         Ticket
+    'TicketsCollection':              TicketsCollection
+    'UncategorisedTicket':            UncategorisedTicket
+    'UncategorisedTicketsCollection': UncategorisedTicketsCollection
 
     'Category':                 Category
     'CategoriesCollection':     CategoriesCollection
@@ -74,6 +88,9 @@ module.exports = class TicketsEntities extends ModuleEntities
     'Tag':                      Tag
     'TagsCollection':           TagsCollection
 
+    'Stats':                    Stats
+    'ByDateStats':              ByDateStats
+
 
   ###
   Usually, when an entity is needed, it needs to be initialized with some defaults
@@ -85,6 +102,9 @@ module.exports = class TicketsEntities extends ModuleEntities
     'tickets:entities':   @_initializeTicketsCollection
     'tickets:entity':     @_initializeTicketModel
     'new:tickets:entity': @_initializeEmptyTicketModel
+
+    'tickets:uncategorised:entity':   @_initializeUncategorisedTicketModel
+    'tickets:uncategorised:entities': @_initializeUncategorisedTicketsCollection
 
     # -------- Categories --------
     'tickets:categories:entities':   @_initializeCategoriesCollection
@@ -110,6 +130,10 @@ module.exports = class TicketsEntities extends ModuleEntities
     'tickets:tags:entity':     @_initializeTagModel
     'new:tickets:tags:entity': @_initializeEmptyTagModel
 
+    # -------- Stats --------
+    'tickets:stats:entity':       @_initializeStatsModel
+    'tickets:stats:byDate:entity': @_initializeByDateStatsModel
+
 
 
   # Aux methods
@@ -133,6 +157,12 @@ module.exports = class TicketsEntities extends ModuleEntities
   _initializeEmptyTicketModel: =>
     @initializeEmptyModel 'tickets:entities|Ticket',
       user: @_getUserModel()
+
+  _initializeUncategorisedTicketModel: (id, options) =>
+    @initializeModel 'tickets:entities|UncategorisedTicket', id, options
+
+  _initializeUncategorisedTicketsCollection: (options) =>
+    @initializeCollection 'tickets:entities|UncategorisedTicketsCollection', options
 
 
   # handlers for the categories entities:
@@ -191,6 +221,14 @@ module.exports = class TicketsEntities extends ModuleEntities
 
   _initializeEmptyTagModel: =>
     @initializeEmptyModel 'tickets:entities|Tag'
+
+  # handlers for the stats entities:
+
+  _initializeStatsModel: (options) =>
+    @initializeModel 'tickets:entities|Stats', null, options
+
+  _initializeByDateStatsModel: (options) =>
+    @initializeModel 'tickets:entities|ByDateStats', null, options
 
 
   ###

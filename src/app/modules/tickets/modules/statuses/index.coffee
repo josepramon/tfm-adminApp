@@ -49,9 +49,6 @@ module.exports = class TicketsStatusesApp extends Module
     ###
     stopable: true
 
-    # tmp
-    showInModuleNavigation: true
-
 
   ###
   Controller used by the module router

@@ -52,19 +52,16 @@ module.exports = class ListController extends ViewController
 
     # the view accepts an articles collection or a model
     # with a nested articles collection
-    if model and !collection
-      collection = model.get 'articles'
-      # nested collections might not be initialised
-      @appChannel.request 'when:fetched', model, ->
-        if collection and collection.pending then collection.fetch()
-
+    if model and !collection then collection = @getNestedCollection model
 
     # create the view
-    listView = @getView collection
+    listView = @getView model, collection
+
+    # metadata (used to dusplay the breadcrumbs or whatever)
+    meta = @getActionMetadata model
 
     # setup events
-    @listenTo listView, 'show', =>
-      @setupViewEvents listView
+    @listenTo listView, 'show', => @setupViewEvents listView, meta
 
     # render
     @show listView,
@@ -74,7 +71,7 @@ module.exports = class ListController extends ViewController
     # this module 'sections' have a shared layout with common regions
     # (the header and the items list), so after loading the section, it
     # may be necessary to update other regions
-    kbChannel.trigger 'section:changed', getActionMetadata model
+    kbChannel.trigger 'section:changed', meta
 
     # refresh the list the user changes the language
     @listenTo @appChannel, 'locale:loaded', -> listView.render()
@@ -89,12 +86,44 @@ module.exports = class ListController extends ViewController
   Instantiates this controller's view
   passing to it any required data
 
-  @param  {Collection}
+  @param  {Model}
+  @param  {Model, Collection}
   @return {View}
   ###
-  getView: (data) ->
-    new ListView
-      collection: data
+  getView: (model, collection) ->
+    args = collection: collection
+    modelType = @getModelType model
+
+    if modelType is 'CATEGORY' then args.category = model
+    if modelType is 'TAG'      then args.tag      = model
+
+    new ListView args
+
+
+  ###
+  Nested entity (category/tag) articles collection getter
+  ###
+  getNestedCollection: (model) ->
+    collection = model.get 'articles'
+
+    # nested collections might not be initialised
+    @appChannel.request 'when:fetched', model, ->
+      if collection and collection.pending then collection.fetch()
+
+    collection
+
+
+  ###
+  Retrieve the model type
+
+  The controller accepts an articles colection or a category/tag model
+  with a nested articles collection
+  ###
+  getModelType: (model) ->
+    ret = null
+    if model and model instanceof CategoryModel then ret = 'CATEGORY'
+    if model and model instanceof TagModel      then ret = 'TAG'
+    ret
 
 
   ###
@@ -105,17 +134,16 @@ module.exports = class ListController extends ViewController
 
   @return {Object}
   ###
-  getActionMetadata = (model) ->
+  getActionMetadata: (model) =>
     meta       = postsChannel.request 'meta'
     parentMeta = kbChannel.request 'meta'
+    modelType  = @getModelType model
 
-    actionName = i18n.t 'List'
+    switch modelType
+      when 'CATEGORY' then actionName = i18n.t 'kb:::by category'
+      when 'TAG'      then actionName = i18n.t 'kb:::by tag'
+      else                 actionName = i18n.t 'List'
 
-    if model
-      if model instanceof CategoryModel
-        actionName = i18n.t 'kb:::by category'
-      if model instanceof TagModel
-        actionName = i18n.t 'kb:::by tag'
     {
       parentModule:
         name: parentMeta.title()
@@ -132,14 +160,15 @@ module.exports = class ListController extends ViewController
   ###
   View events setup
 
-  @param {View} view
+  @param {View}   view
+  @param {Object} metadata
   ###
-  setupViewEvents: (view) =>
+  setupViewEvents: (view, meta) =>
     @listenTo postsChannel, 'load:kb:post', (model) =>
       @API.postLoaded model, view
 
     @listenTo postsChannel, 'unload:kb:post', (model) =>
-      @API.postUnloaded model, view
+      @API.postUnloaded model, view, meta
 
     @listenTo view, 'childview:edit:kb:post', (child, args) =>
       @API.editPost args.model
@@ -183,12 +212,12 @@ module.exports = class ListController extends ViewController
     @param {Article} model
     @param {ListView} view
     ###
-    postUnloaded: (model, view) ->
+    postUnloaded: (model, view, meta) ->
       if model
         childView = view.children.findByModel model
         if childView
           childView.unhighlightElement()
-      kbChannel.trigger 'section:changed', getActionMetadata()
+      kbChannel.trigger 'section:changed', meta
 
     ###
     Callback executed when the edit button on the childviews is clicked

@@ -22,9 +22,6 @@ Ticket status form view
 module.exports = class StatusFormView extends ItemView
   template: require './templates/statusForm.hbs'
 
-  ui:
-    'statusSelect' : '#status'
-
 
   ###
   @property {Object} view behaviours config.
@@ -57,14 +54,6 @@ module.exports = class StatusFormView extends ItemView
 
   initialize: (opts = {}) ->
     if opts.statusesCollection then @statusesCollection = opts.statusesCollection
-
-
-  onRender: ->
-    status = @model.get 'status'
-
-    unless status
-      # initialize the dropdown
-      @ui.statusSelect.selectize()
 
 
   serializeData: ->

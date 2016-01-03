@@ -21,14 +21,6 @@
 
     {{#if isAdmin}}
       <li>
-        <a href="#tickets/statuses" id="statusesBtn">
-          <i class="icon icon-folder"></i>
-          <span>
-            {{t "tickets:::sections::Statuses" }}
-          </span>
-        </a>
-      </li>
-      <li>
         <a href="#tickets/categories" id="categoriesBtn">
           <i class="icon icon-folder"></i>
           <span>
@@ -36,7 +28,31 @@
           </span>
         </a>
       </li>
-
+      <li>
+        <a href="#tickets/statuses" id="statusesBtn">
+          <i class="icon icon-clock-o"></i>
+          <span>
+            {{t "tickets:::sections::Statuses" }}
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#tickets/uncategorised" id="uncategorisedBtn">
+          <i class="icon icon-folder-o"></i>
+          <span>
+            {{t "tickets:::sections::Uncategorised" }}
+          </span>
+        </a>
+      </li>
+    {{else}}
+      <li>
+        <a href="#tickets/manage" id="ticketsBtn">
+          <i class="icon icon-ticket"></i>
+          <span>
+            {{t "tickets:::sections::Tickets" }}
+          </span>
+        </a>
+      </li>
     {{/if}}
 
   </ul>

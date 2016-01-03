@@ -31,3 +31,17 @@
     </div>
   </div>
 {{/if}}
+
+<div class="form-group">
+    <label for="weight" class="control-label">
+      {{t "kb:::CategoryModel::weight"}}
+    </label>
+    <div>
+      <input type="number" class="form-control" id="weight" name="weight" placeholder="{{t "kb:::CategoryModel::weight"}}" value="{{weight}}" min="0" step="1" pattern="\d*">
+      <span class="help-block hidden"></span>
+
+      <span class="help-control">
+        {{t "kb:::The weight determines the order of apparition in the categories lists. The categories with a higher weight appear before."}}
+      </span>
+    </div>
+  </div>

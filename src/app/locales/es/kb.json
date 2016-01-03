@@ -11,8 +11,10 @@
     "publishStatus": "Estado publicación",
     "published": "Publicado",
     "slug": "Slug",
-    "title": "Título"
+    "title": "Título",
+    "weight": "Peso"
   },
+  "Category": "Categoría",
   "Category successfully created": "La categoría ha sido creada correctamente",
   "Category successfully deleted": "La categoría ha sido eliminada",
   "Category successfully updated": "La categoría ha sido actualizada correctamente",
@@ -20,12 +22,13 @@
     "articles": "Artículos",
     "description": "Descripción",
     "name": "Nombre",
-    "slug": "Slug"
+    "slug": "Slug",
+    "weight": "Peso"
   },
   "New category": "Nueva categoría",
   "New post": "Nueva entrada",
   "New tag": "Nueva etiqueta",
-  "Stats": "Estadísticas",
+  "Tag": "Etiqueta",
   "Tag successfully created": "La etiqueta ha sido creada correctamente",
   "Tag successfully deleted": "La etiqueta ha sido eliminada",
   "Tag successfully updated": "La etiqueta ha sido actualizada correctamente",
@@ -35,6 +38,8 @@
     "name": "Nombre",
     "slug": "Slug"
   },
+  "The weight determines the order of apparition in the articles lists. The articles with a higher weight appear before.": "El peso determina el orden de aparición en los listados de artículos. Los artículos con un peso mas elevado aparecen antes.",
+  "The weight determines the order of apparition in the categories lists. The categories with a higher weight appear before.": "El peso determina el orden de aparición en los listados de categorías. Las categorías con un peso mas elevado aparecen antes.",
   "There are no available articles": "No existen artículos disponibles",
   "There are no available categories": "No existen categorías disponibles",
   "There are no available tags": "No existen etiquetas disponibles",
@@ -52,6 +57,7 @@
     "Slug": "Slug",
     "Tags": "Etíquetas",
     "Title": "Título",
+    "Weight": "Peso",
     "attachments": "Archivos adjuntos"
   },
   "by category": "por categoría",

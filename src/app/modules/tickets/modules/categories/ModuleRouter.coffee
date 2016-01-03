@@ -2,8 +2,8 @@ Router = require 'msq-appbase/lib/appBaseComponents/Router'
 
 
 ###
-Knowledge Base categories router
-=================================
+Tickets categories router
+==========================
 
 @class
 @augments Router

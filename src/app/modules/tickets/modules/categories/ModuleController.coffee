@@ -42,16 +42,18 @@ module.exports = class ModuleController extends Controller
   #  Methods used by the router (and may be called directly from the module, too)
 
   list: ->
-    new ListController
-      region:     @getRegion 'main'
-      collection: @getCollection()
+    if @_hasPrivileges()
+      new ListController
+        region:     @getRegion 'main'
+        collection: @getCollection()
 
 
   create: ->
-    new CreateController
-      region:             @getRegion 'main'
-      collection:         @getCollection()
-      managersCollection: @getManagersCollection()
+    if @_hasPrivileges()
+      new CreateController
+        region:             @getRegion 'main'
+        collection:         @getCollection()
+        managersCollection: @getManagersCollection()
 
 
   ###
@@ -59,12 +61,13 @@ module.exports = class ModuleController extends Controller
   @param {Category} category model
   ###
   edit: (id, category) ->
-    new EditController
-      id:                 id
-      model:              category
-      collection:         @getCollection()
-      managersCollection: @getManagersCollection()
-      region:             @getRegion 'main'
+    if @_hasPrivileges()
+      new EditController
+        id:                 id
+        model:              category
+        collection:         @getCollection()
+        managersCollection: @getManagersCollection()
+        region:             @getRegion 'main'
 
 
 
@@ -105,3 +108,11 @@ module.exports = class ModuleController extends Controller
   no longer matches any of the routes deffined in that router)
   ###
   onInactive: -> delete @collection
+
+
+  ###
+  Access control
+  ###
+  _hasPrivileges: ->
+    permissions = {tickets: {actions: {manageCategories: true}}}
+    @appChannel.request 'auth:requireAuth', permissions, false

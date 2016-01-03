@@ -11,6 +11,9 @@ ModuleEntities = require 'msq-appbase/lib/appBaseComponents/modules/ModuleEntiti
 Manager            = require './managers/Manager'
 ManagersCollection = require './managers/ManagersCollection'
 
+User            = require './users/User'
+UsersCollection = require './users/UsersCollection'
+
 
 
 ###
@@ -45,6 +48,9 @@ module.exports = class ManagersEntities extends ModuleEntities
     'Manager'            : Manager
     'ManagersCollection' : ManagersCollection
 
+    'User'            : User
+    'UsersCollection' : UsersCollection
+
 
 
   ###
@@ -58,12 +64,15 @@ module.exports = class ManagersEntities extends ModuleEntities
     'managers:entity':       @_initializeManagerModel
     'new:managers:entity':   @_initializeEmptyManagerModel
 
+    'users:entities':     @_initializeUsersCollection
+    'users:entity':       @_initializeUserModel
+
 
 
   # Aux methods
   # ------------------------
 
-  # handlers for the manager related entities:
+  # handlers for the users related entities:
 
   _initializeManagersCollection: (options) =>
     @initializeCollection 'users:entities|ManagersCollection', options
@@ -73,3 +82,10 @@ module.exports = class ManagersEntities extends ModuleEntities
 
   _initializeEmptyManagerModel: =>
     @initializeEmptyModel 'users:entities|Manager'
+
+
+  _initializeUsersCollection: (options) =>
+    @initializeCollection 'users:entities|UsersCollection', options
+
+  _initializeUserModel: (id, options) =>
+    @initializeModel 'users:entities|User', id, options

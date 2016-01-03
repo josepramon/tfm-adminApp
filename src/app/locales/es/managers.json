@@ -3,6 +3,9 @@
   "Agent successfully created": "El agente se ha creado correctamente",
   "Agent successfully deleted": "El agente ha sido eliminado correctamente",
   "Agent successfully updated": "El agente se ha actualizado correctamente",
+  "Create managers to manage the users tickets. Managers also have access to the knowledge base, so they can create and manage articles and categories.": "Cree agentes para gestionar los tíquets de los usuarios. Los agentes también tienen acceso al Knowledge Base, y pueden crear y gestionar artículos y categorías.",
+  "If a manager is deleted, any ticket assigned to that manager will become unassigned, so after deleting a manager check the unassigned tickets and assign them to a new manager, if appropiate.": "Si elimina un agente, cualquier tíquet que tuviera asignado quedará sin agente, así que después de eliminar un agente revise los tíquets sin asignar, i asígneles un nuevo agente, en caso necesario.",
+  "Manage ticket categories": "Gestionar categorías de los tíquets",
   "ManagerModel": {
     "email": "Email",
     "password": "Contraseña",
@@ -11,5 +14,14 @@
   "New manager": "Nuevo agente",
   "Please, insert the user name and email for the new agent.": "Introduzca el nombre de usuario y el correo electrónico del nuevo agente.",
   "The agent will receive an email with a link to activate the account and set a password.": "El agente recibirá un email con un enlace para activar la cuenta y establecer su contraseña.",
-  "There are no available managers": "No hay agentes disponibles"
+  "There are no available managers": "No hay agentes disponibles",
+  "To assign ticket categories to the managers go to the Tickets categories section.": "Para asignar categorías de los tíquets a los agentes acceda al apartado 'Categorias' del módulo de los tíquets",
+  "UserModel": {
+    "email": "Email",
+    "username": "Usuario"
+  },
+  "sections": {
+    "Managers": "Agentes",
+    "Users": "Usuarios"
+  }
 }

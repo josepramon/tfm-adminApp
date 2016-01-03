@@ -4,10 +4,12 @@
 # Libs/generic stuff:
 i18n = require 'i18next-client'
 
-# Base class
-BaseTmpModule = require '../_placeholderModule'
+# Base class (extends Marionette.Module)
+Module = require 'msq-appbase/lib/appBaseComponents/modules/Module'
 
-
+# Module components:
+Router          = require './ModuleRouter'
+RouteController = require './ModuleController'
 
 
 ###
@@ -18,7 +20,7 @@ Dashboard module
 @augments BaseTmpModule
 
 ###
-module.exports = class DashboardApp extends BaseTmpModule
+module.exports = class DashboardApp extends Module
 
   ###
   @property {Object} module metadata, used to setup the navigation and for other purposes
@@ -38,3 +40,23 @@ module.exports = class DashboardApp extends BaseTmpModule
     @property {Boolean} let the main app start/stop this whenever appropiate (for example on auth events)
     ###
     stopable: true
+
+
+  ###
+  Module initialization
+  ###
+  initialize: ->
+    # setup the module components
+    @initModuleRouter()
+
+
+  # Aux methods
+  # ------------------------
+
+  ###
+  Setup the module router
+  ###
+  initModuleRouter: ->
+    moduleRouter = new Router
+      controller: new RouteController()
+      rootUrl:    @meta.rootUrl

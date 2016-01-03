@@ -19,6 +19,7 @@ RegisterModel                     = require './Register'
 PasswordRecoveryModel             = require './PasswordRecovery'
 PasswordRecovery_NewPasswordModel = require './PasswordRecoveryPassword'
 AccountActivationModel            = require './AccountActivation'
+ProfileModel                      = require './Profile'
 
 
 # the session model is a singleton
@@ -61,6 +62,7 @@ module.exports = class TicketsEntities extends ModuleEntities
     'PasswordRecovery':         PasswordRecoveryModel
     'PasswordRecoveryPassword': PasswordRecovery_NewPasswordModel
     'AccountActivation':        AccountActivationModel
+    'Profile':                  ProfileModel
 
 
 

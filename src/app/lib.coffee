@@ -6,9 +6,13 @@
 
 # General utilities
 # -----------------------------------------------
-_                  = require 'underscore'
-_s                 = require 'underscore.string'
-i18n               = require 'i18next-client'
+_                    = require 'underscore'
+_s                   = require 'underscore.string'
+underscoreDeepExtend = require 'underscore-deep-extend'
+i18n                 = require 'i18next-client'
+
+_.mixin {deepExtend: underscoreDeepExtend(_)}
+
 
 # Moment:
 # -------
@@ -60,3 +64,4 @@ bootbox            = require 'bootbox'
 require 'jquery-scrollstop'
 require 'selectize'
 require 'jqcloud2'
+require 'jquery.scrollto'

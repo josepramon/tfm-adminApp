@@ -23,7 +23,11 @@
     "User": "User"
   },
   "Comments": "Comentarios",
+  "Create categories for the for the different ticket types (like 'suport' or 'info') or departments (like 'Billing', or 'Technical') and assign the categories to the managers.": "Cree categorías para los distintos tipos de tíquets (como 'soporte' o 'información') o departamentos (como 'Facturación' o 'Soporte técnico') i asigne las categorías a los agentes.",
+  "Create statuses (like 'in progress' or 'pending info') to customise the tickets resolution flow. The 'open' and 'closed' statuses can't be deleted, althought their names can be edited.": "Cree estados (como 'en curso' o 'pendiente de información') para personalizar el flujo de resolución de tíquets. Los estados 'abierto' y 'cerrado' no se pueden eliminar, aunque sus nombres se pueden editar.",
   "File attachments": "Archivos adjuntos",
+  "If a category is deleted, any assigned ticket to that category will become uncategorised, so the managers will not be able to access to that tickets. After deleting a category, you should check if there's any orphan ticket and assign a new category.": "Si se elimina una categoría, cualquier tíquet que tuviera asignada esa categoría pasará a estar sin categoría, y los agentes no tendrán acceso a esos tíquets. Después de eliminar una categoría, revise si hay algún tíquet sin categorizar y asígneles una categoría.",
+  "If a status is deleted, it will be removed from any ticket that contains that status, so if the deleted status is the current one, the ticket status will automatically revert to the previous one.": "Si se elimina un estado, este va a ser eliminado de cualquier tíquet que lo contenga, y si el estado eliminado era el estado actual, el tíquet automáticamente pasará al estado anterior.",
   "My tickets": "Mis tíquets",
   "New category": "Nueva categoría",
   "New comment": "Nuevo comentario",
@@ -32,6 +36,7 @@
   "Private note (only visible to managers)": "Nota privada (solo visible a los agentes)",
   "Reopen ticket": "Reabrir tíquet",
   "Search tickets": "Buscar tíquets",
+  "Select a category...": "Seleccione una categoría...",
   "Select new ticket status...": "Selecciona un nuevo estado...",
   "Set status": "Establecer estado",
   "Status successfully created": "El estado se ha creado correctamente",
@@ -48,6 +53,7 @@
     "Tickets": "Tíquets",
     "Tickets_total": "Tíquets"
   },
+  "The managers will only have access to the assigned categories.": "Los agentes solo tendrán acceso a las categorías asignadas.",
   "There are no available categories": "No hay categorías disponibles",
   "There are no available statuses": "No hay estados disponibles",
   "There are no available tickets": "No hay tíquets disponibles",
@@ -55,7 +61,6 @@
   "This is a default status and cannot be deleted": "Este es un estado por defecto y no puede ser eliminado",
   "Ticket details": "Detalles",
   "Ticket evolution": "Evolución",
-  "Ticket successfully deleted": "El tíquet se ha eliminado correctamente",
   "Ticket successfully saved": "El tíquet se ha guardado correctamente",
   "Ticket successfully updated": "El tíquet se ha actualizado correctamente",
   "TicketModel": {
@@ -80,6 +85,7 @@
   },
   "Tickets": "Tíquets",
   "Unassigned tickets": "Tíquets sin asignar",
+  "Uncategorised tickets": "Tíquets sin categoría",
   "User": "Usuario",
   "priorities": {
     "critical": "crítica",
@@ -90,6 +96,36 @@
   "sections": {
     "Categories": "Categorías",
     "Statuses": "Estados",
-    "Tickets dashboard": "Tíquets"
+    "Tickets": "Tíquets",
+    "Tickets dashboard": "Tíquets",
+    "Uncategorised": "Sin categorizar"
+  },
+  "stats": {
+    "Assigned tickets": "Tíquets asignados",
+    "Back to global stats": "Volver a las estadísticas generales",
+    "By category": "Por categoría",
+    "By day": "Por día",
+    "By manager": "Por agente",
+    "By month": "Por mes",
+    "By status": "Por estado",
+    "By user": "Por usuario",
+    "By year": "Por año",
+    "Click on the chart to display more details": "Haz click en la gráfica para mostrar más detalles",
+    "Global stats": "Estadísticas generales",
+    "Open tickets": "Tíquets abiertos",
+    "Ticket resolution times": "Tiempos de resolución de los tíquets",
+    "Ticket stats by date": "Tíquets por fecha",
+    "assigned": "asignados",
+    "average": "media",
+    "closed": "cerrados",
+    "created": "creados",
+    "max": "max",
+    "min": "min",
+    "name": "nombre",
+    "open": "abiertos",
+    "reopened": "reabiertos",
+    "status": "estado",
+    "total": "total",
+    "unassigned": "sin asignar"
   }
 }

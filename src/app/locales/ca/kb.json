@@ -11,8 +11,10 @@
     "publishStatus": "Estat publicació",
     "published": "Publicat",
     "slug": "Slug",
-    "title": "Títol"
+    "title": "Títol",
+    "weight": "Pes"
   },
+  "Category": "Categoria",
   "Category successfully created": "La categoria s'ha creat correctament",
   "Category successfully deleted": "La categoria ha estat eliminada",
   "Category successfully updated": "La categoria s'ha actualitzat correctament",
@@ -20,12 +22,13 @@
     "articles": "Articles",
     "description": "Descripció",
     "name": "Nom",
-    "slug": "Slug"
+    "slug": "Slug",
+    "weight": "Pes"
   },
   "New category": "Nova categoria",
   "New post": "Nova entrada",
   "New tag": "Nova etiqueta",
-  "Stats": "Estadístiques",
+  "Tag": "Etiqueta",
   "Tag successfully created": "L'etiqueta s'ha creat correctament",
   "Tag successfully deleted": "L'etiqueta ha estat eliminada",
   "Tag successfully updated": "L'etiqueta s'ha actualitzat correctament",
@@ -35,6 +38,8 @@
     "name": "Nom",
     "slug": "Slug"
   },
+  "The weight determines the order of apparition in the articles lists. The articles with a higher weight appear before.": "El pes determina l'ordre d'aparició en els llistats d'articles. Els articles amb un pes més elevat es mostren abans.",
+  "The weight determines the order of apparition in the categories lists. The categories with a higher weight appear before.": "El pes determina l'ordre d'aparició en els llistats de categories. Les categories amb un pes més elevat es mostren abans.",
   "There are no available articles": "No hi ha articles disponibles",
   "There are no available categories": "No hi ha categories disponibles",
   "There are no available tags": "No hi ha etiquetes disponibles",
@@ -52,6 +57,7 @@
     "Slug": "Slug",
     "Tags": "Etiquetes",
     "Title": "Títol",
+    "Weight": "Pes",
     "attachments": "Arxius adjunts"
   },
   "by category": "per categoria",

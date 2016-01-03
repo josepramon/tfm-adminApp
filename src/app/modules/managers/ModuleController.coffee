@@ -82,5 +82,8 @@ module.exports = class ModuleController extends Controller
   onInactive: -> delete @collection
 
 
+  ###
+  Access control
+  ###
   _hasPrivileges: ->
     @appChannel.request 'auth:requireAuth', {managers: true}, false

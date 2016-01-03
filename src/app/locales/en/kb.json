@@ -11,8 +11,10 @@
     "publishStatus": "Publish status",
     "published": "Published",
     "slug": "Slug",
-    "title": "Title"
+    "title": "Title",
+    "weight": "Weight"
   },
+  "Category": "Category",
   "Category successfully created": "Category successfully created",
   "Category successfully deleted": "Category successfully deleted",
   "Category successfully updated": "Category successfully updated",
@@ -20,12 +22,13 @@
     "articles": "Posts",
     "description": "Description",
     "name": "Name",
-    "slug": "Slug"
+    "slug": "Slug",
+    "weight": "Weight"
   },
   "New category": "New category",
   "New post": "New post",
   "New tag": "New tag",
-  "Stats": "Stats",
+  "Tag": "Tag",
   "Tag successfully created": "Tag successfully created",
   "Tag successfully deleted": "Tag successfully deleted",
   "Tag successfully updated": "Tag successfully updated",
@@ -35,6 +38,8 @@
     "name": "Name",
     "slug": "Slug"
   },
+  "The weight determines the order of apparition in the articles lists. The articles with a higher weight appear before.": "The weight determines the order of apparition in the articles lists. The articles with a higher weight appear before..",
+  "The weight determines the order of apparition in the categories lists. The categories with a higher weight appear before.": "The weight determines the order of apparition in the categories lists. The categories with a higher weight appear before..",
   "There are no available articles": "There are no available articles",
   "There are no available categories": "There are no available categories",
   "There are no available tags": "There are no available tags",
@@ -52,6 +57,7 @@
     "Slug": "Slug",
     "Tags": "Tags",
     "Title": "Title",
+    "Weight": "Weight",
     "attachments": "Attachments"
   },
   "by category": "by category",

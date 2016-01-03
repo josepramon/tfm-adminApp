@@ -42,15 +42,17 @@ module.exports = class ModuleController extends Controller
   #  Methods used by the router (and may be called directly from the module, too)
 
   list: ->
-    new ListController
-      region:     @getRegion 'main'
-      collection: @getCollection()
+    if @_hasPrivileges()
+      new ListController
+        region:     @getRegion 'main'
+        collection: @getCollection()
 
 
   create: ->
-    new CreateController
-      region:     @getRegion 'main'
-      collection: @getCollection()
+    if @_hasPrivileges()
+      new CreateController
+        region:     @getRegion 'main'
+        collection: @getCollection()
 
 
   ###
@@ -58,11 +60,12 @@ module.exports = class ModuleController extends Controller
   @param {Status} status model
   ###
   edit: (id, status) ->
-    new EditController
-      id:         id
-      model:      status
-      collection: @getCollection()
-      region:     @getRegion 'main'
+    if @_hasPrivileges()
+      new EditController
+        id:         id
+        model:      status
+        collection: @getCollection()
+        region:     @getRegion 'main'
 
 
 
@@ -74,13 +77,7 @@ module.exports = class ModuleController extends Controller
   ###
   getCollection: ->
     unless @collection
-      state =
-        paginator:
-          sort:
-            articles: -1
-            name: 1
-
-      @collection = @appChannel.request 'tickets:statuses:entities', { state: state }
+      @collection = @appChannel.request 'tickets:statuses:entities'
     @collection
 
 
@@ -100,3 +97,11 @@ module.exports = class ModuleController extends Controller
   no longer matches any of the routes deffined in that router)
   ###
   onInactive: -> delete @collection
+
+
+  ###
+  Access control
+  ###
+  _hasPrivileges: ->
+    permissions = {tickets: {actions: {manageStatuses: true}}}
+    @appChannel.request 'auth:requireAuth', permissions, false

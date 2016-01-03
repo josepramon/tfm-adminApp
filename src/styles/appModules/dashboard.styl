@@ -1,2 +1,41 @@
-.dashboard .panel-body
-  min-height: 160px
+.dashboard
+  .panel-body
+    min-height: 160px
+
+  .chart
+    height: 250px
+
+  .stats-block
+    min-height: 200px
+
+
+.stats-block
+  .actions
+    text-align: right
+    padding: 5px 0
+
+  // override the bootstrap styles and make it more subtler
+  .alert
+    margin: 10px 0 0
+    padding: 6px
+    font-size: smaller
+    color: #888
+    background-color: #fff
+    border-color: #ececec
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05)
+
+    .close
+      right: 5px
+      color: #888
+
+  .c3-chart-arcs-title
+    font-family: 'Armata', sans-serif
+    font-weight: 500
+    line-height: 1.1
+    font-size: 1.2em
+
+
+@media screen and (max-width: 600px)
+  .sectionContainer.dashboard
+    padding-left:  0
+    padding-right: 0

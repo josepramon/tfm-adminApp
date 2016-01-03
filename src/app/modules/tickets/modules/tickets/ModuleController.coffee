@@ -36,8 +36,10 @@ module.exports = class ModuleController extends Controller
   #  Methods used by the router (and may be called directly from the module, too)
 
   list: ->
-    new ListController
-      collection: @getCollection(true)
+    if @_hasPrivileges()
+      new ListController
+        collection: @getCollection(true)
+        region:     @getRegion 'main'
 
 
   ###
@@ -47,14 +49,16 @@ module.exports = class ModuleController extends Controller
   @param {Category} ticket    Ticket model
   ###
   edit: (ticketId, ticket) ->
-    ticket or= @getTicketModel ticketId
+    if @_hasPrivileges()
+      ticket or= @getTicketModel ticketId
 
-    new EditController
-      id:         ticketId
-      model:      ticket
-      collection: @getCollection()
-      statuses:   @getStatusesCollection()
-      tags:       @getTagsCollection()
+      new EditController
+        id:         ticketId
+        model:      ticket
+        collection: @getCollection()
+        statuses:   @getStatusesCollection()
+        tags:       @getTagsCollection()
+        region:     @getRegion 'main'
 
 
 
@@ -128,14 +132,6 @@ module.exports = class ModuleController extends Controller
   # ------------------------
 
   ###
-  Event handler invoked when the router inactive (the loaded route
-  matches any of the routes deffined in that router)
-  ###
-  onActive: ->
-    # @_restrictToAuthorisedUsers()
-
-
-  ###
   Event handler invoked when the router becomes inactive (the loaded route
   no longer matches any of the routes deffined in that router)
   ###
@@ -143,3 +139,11 @@ module.exports = class ModuleController extends Controller
     delete @collection
     delete @categoriesCollection
     delete @statusesCollection
+
+
+  ###
+  Access control
+  ###
+  _hasPrivileges: ->
+    permissions = {tickets: {actions: {manageTickets: true}}}
+    @appChannel.request 'auth:requireAuth', permissions, false

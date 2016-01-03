@@ -58,6 +58,14 @@ module.exports = class PostsListView extends CompositeView
 
 
   ###
+  Initialize method
+  ###
+  initialize: (options = {}) ->
+    { @category, @tag } = options
+    super()
+
+
+  ###
   Inject some additional data
   ###
   serializeData: ->
@@ -67,5 +75,8 @@ module.exports = class PostsListView extends CompositeView
       data.isSearch = true
       if @collection.searchQuery
         data.searchQuery = @collection.searchQuery
+
+    if @category then data.category = @category.toJSON()
+    if @tag then data.tag = @tag.toJSON()
 
     data

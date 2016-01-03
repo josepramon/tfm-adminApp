@@ -42,9 +42,9 @@ module.exports = [
     id:    'Tickets'
     class: require 'modules/tickets'
     submodules: [
-    #   id:    'Dashboard'
-    #   class: require 'modules/tickets/modules/dashboard'
-    # ,
+      id:    'Dashboard'
+      class: require 'modules/tickets/modules/dashboard'
+    ,
       id:    'Tickets'
       class: require 'modules/tickets/modules/tickets'
     ,
@@ -53,6 +53,9 @@ module.exports = [
     ,
       id:    'Statuses'
       class: require 'modules/tickets/modules/statuses'
+    ,
+      id:    'Uncategorised'
+      class: require 'modules/tickets/modules/uncategorised'
     ]
   ,
     id: 'UI'

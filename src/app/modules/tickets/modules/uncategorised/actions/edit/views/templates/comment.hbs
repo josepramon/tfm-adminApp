@@ -1,0 +1,58 @@
+<div class="comment-meta">
+
+  {{#if user}}
+    <div class="userWidget">
+      {{#with user}}
+
+        {{#with profile}}
+          {{#and image image.url}}
+            <div class="img" style="background-image:url({{ image.url }})"></div>
+          {{else}}
+            <div class="img" style="background-image:url({{ avatar }})"></div>
+          {{/and}}
+        {{/with}}
+
+        <em>
+          {{#if profile.name}}
+            {{profile.name}}
+          {{else}}
+            {{username}}
+          {{/if}}
+        </em>
+
+      {{/with}}
+    </div>
+  {{/if}}
+
+  <time class="date">{{moment created_at format="LLL"}}</time>
+
+</div>
+
+
+<div class="comment-contents">
+
+  {{{comment}}}
+
+  {{#if attachments}}
+    <div class="ticketAttachments">
+      <ul>
+        {{#each attachments}}
+          <li>
+            <h5>
+              <a href="{{upload.url}}" target="_blank">
+                <i class="icon icon-cloud-download"></i>
+                {{name}}
+              </a>
+            </h5>
+            {{#if description}}
+              <div class="description">
+                {{description}}
+              </div>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+</div>

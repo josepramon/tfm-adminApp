@@ -3,6 +3,9 @@
   "Agent successfully created": "L'agent s'ha creat correctament",
   "Agent successfully deleted": "L'agent s'ha eliminat correctament",
   "Agent successfully updated": "L'agent s'ha actualitzat correctament",
+  "Create managers to manage the users tickets. Managers also have access to the knowledge base, so they can create and manage articles and categories.": "Creï agents per a gestionar els tíquets dels usuaris. Els agents també tenen accés al Knowledge Base, i poden crear i gestionar articles i categories.",
+  "If a manager is deleted, any ticket assigned to that manager will become unassigned, so after deleting a manager check the unassigned tickets and assign them to a new manager, if appropiate.": "Si s'elimina un agent, qualsevol tíquet què tingués assignat quedarà sense agent, així que després d'eliminar un agent revisi els tíquets sense assignar, i assigni'ls un nou agent, en cas necessari.",
+  "Manage ticket categories": "Gestionar categories de tíquets",
   "ManagerModel": {
     "email": "Email",
     "password": "Contrassenya",
@@ -11,5 +14,14 @@
   "New manager": "Nou agent",
   "Please, insert the user name and email for the new agent.": "Introdueixi el nom d'usuari i el correu electrònic del nou agent.",
   "The agent will receive an email with a link to activate the account and set a password.": "L'agent rebrà un correu amb un enllaç per activar el compte i establir-ne la contrassenya.",
-  "There are no available managers": "No hi ha agents disponibles"
+  "There are no available managers": "No hi ha agents disponibles",
+  "To assign ticket categories to the managers go to the Tickets categories section.": "Per assignar categories de tíquets als agents accedeixi a l'apartat 'Categories' del mòdul dels tíquets.",
+  "UserModel": {
+    "email": "Email",
+    "username": "Usuari"
+  },
+  "sections": {
+    "Managers": "Agents",
+    "Users": "Usuaris"
+  }
 }

@@ -11,10 +11,6 @@ ViewController = require 'msq-appbase/lib/appBaseComponents/controllers/ViewCont
 # The view
 ShowView       = require './ShowView'
 
-# Widgets
-StatsWidget    = require '../../widgets/stats'
-TagCloudWidget = require '../../widgets/tagcloud'
-
 # Radio channels:
 # All the modules have inherited an @appChannel propperty,
 # which is a global communication channel. In this case,
@@ -52,11 +48,11 @@ module.exports = class DashboardController extends ViewController
     # create the view
     @view = @getView()
 
+    # init the widgets when the view is rendered
+    @listenTo @view, 'show', => @initWidgets()
+
     # render
     @show @view, region: layout.getRegion 'main'
-
-    # render the widgets
-    @initWidgets()
 
     # this module 'sections' have a shared layout with common regions
     # (the header and the items list), so after loading the section, it
@@ -65,14 +61,21 @@ module.exports = class DashboardController extends ViewController
 
 
 
+  # Widgets:
+  # -----------------
+
   widgets: []
 
+
   initWidgets: ->
-    @widgets.push new StatsWidget
+    statsWidget = @appChannel.request 'widgets:kb:stats',
       region: @view.getRegion 'region1'
 
-    @widgets.push new TagCloudWidget
+    tagCloudWidget = @appChannel.request 'widgets:kb:tagCloud',
       region: @view.getRegion 'region2'
+
+    if statsWidget    then @widgets.push statsWidget
+    if tagCloudWidget then @widgets.push tagCloudWidget
 
 
   destroy: ->

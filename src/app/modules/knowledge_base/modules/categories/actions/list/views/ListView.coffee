@@ -49,7 +49,9 @@ module.exports = class CategoriesListView extends GridView
       cell:        'button'
       buttonClass: 'btn btn-link'
       clickEvent:  'showRelatedArticles'
-
+    ,
+      name:      'weight'
+      cell:      'string'
     ,
       cell:        'button'
       btnLabel:    iconBtnTmpl { label: 'edit', icon: 'edit' }
