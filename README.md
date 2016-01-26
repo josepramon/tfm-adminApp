@@ -1,4 +1,12 @@
-# Admins app
+# Mosaiqo Helpdesk admins app
+
+Part of the Mosaiqo Helpdesk system, developed as my [final project](http://hdl.handle.net/10609/45241) for the _[Multimedia applications: design and development of smart content](http://estudis.uoc.edu/ca/masters-universitaris/aplicacions-multimedia/)_ Master's degree at Universitat Oberta de Catalunya.
+
+The project consists on the design and development of a web based help desk, using modern methodologies and architectures in web development, such as Single Page Applications, RESTful APIs, Node.js and NoSQL databases, implemented using new languages as CoffeeScript, Stylus or ES6, prioritizing the usability and performance of all the components of the system to provide an optimal experience on any kind of devices.
+
+Warning: This is the first realease of the project, so it may not be ready fot production.
+
+![Mosaiqo Helpdesk](https://cloud.githubusercontent.com/assets/870039/12579954/03c795c2-c42c-11e5-9218-854c0fb225d7.jpg)
 
 ## Prerequisites:
 
