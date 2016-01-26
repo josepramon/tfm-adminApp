@@ -208,6 +208,7 @@ module.exports = class Article extends Model
       fn: 'validatePublishStatus'
     weight:
       pattern: 'number'
+      required: false
 
 
   ###

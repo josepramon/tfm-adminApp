@@ -89,6 +89,7 @@ module.exports = class Category extends Model
       required: true
     weight:
       pattern: 'number'
+      required: false
 
 
   ###
